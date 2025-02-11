@@ -2,30 +2,30 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'logincoba_model.dart';
-export 'logincoba_model.dart';
+import 'responlogin_model.dart';
+export 'responlogin_model.dart';
 
-class LogincobaWidget extends StatefulWidget {
-  const LogincobaWidget({
+class ResponloginWidget extends StatefulWidget {
+  const ResponloginWidget({
     super.key,
-    required this.response,
+    required this.respon,
   });
 
-  final String? response;
+  final String? respon;
 
   @override
-  State<LogincobaWidget> createState() => _LogincobaWidgetState();
+  State<ResponloginWidget> createState() => _ResponloginWidgetState();
 }
 
-class _LogincobaWidgetState extends State<LogincobaWidget> {
-  late LogincobaModel _model;
+class _ResponloginWidgetState extends State<ResponloginWidget> {
+  late ResponloginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LogincobaModel());
+    _model = createModel(context, () => ResponloginModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -84,7 +84,10 @@ class _LogincobaWidgetState extends State<LogincobaWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text(
-                  'Hello World',
+                  valueOrDefault<String>(
+                    widget.respon,
+                    '-',
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
                         letterSpacing: 0.0,

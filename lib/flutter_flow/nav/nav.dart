@@ -376,7 +376,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'logincoba',
           path: '/logincoba',
-          builder: (context, params) => const LogincobaWidget(),
+          builder: (context, params) => LogincobaWidget(
+            response: params.getParam(
+              'response',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'responlogin',
+          path: '/responlogin',
+          builder: (context, params) => ResponloginWidget(
+            respon: params.getParam(
+              'respon',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

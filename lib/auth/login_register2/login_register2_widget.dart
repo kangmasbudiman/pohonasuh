@@ -582,25 +582,18 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                       },
                                                     );
                                                   } else {
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      SnackBar(
-                                                        content: Text(
-                                                          'Username And Password miss match ',
-                                                          style: TextStyle(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                          ),
+                                                    context.pushNamedAuth(
+                                                      'responlogin',
+                                                      context.mounted,
+                                                      queryParameters: {
+                                                        'respon':
+                                                            serializeParam(
+                                                          (_model.apiResultf31
+                                                                  ?.bodyText ??
+                                                              ''),
+                                                          ParamType.String,
                                                         ),
-                                                        duration: const Duration(
-                                                            milliseconds: 4000),
-                                                        backgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                      ),
+                                                      }.withoutNulls,
                                                     );
                                                   }
 

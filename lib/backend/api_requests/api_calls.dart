@@ -35,16 +35,23 @@ class LoginuserCall {
   }) async {
     final baseUrl = RestAPiPohonAsuhGroup.getBaseUrl();
 
+    const ffApiRequestBody = '''
+{
+  "emaile": "tito@gmail.com",
+  "passe": "12"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'loginuser',
       apiUrl: '$baseUrl/loginuser',
       callType: ApiCallType.POST,
-      headers: {},
-      params: {
-        'emaile': emaile,
-        'passe': passe,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': '*/*',
+        'User-Agent': 'FlutterFlow/1.0',
       },
-      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -689,4 +696,15 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
     }
     return isList ? '[]' : '{}';
   }
+}
+
+String? escapeStringForJson(String? input) {
+  if (input == null) {
+    return null;
+  }
+  return input
+      .replaceAll('\\', '\\\\')
+      .replaceAll('"', '\\"')
+      .replaceAll('\n', '\\n')
+      .replaceAll('\t', '\\t');
 }
