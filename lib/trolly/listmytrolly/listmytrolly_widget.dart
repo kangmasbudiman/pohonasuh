@@ -62,6 +62,8 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
         safeSetState(() {});
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

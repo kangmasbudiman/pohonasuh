@@ -26,6 +26,8 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ListTransaksiModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

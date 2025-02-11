@@ -28,6 +28,8 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageCopyModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

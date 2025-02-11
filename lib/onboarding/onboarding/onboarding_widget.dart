@@ -32,6 +32,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
         context.pushNamed('HomePage');
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

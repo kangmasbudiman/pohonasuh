@@ -27,6 +27,8 @@ class _ViewtransaksiWidgetState extends State<ViewtransaksiWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ViewtransaksiModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

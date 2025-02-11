@@ -108,8 +108,6 @@ class LoginRegister2Model extends FlutterFlowModel<LoginRegister2Widget> {
     return null;
   }
 
-  // Stores action output result for [Bottom Sheet - capca] action in Button widget.
-  bool? outputAction;
   // Stores action output result for [Backend Call - API (register)] action in Button widget.
   ApiCallResponse? outputregister;
 

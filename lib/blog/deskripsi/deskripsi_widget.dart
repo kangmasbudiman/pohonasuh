@@ -34,6 +34,8 @@ class _DeskripsiWidgetState extends State<DeskripsiWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DeskripsiModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

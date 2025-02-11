@@ -21,6 +21,8 @@ class _HomeVilageWidgetState extends State<HomeVilageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeVilageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -37,6 +37,8 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CheckoutorderModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -38,6 +38,8 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
         safeSetState(() {});
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -29,6 +29,8 @@ class _InformationWidgetState extends State<InformationWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => InformationModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

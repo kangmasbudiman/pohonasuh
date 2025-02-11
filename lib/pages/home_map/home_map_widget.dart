@@ -21,6 +21,8 @@ class _HomeMapWidgetState extends State<HomeMapWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeMapModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

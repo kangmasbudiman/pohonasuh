@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'capca_widget.dart' show CapcaWidget;
+import 'logincoba_widget.dart' show LogincobaWidget;
 import 'package:flutter/material.dart';
 
-class CapcaModel extends FlutterFlowModel<CapcaWidget> {
+class LogincobaModel extends FlutterFlowModel<LogincobaWidget> {
   @override
   void initState(BuildContext context) {}
 

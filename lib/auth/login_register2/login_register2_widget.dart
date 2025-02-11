@@ -1,11 +1,9 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
-import '/componen/capca/capca_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'login_register2_model.dart';
@@ -64,6 +62,8 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
 
     _model.txtpasswordTextController3 ??= TextEditingController();
     _model.txtpasswordFocusNode3 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1329,15 +1329,6 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                               ),
                                             ),
                                           ),
-                                          if (FFAppState().captca == true)
-                                            const SizedBox(
-                                              width: double.infinity,
-                                              height: 100.0,
-                                              child: custom_widgets.Captcha(
-                                                width: double.infinity,
-                                                height: 100.0,
-                                              ),
-                                            ),
                                           const Spacer(),
                                           Container(
                                             decoration: BoxDecoration(
@@ -1347,140 +1338,99 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 var shouldSetState = false;
-                                                await showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  enableDrag: false,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return GestureDetector(
-                                                      onTap: () {
-                                                        FocusScope.of(context)
-                                                            .unfocus();
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      },
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child: const SizedBox(
-                                                          height: 250.0,
-                                                          child: CapcaWidget(),
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
-                                                ).then((value) => safeSetState(
-                                                    () => _model.outputAction =
-                                                        value));
-
-                                                shouldSetState = true;
                                                 if (_model
                                                         .txtpasswordTextController2
                                                         .text ==
                                                     _model
                                                         .txtpasswordTextController3
                                                         .text) {
-                                                  if (_model.outputAction!) {
-                                                    _model.outputregister =
-                                                        await RestAPiPohonAsuhGroup
-                                                            .registerCall
-                                                            .call(
-                                                      name: _model
-                                                          .txtnameTextController
-                                                          .text,
-                                                      emaile: _model
-                                                          .txtemailTextController2
-                                                          .text,
-                                                      hp: _model
-                                                          .txthpTextController
-                                                          .text,
-                                                      passe: _model
-                                                          .txtpasswordTextController2
-                                                          .text,
+                                                  _model.outputregister =
+                                                      await RestAPiPohonAsuhGroup
+                                                          .registerCall
+                                                          .call(
+                                                    name: _model
+                                                        .txtnameTextController
+                                                        .text,
+                                                    emaile: _model
+                                                        .txtemailTextController2
+                                                        .text,
+                                                    hp: _model
+                                                        .txthpTextController
+                                                        .text,
+                                                    passe: _model
+                                                        .txtpasswordTextController2
+                                                        .text,
+                                                  );
+
+                                                  shouldSetState = true;
+                                                  FFAppState().messageRegister =
+                                                      ResponregisterStruct
+                                                              .maybeFromMap((_model
+                                                                      .outputregister
+                                                                      ?.jsonBody ??
+                                                                  ''))!
+                                                          .value;
+                                                  safeSetState(() {});
+                                                  if (FFAppState()
+                                                          .messageRegister ==
+                                                      0) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return AlertDialog(
+                                                          title: const Text(
+                                                              'Information'),
+                                                          content: const Text(
+                                                              'email has been registered'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: const Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    );
+                                                    if (shouldSetState) {
+                                                      safeSetState(() {});
+                                                    }
+                                                    return;
+                                                  } else {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return AlertDialog(
+                                                          title: const Text(
+                                                              'Information'),
+                                                          content: const Text(
+                                                              'Please log in with email and password'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: const Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
                                                     );
 
-                                                    shouldSetState = true;
-                                                    FFAppState()
-                                                            .messageRegister =
-                                                        ResponregisterStruct
-                                                                .maybeFromMap((_model
-                                                                        .outputregister
-                                                                        ?.jsonBody ??
-                                                                    ''))!
-                                                            .value;
-                                                    safeSetState(() {});
-                                                    if (FFAppState()
-                                                            .messageRegister ==
-                                                        0) {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return AlertDialog(
-                                                            title: const Text(
-                                                                'Information'),
-                                                            content: const Text(
-                                                                'email has been registered'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    const Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          );
-                                                        },
-                                                      );
-                                                      if (shouldSetState) {
-                                                        safeSetState(() {});
-                                                      }
-                                                      return;
-                                                    } else {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return AlertDialog(
-                                                            title: const Text(
-                                                                'Information'),
-                                                            content: const Text(
-                                                                'Please log in with email and password'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    const Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          );
-                                                        },
-                                                      );
+                                                    context.pushNamed(
+                                                      'loginRegister2',
+                                                      queryParameters: {
+                                                        'tabbar':
+                                                            serializeParam(
+                                                          1,
+                                                          ParamType.int,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
 
-                                                      context.pushNamed(
-                                                        'loginRegister2',
-                                                        queryParameters: {
-                                                          'tabbar':
-                                                              serializeParam(
-                                                            1,
-                                                            ParamType.int,
-                                                          ),
-                                                        }.withoutNulls,
-                                                      );
-
-                                                      if (shouldSetState) {
-                                                        safeSetState(() {});
-                                                      }
-                                                      return;
-                                                    }
-                                                  } else {
                                                     if (shouldSetState) {
                                                       safeSetState(() {});
                                                     }

@@ -82,6 +82,8 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DetailtreeModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

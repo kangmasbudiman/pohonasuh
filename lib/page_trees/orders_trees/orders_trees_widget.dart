@@ -26,6 +26,8 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => OrdersTreesModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

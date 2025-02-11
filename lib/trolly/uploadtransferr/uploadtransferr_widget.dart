@@ -29,6 +29,8 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => UploadtransferrModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -21,6 +21,8 @@ class _FaqWidgetState extends State<FaqWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FaqModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

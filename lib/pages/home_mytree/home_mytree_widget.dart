@@ -26,6 +26,8 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeMytreeModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -21,6 +21,8 @@ class _AboutusWidgetState extends State<AboutusWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AboutusModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

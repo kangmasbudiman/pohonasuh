@@ -23,6 +23,8 @@ class _DownloadQrCodeWidgetState extends State<DownloadQrCodeWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DownloadQrCodeModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

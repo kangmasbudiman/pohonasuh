@@ -21,6 +21,8 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LoginRegisterModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

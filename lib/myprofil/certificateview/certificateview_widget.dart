@@ -36,6 +36,8 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CertificateviewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

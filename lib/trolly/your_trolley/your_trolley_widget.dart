@@ -58,6 +58,8 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
         safeSetState(() {});
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
