@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '/backend/schema/structs/index.dart';
+
 import '/auth/custom_auth/custom_auth_user_provider.dart';
 
 import '/index.dart';
@@ -91,6 +93,285 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'onboarding',
           path: '/onboarding',
           builder: (context, params) => const OnboardingWidget(),
+        ),
+        FFRoute(
+          name: 'loginRegister',
+          path: '/loginRegister',
+          builder: (context, params) => const LoginRegisterWidget(),
+        ),
+        FFRoute(
+          name: 'loginRegister2',
+          path: '/loginRegister2',
+          builder: (context, params) => LoginRegister2Widget(
+            tabbar: params.getParam(
+              'tabbar',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'HomeMap',
+          path: '/homeMap',
+          builder: (context, params) => const HomeMapWidget(),
+        ),
+        FFRoute(
+          name: 'HomeVilage',
+          path: '/homeVilage',
+          builder: (context, params) => const HomeVilageWidget(),
+        ),
+        FFRoute(
+          name: 'homeBlog',
+          path: '/homeBlog',
+          builder: (context, params) => const HomeBlogWidget(),
+        ),
+        FFRoute(
+          name: 'homeMytree',
+          path: '/homeMytree',
+          builder: (context, params) => const HomeMytreeWidget(),
+        ),
+        FFRoute(
+          name: 'aboutus',
+          path: '/aboutus',
+          builder: (context, params) => const AboutusWidget(),
+        ),
+        FFRoute(
+          name: 'rules',
+          path: '/rules',
+          builder: (context, params) => const RulesWidget(),
+        ),
+        FFRoute(
+          name: 'FAQ',
+          path: '/faq',
+          builder: (context, params) => const FaqWidget(),
+        ),
+        FFRoute(
+          name: 'ContactUs',
+          path: '/contactUs',
+          builder: (context, params) => const ContactUsWidget(),
+        ),
+        FFRoute(
+          name: 'deskripsi',
+          path: '/deskripsi',
+          builder: (context, params) => DeskripsiWidget(
+            judul: params.getParam(
+              'judul',
+              ParamType.String,
+            ),
+            deskripsi: params.getParam(
+              'deskripsi',
+              ParamType.String,
+            ),
+            posted: params.getParam(
+              'posted',
+              ParamType.String,
+            ),
+            view: params.getParam(
+              'view',
+              ParamType.int,
+            ),
+            cover: params.getParam(
+              'cover',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'HomePageCopy',
+          path: '/homePageCopy',
+          builder: (context, params) => const HomePageCopyWidget(),
+        ),
+        FFRoute(
+          name: 'detailtree',
+          path: '/detailtree',
+          builder: (context, params) => DetailtreeWidget(
+            price: params.getParam(
+              'price',
+              ParamType.String,
+            ),
+            vilage: params.getParam(
+              'vilage',
+              ParamType.String,
+            ),
+            locaname: params.getParam(
+              'locaname',
+              ParamType.String,
+            ),
+            spesies: params.getParam(
+              'spesies',
+              ParamType.String,
+            ),
+            family: params.getParam(
+              'family',
+              ParamType.String,
+            ),
+            slop: params.getParam(
+              'slop',
+              ParamType.String,
+            ),
+            diameter: params.getParam(
+              'diameter',
+              ParamType.String,
+            ),
+            circumference: params.getParam(
+              'circumference',
+              ParamType.String,
+            ),
+            height: params.getParam(
+              'height',
+              ParamType.String,
+            ),
+            asl: params.getParam(
+              'asl',
+              ParamType.String,
+            ),
+            surveidate: params.getParam(
+              'surveidate',
+              ParamType.String,
+            ),
+            photosby: params.getParam(
+              'photosby',
+              ParamType.String,
+            ),
+            surveyedby: params.getParam(
+              'surveyedby',
+              ParamType.String,
+            ),
+            adopttedby: params.getParam(
+              'adopttedby',
+              ParamType.String,
+            ),
+            tgladopt: params.getParam(
+              'tgladopt',
+              ParamType.String,
+            ),
+            tglexp: params.getParam(
+              'tglexp',
+              ParamType.String,
+            ),
+            idpohon: params.getParam(
+              'idpohon',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Listmytrolly',
+          path: '/listmytrolly',
+          builder: (context, params) => const ListmytrollyWidget(),
+        ),
+        FFRoute(
+          name: 'YourTrolley',
+          path: '/yourTrolley',
+          builder: (context, params) => YourTrolleyWidget(
+            idku: params.getParam(
+              'idku',
+              ParamType.int,
+            ),
+            jumlahtrolly: params.getParam(
+              'jumlahtrolly',
+              ParamType.int,
+            ),
+            totalharga: params.getParam(
+              'totalharga',
+              ParamType.String,
+            ),
+            totalhargaInt: params.getParam(
+              'totalhargaInt',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'checkoutorder',
+          path: '/checkoutorder',
+          builder: (context, params) => CheckoutorderWidget(
+            iconbank: params.getParam(
+              'iconbank',
+              ParamType.String,
+            ),
+            atasnama: params.getParam(
+              'atasnama',
+              ParamType.String,
+            ),
+            norek: params.getParam(
+              'norek',
+              ParamType.String,
+            ),
+            rupiah: params.getParam(
+              'rupiah',
+              ParamType.String,
+            ),
+            jumlahpohon: params.getParam(
+              'jumlahpohon',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'listTransaksi',
+          path: '/listTransaksi',
+          builder: (context, params) => const ListTransaksiWidget(),
+        ),
+        FFRoute(
+          name: 'uploadtransferr',
+          path: '/uploadtransferr',
+          builder: (context, params) => UploadtransferrWidget(
+            id: params.getParam(
+              'id',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'OrdersTrees',
+          path: '/ordersTrees',
+          builder: (context, params) => const OrdersTreesWidget(),
+        ),
+        FFRoute(
+          name: 'viewtransaksi',
+          path: '/viewtransaksi',
+          builder: (context, params) => ViewtransaksiWidget(
+            image: params.getParam(
+              'image',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'mycertifikat',
+          path: '/mycertifikat',
+          builder: (context, params) => const MycertifikatWidget(),
+        ),
+        FFRoute(
+          name: 'certificateview',
+          path: '/certificateview',
+          builder: (context, params) => CertificateviewWidget(
+            nama: params.getParam(
+              'nama',
+              ParamType.String,
+            ),
+            tglexp: params.getParam(
+              'tglexp',
+              ParamType.String,
+            ),
+            jumlahpohon: params.getParam(
+              'jumlahpohon',
+              ParamType.int,
+            ),
+            tglStart: params.getParam(
+              'tglStart',
+              ParamType.String,
+            ),
+            desa: params.getParam(
+              'desa',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'downloadQrCode',
+          path: '/downloadQrCode',
+          builder: (context, params) => const DownloadQrCodeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -209,6 +490,7 @@ class FFParameters {
     String paramName,
     ParamType type, {
     bool isList = false,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -226,6 +508,7 @@ class FFParameters {
       param,
       type,
       isList,
+      structBuilder: structBuilder,
     );
   }
 }
