@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -45,12 +46,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 1.0),
+      alignment: AlignmentDirectional(0.0, 1.0),
       child: Stack(
-        alignment: const AlignmentDirectional(0.0, 1.0),
+        alignment: AlignmentDirectional(0.0, 1.0),
         children: [
           Align(
-            alignment: const AlignmentDirectional(0.0, 1.0),
+            alignment: AlignmentDirectional(0.0, 1.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: SvgPicture.asset(
@@ -58,23 +59,23 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                 width: double.infinity,
                 height: 107.0,
                 fit: BoxFit.contain,
-                alignment: const Alignment(0.0, 1.0),
+                alignment: Alignment(0.0, 1.0),
               ),
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(0.0, 1.0),
+            alignment: AlignmentDirectional(0.0, 1.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 100),
+                duration: Duration(milliseconds: 100),
                 curve: Curves.easeIn,
                 width: double.infinity,
                 height: 75.0,
-                decoration: const BoxDecoration(),
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                decoration: BoxDecoration(),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -87,9 +88,9 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'HomeMap',
+                              HomeMapWidget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
+                                kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                 ),
@@ -100,7 +101,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                             builder: (context) {
                               if (widget.pageIndex == 1) {
                                 return Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -130,12 +131,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ].divide(const SizedBox(height: 5.0)),
+                                    ].divide(SizedBox(height: 5.0)),
                                   ),
                                 );
                               } else {
                                 return Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -165,7 +166,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ].divide(const SizedBox(height: 5.0)),
+                                    ].divide(SizedBox(height: 5.0)),
                                   ),
                                 );
                               }
@@ -182,9 +183,9 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'HomeVilage',
+                              HomeVilageWidget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
+                                kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                 ),
@@ -195,7 +196,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                             builder: (context) {
                               if (widget.pageIndex == 2) {
                                 return Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -225,12 +226,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ].divide(const SizedBox(height: 5.0)),
+                                    ].divide(SizedBox(height: 5.0)),
                                   ),
                                 );
                               } else {
                                 return Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -260,7 +261,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ].divide(const SizedBox(height: 5.0)),
+                                    ].divide(SizedBox(height: 5.0)),
                                   ),
                                 );
                               }
@@ -268,7 +269,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           ),
                         ),
                       ),
-                      const Spacer(),
+                      Spacer(),
                       Expanded(
                         flex: 2,
                         child: InkWell(
@@ -278,9 +279,9 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'homeBlog',
+                              HomeBlogWidget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
+                                kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                 ),
@@ -291,7 +292,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                             builder: (context) {
                               if (widget.pageIndex == 4) {
                                 return Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -321,12 +322,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ].divide(const SizedBox(height: 5.0)),
+                                    ].divide(SizedBox(height: 5.0)),
                                   ),
                                 );
                               } else {
                                 return Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -356,7 +357,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ].divide(const SizedBox(height: 5.0)),
+                                    ].divide(SizedBox(height: 5.0)),
                                   ),
                                 );
                               }
@@ -373,9 +374,9 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'homeMytree',
+                              HomeMytreeWidget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
+                                kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                 ),
@@ -386,7 +387,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                             builder: (context) {
                               if (widget.pageIndex == 5) {
                                 return Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -416,12 +417,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ].divide(const SizedBox(height: 5.0)),
+                                    ].divide(SizedBox(height: 5.0)),
                                   ),
                                 );
                               } else {
                                 return Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -451,7 +452,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                    ].divide(const SizedBox(height: 5.0)),
+                                    ].divide(SizedBox(height: 5.0)),
                                   ),
                                 );
                               }
@@ -466,16 +467,16 @@ class _NavbarWidgetState extends State<NavbarWidget> {
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(0.0, 1.0),
+            alignment: AlignmentDirectional(0.0, 1.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -483,9 +484,9 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'HomePage',
+                          HomePageWidget.routeName,
                           extra: <String, dynamic>{
-                            kTransitionInfoKey: const TransitionInfo(
+                            kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
                               transitionType: PageTransitionType.fade,
                             ),
@@ -503,7 +504,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           builder: (context) {
                             if (widget.pageIndex == 3) {
                               return Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: FaIcon(
                                   FontAwesomeIcons.leaf,
                                   color: FlutterFlowTheme.of(context).warning,
@@ -512,7 +513,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               );
                             } else {
                               return Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: FaIcon(
                                   FontAwesomeIcons.leaf,
                                   color: FlutterFlowTheme.of(context)
@@ -533,7 +534,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           letterSpacing: 0.0,
                         ),
                   ),
-                ].divide(const SizedBox(height: 10.0)),
+                ].divide(SizedBox(height: 10.0)),
               ),
             ),
           ),

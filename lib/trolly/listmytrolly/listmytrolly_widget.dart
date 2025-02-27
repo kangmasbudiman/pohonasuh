@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -18,6 +19,9 @@ export 'listmytrolly_model.dart';
 
 class ListmytrollyWidget extends StatefulWidget {
   const ListmytrollyWidget({super.key});
+
+  static String routeName = 'Listmytrolly';
+  static String routePath = '/listmytrolly';
 
   @override
   State<ListmytrollyWidget> createState() => _ListmytrollyWidgetState();
@@ -116,7 +120,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: false,
               elevation: 0.0,
             )
@@ -126,9 +130,9 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
               return Container(
                 width: double.infinity,
                 height: double.infinity,
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Stack(
-                  alignment: const AlignmentDirectional(0.0, -1.0),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   children: [
                     FutureBuilder<ApiCallResponse>(
                       future: TrollyGroup.mytrolleyCall.call(
@@ -245,7 +249,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                                   responsemYtrolly[
                                                       responsemYtrollyIndex];
                                               return Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 8.0, 16.0, 0.0),
                                                 child: Container(
@@ -260,7 +264,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 8.0,
                                                                 12.0, 8.0),
                                                     child: Row(
@@ -477,7 +481,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                                                       ),
                                                                 ),
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 height: 5.0)),
                                                           ),
                                                         ),
@@ -491,7 +495,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                                           highlightColor: Colors
                                                               .transparent,
                                                           onTap: () async {
-                                                            var shouldSetState =
+                                                            var _shouldSetState =
                                                                 false;
                                                             var confirmDialogResponse =
                                                                 await showDialog<
@@ -502,17 +506,17 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                                                           (alertDialogContext) {
                                                                         return AlertDialog(
                                                                           title:
-                                                                              const Text('Confirmation'),
+                                                                              Text('Confirmation'),
                                                                           content:
-                                                                              const Text('Are Your Sure delete this trees'),
+                                                                              Text('Are Your Sure delete this trees'),
                                                                           actions: [
                                                                             TextButton(
                                                                               onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: const Text('Cancel'),
+                                                                              child: Text('Cancel'),
                                                                             ),
                                                                             TextButton(
                                                                               onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: const Text('Confirm'),
+                                                                              child: Text('Confirm'),
                                                                             ),
                                                                           ],
                                                                         );
@@ -533,7 +537,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                                                 ),
                                                               );
 
-                                                              shouldSetState =
+                                                              _shouldSetState =
                                                                   true;
                                                               if ((_model
                                                                       .apiResultb6k
@@ -549,7 +553,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                                                           .toString(),
                                                                 );
 
-                                                                shouldSetState =
+                                                                _shouldSetState =
                                                                     true;
                                                                 if ((_model
                                                                         .apiResultlj33
@@ -572,7 +576,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                                                             ?.jsonBody ??
                                                                         ''),
                                                                   );
-                                                                  shouldSetState =
+                                                                  _shouldSetState =
                                                                       true;
                                                                   FFAppState()
                                                                           .grandtotalstring =
@@ -607,7 +611,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                                                             ?.jsonBody ??
                                                                         ''),
                                                                   );
-                                                                  shouldSetState =
+                                                                  _shouldSetState =
                                                                       true;
                                                                   FFAppState()
                                                                           .jumlahtrolley =
@@ -622,17 +626,15 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                                                 }
                                                               }
                                                             } else {
-                                                              if (shouldSetState) {
+                                                              if (_shouldSetState)
                                                                 safeSetState(
                                                                     () {});
-                                                              }
                                                               return;
                                                             }
 
-                                                            if (shouldSetState) {
+                                                            if (_shouldSetState)
                                                               safeSetState(
                                                                   () {});
-                                                            }
                                                           },
                                                           child: Icon(
                                                             Icons
@@ -644,7 +646,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                                           ),
                                                         ),
                                                       ].divide(
-                                                          const SizedBox(width: 5.0)),
+                                                          SizedBox(width: 5.0)),
                                                     ),
                                                   ),
                                                 ),
@@ -660,7 +662,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                             } else {
                               return Container(
                                 width: double.infinity,
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -690,16 +692,16 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                       },
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 1.0),
+                      alignment: AlignmentDirectional(0.0, 1.0),
                       child: Container(
                         width: double.infinity,
                         height: 200.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primary,
                         ),
-                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: Padding(
-                          padding: const EdgeInsets.all(20.0),
+                          padding: EdgeInsets.all(20.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -846,7 +848,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                       minimum: 1,
                                       maximum: 12,
                                       contentPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               12.0, 0.0, 12.0, 0.0),
                                     ),
                                   ),
@@ -888,12 +890,12 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                 ],
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 20.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     context.pushNamed(
-                                      'YourTrolley',
+                                      YourTrolleyWidget.routeName,
                                       queryParameters: {
                                         'idku': serializeParam(
                                           currentUserData?.id,
@@ -925,16 +927,16 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                     );
                                   },
                                   text: 'CheckOut',
-                                  icon: const Icon(
+                                  icon: Icon(
                                     Icons.shopping_cart_checkout_rounded,
                                     size: 25.0,
                                   ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 40.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -951,7 +953,7 @@ class _ListmytrollyWidgetState extends State<ListmytrollyWidget> {
                                   ),
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 10.0)),
+                            ].divide(SizedBox(height: 10.0)),
                           ),
                         ),
                       ),

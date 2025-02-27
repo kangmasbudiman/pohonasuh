@@ -13,6 +13,9 @@ export 'orders_trees_model.dart';
 class OrdersTreesWidget extends StatefulWidget {
   const OrdersTreesWidget({super.key});
 
+  static String routeName = 'OrdersTrees';
+  static String routePath = '/ordersTrees';
+
   @override
   State<OrdersTreesWidget> createState() => _OrdersTreesWidgetState();
 }
@@ -55,7 +58,7 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -73,14 +76,14 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
             child: FutureBuilder<ApiCallResponse>(
               future: TreesGroup.ordertreesCustomerCall.call(),
               builder: (context, snapshot) {
@@ -124,7 +127,7 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              boxShadow: const [
+                              boxShadow: [
                                 BoxShadow(
                                   blurRadius: 4.0,
                                   color: Color(0x33000000),
@@ -139,13 +142,13 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
                             child: Stack(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: EdgeInsets.all(10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          decoration: const BoxDecoration(),
+                                          decoration: BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -292,7 +295,7 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 8.0)),
+                                            ].divide(SizedBox(height: 8.0)),
                                           ),
                                         ),
                                       ),
@@ -302,7 +305,7 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
-                                          boxShadow: const [
+                                          boxShadow: [
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x33000000),
@@ -341,7 +344,7 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
                                                           backgroundColor:
                                                               Colors
                                                                   .transparent,
-                                                          alignment: const AlignmentDirectional(
+                                                          alignment: AlignmentDirectional(
                                                                   0.0, 0.0)
                                                               .resolve(
                                                                   Directionality.of(
@@ -357,7 +360,7 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
                                                                   .primaryFocus
                                                                   ?.unfocus();
                                                             },
-                                                            child: SizedBox(
+                                                            child: Container(
                                                               height: 450.0,
                                                               width: double
                                                                   .infinity,
@@ -416,15 +419,15 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
                                                         (alertDialogContext) {
                                                       return AlertDialog(
                                                         title:
-                                                            const Text('Information'),
-                                                        content: const Text(
+                                                            Text('Information'),
+                                                        content: Text(
                                                             'there is no proof of transfer'),
                                                         actions: [
                                                           TextButton(
                                                             onPressed: () =>
                                                                 Navigator.pop(
                                                                     alertDialogContext),
-                                                            child: const Text('Ok'),
+                                                            child: Text('Ok'),
                                                           ),
                                                         ],
                                                       );
@@ -452,9 +455,9 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
                                 ),
                                 if (responseDataOrderItem.confirmasi == 'yes')
                                   Align(
-                                    alignment: const AlignmentDirectional(1.0, -1.0),
+                                    alignment: AlignmentDirectional(1.0, -1.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 10.0, 0.0),
                                       child: Icon(
                                         Icons.check_circle,
@@ -467,7 +470,7 @@ class _OrdersTreesWidgetState extends State<OrdersTreesWidget> {
                               ],
                             ),
                           );
-                        }).divide(const SizedBox(height: 10.0)),
+                        }).divide(SizedBox(height: 10.0)),
                       ),
                     );
                   },

@@ -1,6 +1,7 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -10,6 +11,9 @@ export 'onboarding_model.dart';
 
 class OnboardingWidget extends StatefulWidget {
   const OnboardingWidget({super.key});
+
+  static String routeName = 'onboarding';
+  static String routePath = '/onboarding';
 
   @override
   State<OnboardingWidget> createState() => _OnboardingWidgetState();
@@ -29,7 +33,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (currentAuthenticationToken != null &&
           currentAuthenticationToken != '') {
-        context.pushNamed('HomePage');
+        context.pushNamed(HomePageWidget.routeName);
       }
     });
 
@@ -56,18 +60,18 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
-                  child: SizedBox(
+                  child: Container(
                     width: double.infinity,
                     height: 500.0,
                     child: Stack(
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 30.0),
                           child: PageView(
                             controller: _model.pageViewController ??=
@@ -77,7 +81,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                               Stack(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(12.0),
+                                    padding: EdgeInsets.all(12.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -87,7 +91,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 40.0, 0.0, 12.0),
                                           child: ClipRRect(
                                             borderRadius:
@@ -102,7 +106,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 100.0, 0.0, 0.0),
                                           child: Text(
                                             'The Forest',
@@ -118,7 +122,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: Text(
                                             'Over 10.000 tress have been cut every day, could you help us?',
@@ -137,14 +141,14 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                 ],
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(12.0),
+                                padding: EdgeInsets.all(12.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 40.0, 0.0, 12.0),
                                       child: ClipRRect(
                                         borderRadius:
@@ -158,7 +162,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 100.0, 0.0, 0.0),
                                       child: Text(
                                         'Biodiversity',
@@ -173,7 +177,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 20.0, 0.0, 0.0),
                                       child: Text(
                                         'This program supports the diversity of life on earth..!',
@@ -190,14 +194,14 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(12.0),
+                                padding: EdgeInsets.all(12.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 40.0, 0.0, 12.0),
                                       child: ClipRRect(
                                         borderRadius:
@@ -211,7 +215,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 100.0, 0.0, 0.0),
                                       child: Text(
                                         'Adopt Trees, Donate Now',
@@ -226,7 +230,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 20.0, 0.0, 0.0),
                                       child: Text(
                                         'Your participation in this project will help save our forest',
@@ -246,9 +250,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 10.0),
                             child: smooth_page_indicator.SmoothPageIndicator(
                               controller: _model.pageViewController ??=
@@ -258,7 +262,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                               onDotClicked: (i) async {
                                 await _model.pageViewController!.animateToPage(
                                   i,
-                                  duration: const Duration(milliseconds: 500),
+                                  duration: Duration(milliseconds: 500),
                                   curve: Curves.ease,
                                 );
                                 safeSetState(() {});
@@ -283,7 +287,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -295,9 +299,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         highlightColor: Colors.transparent,
                         onTap: () async {
                           context.pushNamed(
-                            'loginRegister',
+                            LoginRegisterWidget.routeName,
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.bottomToTop,
                               ),
@@ -321,7 +325,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             await _model.pageViewController?.nextPage(
-                              duration: const Duration(milliseconds: 300),
+                              duration: Duration(milliseconds: 300),
                               curve: Curves.ease,
                             );
                           },
@@ -343,9 +347,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'loginRegister',
+                              LoginRegisterWidget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
+                                kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType:
                                       PageTransitionType.bottomToTop,
@@ -371,7 +375,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             await _model.pageViewController?.nextPage(
-                              duration: const Duration(milliseconds: 300),
+                              duration: Duration(milliseconds: 300),
                               curve: Curves.ease,
                             );
                           },

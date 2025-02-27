@@ -3,6 +3,7 @@ import '/componen/app_bar/app_bar_widget.dart';
 import '/componen/content_drawer/content_drawer_widget.dart';
 import '/componen/navbar/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'dart:async';
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:carousel_slider/carousel_slider.dart';
@@ -53,7 +54,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   }) async {
     final stopwatch = Stopwatch()..start();
     while (true) {
-      await Future.delayed(const Duration(milliseconds: 50));
+      await Future.delayed(Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
       final requestComplete = apiRequestCompleter?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {

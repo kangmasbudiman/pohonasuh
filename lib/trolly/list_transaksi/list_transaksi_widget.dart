@@ -4,6 +4,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,9 @@ export 'list_transaksi_model.dart';
 
 class ListTransaksiWidget extends StatefulWidget {
   const ListTransaksiWidget({super.key});
+
+  static String routeName = 'listTransaksi';
+  static String routePath = '/listTransaksi';
 
   @override
   State<ListTransaksiWidget> createState() => _ListTransaksiWidgetState();
@@ -57,7 +61,7 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -75,7 +79,7 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -84,9 +88,9 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
           child: Container(
             width: double.infinity,
             height: double.infinity,
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
               child: FutureBuilder<ApiCallResponse>(
                 future: PaymentGroup.getconfirmasiCall.call(
                   idmember: currentUserData?.id,
@@ -133,7 +137,7 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed(
-                                'uploadtransferr',
+                                UploadtransferrWidget.routeName,
                                 queryParameters: {
                                   'id': serializeParam(
                                     valueOrDefault<int>(
@@ -156,7 +160,7 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
                                   FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
-                                boxShadow: const [
+                                boxShadow: [
                                   BoxShadow(
                                     blurRadius: 4.0,
                                     color: Color(0x33000000),
@@ -169,13 +173,13 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: EdgeInsets.all(10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Expanded(
                                       child: Container(
-                                        decoration: const BoxDecoration(),
+                                        decoration: BoxDecoration(),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -244,7 +248,7 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
                                                       responseItem.confirmation,
                                                       'confirmation',
                                                     ),
-                                                    style: const TextStyle(),
+                                                    style: TextStyle(),
                                                   )
                                                 ],
                                                 style:
@@ -269,7 +273,13 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
                                                           String nomor,
                                                           String idmember,
                                                           String nominal) {
-                                                    return "$link$nomor?text=order tree member name $idmemberTotal Transfer : $nominal";
+                                                    return link +
+                                                        nomor +
+                                                        "?text=order tree member name " +
+                                                        idmember +
+                                                        "" +
+                                                        "Total Transfer : " +
+                                                        nominal;
                                                   }(
                                                       FFAppState().linkwhatsapp,
                                                       FFAppState().nomor,
@@ -296,7 +306,7 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
                                                 ),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(height: 6.0)),
+                                          ].divide(SizedBox(height: 6.0)),
                                         ),
                                       ),
                                     ),
@@ -306,7 +316,7 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        boxShadow: const [
+                                        boxShadow: [
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
@@ -338,7 +348,7 @@ class _ListTransaksiWidgetState extends State<ListTransaksiWidget> {
                               ),
                             ),
                           );
-                        }).divide(const SizedBox(height: 10.0)),
+                        }).divide(SizedBox(height: 10.0)),
                       );
                     },
                   );

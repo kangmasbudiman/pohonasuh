@@ -15,6 +15,9 @@ export 'home_page_copy_model.dart';
 class HomePageCopyWidget extends StatefulWidget {
   const HomePageCopyWidget({super.key});
 
+  static String routeName = 'HomePageCopy';
+  static String routePath = '/homePageCopy';
+
   @override
   State<HomePageCopyWidget> createState() => _HomePageCopyWidgetState();
 }
@@ -54,16 +57,16 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
           child: wrapWithModel(
             model: _model.contentDrawerModel,
             updateCallback: () => safeSetState(() {}),
-            child: const ContentDrawerWidget(),
+            child: ContentDrawerWidget(),
           ),
         ),
         body: SafeArea(
           top: true,
           child: Stack(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: AlignmentDirectional(0.0, -1.0),
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 58.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 58.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -103,7 +106,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                           .toList() ??
                                       [];
 
-                              return SizedBox(
+                              return Container(
                                 width: 500.0,
                                 height: 200.0,
                                 child: CarouselSlider.builder(
@@ -116,7 +119,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                       width: double.infinity,
                                       height: 200.0,
                                       decoration: BoxDecoration(
-                                        boxShadow: const [
+                                        boxShadow: [
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
@@ -158,9 +161,9 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                     scrollDirection: Axis.horizontal,
                                     autoPlay: true,
                                     autoPlayAnimationDuration:
-                                        const Duration(milliseconds: 800),
+                                        Duration(milliseconds: 800),
                                     autoPlayInterval:
-                                        const Duration(milliseconds: (800 + 4000)),
+                                        Duration(milliseconds: (800 + 4000)),
                                     autoPlayCurve: Curves.linear,
                                     pauseAutoPlayInFiniteScroll: true,
                                     onPageChanged: (index, _) =>
@@ -186,7 +189,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(5.0),
+                            padding: EdgeInsets.all(5.0),
                             child: Container(
                               width: 180.0,
                               decoration: BoxDecoration(
@@ -196,7 +199,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                     blurRadius: 4.0,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    offset: const Offset(
+                                    offset: Offset(
                                       0.0,
                                       2.0,
                                     ),
@@ -210,7 +213,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       ClipRRect(
-                                        borderRadius: const BorderRadius.only(
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
                                           topLeft: Radius.circular(20.0),
@@ -226,7 +229,7 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 10.0, 5.0, 10.0),
                                           child: AutoSizeText(
                                             'Hello World mantap jaya  kekekekdfakje ',
@@ -248,9 +251,9 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                                     ],
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(1.0, 0.0),
+                                    alignment: AlignmentDirectional(1.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 20.0, 10.0, 0.0),
                                       child: Text(
                                         'Hello World',
@@ -273,29 +276,29 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                             ),
                           ),
                         ]
-                            .divide(const SizedBox(width: 5.0))
-                            .around(const SizedBox(width: 5.0)),
+                            .divide(SizedBox(width: 5.0))
+                            .around(SizedBox(width: 5.0)),
                       ),
                     ),
-                  ].divide(const SizedBox(height: 10.0)),
+                  ].divide(SizedBox(height: 10.0)),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: wrapWithModel(
                   model: _model.navbarModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: const NavbarWidget(
+                  child: NavbarWidget(
                     pageIndex: 3,
                   ),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: wrapWithModel(
                   model: _model.appBarModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: const AppBarWidget(),
+                  child: AppBarWidget(),
                 ),
               ),
             ],

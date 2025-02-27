@@ -35,14 +35,14 @@ class LoginuserCall {
   }) async {
     final baseUrl = RestAPiPohonAsuhGroup.getBaseUrl();
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
-  "emaile": "tito@gmail.com",
-  "passe": "12"
+  "emaile": "${escapeStringForJson(emaile)}",
+  "passe": "${escapeStringForJson(passe)}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'loginuser',
-      apiUrl: '$baseUrl/loginuser',
+      apiUrl: '${baseUrl}loginuser',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
@@ -378,7 +378,7 @@ class MytrolleyCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'mytrolley',
-      apiUrl: '$baseUrl/mytrolley',
+      apiUrl: '${baseUrl}/mytrolley',
       callType: ApiCallType.POST,
       headers: {},
       params: {
@@ -403,7 +403,7 @@ class DeletetrollyCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deletetrolly',
-      apiUrl: '$baseUrl/mytrolleydelete',
+      apiUrl: '${baseUrl}/mytrolleydelete',
       callType: ApiCallType.POST,
       headers: {},
       params: {
@@ -441,7 +441,7 @@ class GetlistbankCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getlistbank',
-      apiUrl: '$baseUrl/getrekening',
+      apiUrl: '${baseUrl}/getrekening',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -468,7 +468,7 @@ class ConfirmationCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'confirmation',
-      apiUrl: '$baseUrl/confirmasipembayaran',
+      apiUrl: '${baseUrl}/confirmasipembayaran',
       callType: ApiCallType.POST,
       headers: {},
       params: {
@@ -498,7 +498,7 @@ class GetconfirmasiCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getconfirmasi',
-      apiUrl: '$baseUrl/getconfirmasi',
+      apiUrl: '${baseUrl}/getconfirmasi',
       callType: ApiCallType.POST,
       headers: {},
       params: {
@@ -524,7 +524,7 @@ class UploadbuktitransferCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'uploadbuktitransfer',
-      apiUrl: '$baseUrl/uploadbuktitransfer',
+      apiUrl: '${baseUrl}/uploadbuktitransfer',
       callType: ApiCallType.POST,
       headers: {},
       params: {
@@ -551,7 +551,7 @@ class VerivicationCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'verivication',
-      apiUrl: '$baseUrl/verivication',
+      apiUrl: '${baseUrl}/verivication',
       callType: ApiCallType.POST,
       headers: {},
       params: {
@@ -580,6 +580,9 @@ class TreesGroup {
   static OrdertreesCustomerCall ordertreesCustomerCall =
       OrdertreesCustomerCall();
   static MycertificateCall mycertificateCall = MycertificateCall();
+  static GetdesaCall getdesaCall = GetdesaCall();
+  static PohodesaCall pohodesaCall = PohodesaCall();
+  static PohonmapCall pohonmapCall = PohonmapCall();
 }
 
 class MytreesCall {
@@ -590,7 +593,7 @@ class MytreesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'mytrees',
-      apiUrl: '$baseUrl/mytrees',
+      apiUrl: '${baseUrl}/mytrees',
       callType: ApiCallType.POST,
       headers: {},
       params: {
@@ -613,7 +616,7 @@ class OrdertreesCustomerCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'ordertreesCustomer',
-      apiUrl: '$baseUrl/ordercustomer',
+      apiUrl: '${baseUrl}/ordercustomer',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -635,7 +638,7 @@ class MycertificateCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'mycertificate',
-      apiUrl: '$baseUrl/mycertificate',
+      apiUrl: '${baseUrl}/mycertificate',
       callType: ApiCallType.POST,
       headers: {},
       params: {
@@ -650,6 +653,149 @@ class MycertificateCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class GetdesaCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getdesa',
+      apiUrl: '${baseUrl}/getdesa',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class PohodesaCall {
+  Future<ApiCallResponse> call({
+    String? desa = '',
+  }) async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'pohodesa',
+      apiUrl: '${baseUrl}/pohonbydesa',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'desa': desa,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class PohonmapCall {
+  Future<ApiCallResponse> call({
+    int? limit,
+  }) async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'pohonmap',
+      apiUrl: '${baseUrl}/pohonmap',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'limit': limit,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List<int>? id(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? gpscode(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].gpscode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? latitude(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].latitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? longitude(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].longitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? desa(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].desa''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? idpohon(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].idpohon''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? species(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].species''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? location(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].location''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 /// End Trees Group Code

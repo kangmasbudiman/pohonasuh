@@ -24,6 +24,9 @@ class CheckoutorderWidget extends StatefulWidget {
   final String? rupiah;
   final String? jumlahpohon;
 
+  static String routeName = 'checkoutorder';
+  static String routePath = '/checkoutorder';
+
   @override
   State<CheckoutorderWidget> createState() => _CheckoutorderWidgetState();
 }
@@ -68,7 +71,7 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -86,14 +89,14 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -102,7 +105,7 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
                     width: 159.0,
                     height: 159.0,
                     clipBehavior: Clip.antiAlias,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                     ),
                     child: Image.asset(
@@ -132,7 +135,7 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
@@ -177,7 +180,7 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
                           size: 30.0,
                         ),
                       ),
-                    ].divide(const SizedBox(width: 5.0)),
+                    ].divide(SizedBox(width: 5.0)),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -210,7 +213,7 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
                           size: 30.0,
                         ),
                       ),
-                    ].divide(const SizedBox(width: 5.0)),
+                    ].divide(SizedBox(width: 5.0)),
                   ),
                   InkWell(
                     splashColor: Colors.transparent,
@@ -255,7 +258,7 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
                                         .primaryText,
                                   ),
                                 ),
-                                duration: const Duration(milliseconds: 4000),
+                                duration: Duration(milliseconds: 4000),
                                 backgroundColor:
                                     FlutterFlowTheme.of(context).secondary,
                               ),
@@ -267,7 +270,7 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
                             size: 30.0,
                           ),
                         ),
-                      ].divide(const SizedBox(width: 5.0)),
+                      ].divide(SizedBox(width: 5.0)),
                     ),
                   ),
                   RichText(
@@ -308,7 +311,7 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -321,9 +324,9 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
                           options: FFButtonOptions(
                             width: 100.0,
                             height: 50.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -345,9 +348,9 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
                           options: FFButtonOptions(
                             width: 100.0,
                             height: 50.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -364,7 +367,7 @@ class _CheckoutorderWidgetState extends State<CheckoutorderWidget> {
                       ],
                     ),
                   ),
-                ].divide(const SizedBox(height: 10.0)),
+                ].divide(SizedBox(height: 10.0)),
               ),
             ),
           ),

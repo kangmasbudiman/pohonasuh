@@ -23,6 +23,9 @@ class CertificateviewWidget extends StatefulWidget {
   final String? tglStart;
   final String? desa;
 
+  static String routeName = 'certificateview';
+  static String routePath = '/certificateview';
+
   @override
   State<CertificateviewWidget> createState() => _CertificateviewWidgetState();
 }
@@ -65,7 +68,7 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -83,14 +86,14 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(20.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -120,20 +123,20 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                         Container(
                           width: double.infinity,
                           height: 249.55,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 50.0, 0.0, 5.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 58.0, 0.0, 0.0),
                                   child: Container(
                                     width: 336.13,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Text(
                                       'Pohon Asuh is intepreted as a public reward given to a community for its contributions to care tree in the forest',
                                       textAlign: TextAlign.justify,
@@ -149,9 +152,9 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                                 ),
                                 Container(
                                   width: 336.1,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       'We give appreciation and thanks to :',
@@ -167,7 +170,7 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 2.0, 0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
@@ -185,7 +188,7 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: RichText(
                                     textScaler:
@@ -233,7 +236,7 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                                             widget.desa,
                                             'village',
                                           ),
-                                          style: const TextStyle(
+                                          style: TextStyle(
                                             fontWeight: FontWeight.w600,
                                             fontSize: 10.0,
                                           ),
@@ -276,7 +279,7 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text: '  Until : ',
                                         style: TextStyle(),
                                       ),
@@ -285,7 +288,7 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                                           widget.tglexp,
                                           'tgl_exp',
                                         ),
-                                        style: const TextStyle(),
+                                        style: TextStyle(),
                                       )
                                     ],
                                     style: FlutterFlowTheme.of(context)
@@ -311,7 +314,7 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text: 'message',
                                         style: TextStyle(),
                                       )
@@ -326,9 +329,9 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 30.0, 0.0, 0.0),
                                     child: RichText(
                                       textScaler:
@@ -351,7 +354,7 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                                               widget.tglStart,
                                               'tglStart',
                                             ),
-                                            style: const TextStyle(
+                                            style: TextStyle(
                                               fontSize: 10.0,
                                             ),
                                           )
@@ -384,16 +387,16 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                         print('Button pressed ...');
                       },
                       text: 'Download',
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.download,
                         size: 15.0,
                       ),
                       options: FFButtonOptions(
                         height: 40.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -405,40 +408,35 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                    Builder(
-                      builder: (context) => FFButtonWidget(
-                        onPressed: () async {
-                          await Share.share(
-                            widget.nama!,
-                            sharePositionOrigin: getWidgetBoundingBox(context),
-                          );
-                        },
-                        text: 'Share Cert',
-                        icon: const Icon(
-                          Icons.share_outlined,
-                          size: 15.0,
-                        ),
-                        options: FFButtonOptions(
-                          height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Inter Tight',
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                  ),
-                          elevation: 0.0,
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
+                    FFButtonWidget(
+                      onPressed: () {
+                        print('Button pressed ...');
+                      },
+                      text: 'Share Cert',
+                      icon: Icon(
+                        Icons.share_outlined,
+                        size: 15.0,
+                      ),
+                      options: FFButtonOptions(
+                        height: 40.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Inter Tight',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                ),
+                        elevation: 0.0,
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
                   ],
                 ),
-              ].divide(const SizedBox(height: 20.0)),
+              ].divide(SizedBox(height: 20.0)),
             ),
           ),
         ),

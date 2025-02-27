@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -26,6 +27,9 @@ class YourTrolleyWidget extends StatefulWidget {
   final int? jumlahtrolly;
   final String? totalharga;
   final int? totalhargaInt;
+
+  static String routeName = 'YourTrolley';
+  static String routePath = '/yourTrolley';
 
   @override
   State<YourTrolleyWidget> createState() => _YourTrolleyWidgetState();
@@ -112,7 +116,7 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: false,
               elevation: 0.0,
             )
@@ -122,9 +126,9 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
               return Container(
                 width: double.infinity,
                 height: double.infinity,
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -182,7 +186,7 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
                                   elevation: 0,
                                   insetPadding: EdgeInsets.zero,
                                   backgroundColor: Colors.transparent,
-                                  alignment: const AlignmentDirectional(0.0, 0.0)
+                                  alignment: AlignmentDirectional(0.0, 0.0)
                                       .resolve(Directionality.of(context)),
                                   child: GestureDetector(
                                     onTap: () {
@@ -190,12 +194,12 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
                                       FocusManager.instance.primaryFocus
                                           ?.unfocus();
                                     },
-                                    child: SizedBox(
+                                    child: Container(
                                       height:
                                           MediaQuery.sizeOf(context).height *
                                               0.7,
                                       width: double.infinity,
-                                      child: const PaymentChoiceWidget(),
+                                      child: PaymentChoiceWidget(),
                                     ),
                                   ),
                                 );
@@ -207,7 +211,7 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              boxShadow: const [
+                              boxShadow: [
                                 BoxShadow(
                                   blurRadius: 4.0,
                                   color: Color(0x33000000),
@@ -224,7 +228,7 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(10.0),
+                              padding: EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -244,7 +248,7 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'Payment Method',
@@ -281,7 +285,7 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             _model.resultSum =
@@ -310,7 +314,7 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
 
                             if ((_model.apiResultmz2?.succeeded ?? true)) {
                               context.pushNamed(
-                                'checkoutorder',
+                                CheckoutorderWidget.routeName,
                                 queryParameters: {
                                   'iconbank': serializeParam(
                                     FFAppState().iconbank,
@@ -342,13 +346,13 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
                                 context: context,
                                 builder: (alertDialogContext) {
                                   return AlertDialog(
-                                    title: const Text('Information'),
-                                    content: const Text('Checkout Faild'),
+                                    title: Text('Information'),
+                                    content: Text('Checkout Faild'),
                                     actions: [
                                       TextButton(
                                         onPressed: () =>
                                             Navigator.pop(alertDialogContext),
-                                        child: const Text('Ok'),
+                                        child: Text('Ok'),
                                       ),
                                     ],
                                   );
@@ -359,16 +363,16 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
                             safeSetState(() {});
                           },
                           text: 'Contineu',
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.payment,
                             size: 25.0,
                           ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -383,7 +387,7 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
                           ),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 10.0)),
+                    ].divide(SizedBox(height: 10.0)),
                   ),
                 ),
               );

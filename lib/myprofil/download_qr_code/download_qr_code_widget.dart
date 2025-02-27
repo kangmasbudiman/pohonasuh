@@ -10,6 +10,9 @@ export 'download_qr_code_model.dart';
 class DownloadQrCodeWidget extends StatefulWidget {
   const DownloadQrCodeWidget({super.key});
 
+  static String routeName = 'downloadQrCode';
+  static String routePath = '/downloadQrCode';
+
   @override
   State<DownloadQrCodeWidget> createState() => _DownloadQrCodeWidgetState();
 }
@@ -52,7 +55,7 @@ class _DownloadQrCodeWidgetState extends State<DownloadQrCodeWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -70,7 +73,7 @@ class _DownloadQrCodeWidgetState extends State<DownloadQrCodeWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -78,12 +81,12 @@ class _DownloadQrCodeWidgetState extends State<DownloadQrCodeWidget> {
           top: true,
           child: Container(
             width: double.infinity,
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                Container(
                   width: 230.0,
                   height: 280.0,
                   child: custom_widgets.GenerateQRCode(
@@ -103,7 +106,7 @@ class _DownloadQrCodeWidgetState extends State<DownloadQrCodeWidget> {
                               color: FlutterFlowTheme.of(context).primaryText,
                             ),
                           ),
-                          duration: const Duration(milliseconds: 4000),
+                          duration: Duration(milliseconds: 4000),
                           backgroundColor:
                               FlutterFlowTheme.of(context).secondary,
                         ),

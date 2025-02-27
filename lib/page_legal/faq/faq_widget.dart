@@ -8,6 +8,9 @@ export 'faq_model.dart';
 class FaqWidget extends StatefulWidget {
   const FaqWidget({super.key});
 
+  static String routeName = 'FAQ';
+  static String routePath = '/faq';
+
   @override
   State<FaqWidget> createState() => _FaqWidgetState();
 }
@@ -50,7 +53,7 @@ class _FaqWidgetState extends State<FaqWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -68,14 +71,14 @@ class _FaqWidgetState extends State<FaqWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -87,7 +90,7 @@ class _FaqWidgetState extends State<FaqWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Text(
                           '1. Tree adoption program is',
                           textAlign: TextAlign.start,
@@ -109,7 +112,7 @@ class _FaqWidgetState extends State<FaqWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Text(
                           '2. The location of the tree adoption program:',
                           textAlign: TextAlign.start,
@@ -122,7 +125,7 @@ class _FaqWidgetState extends State<FaqWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 10.0, 0.0, 10.0),
                         child: Text(
                           'The tree adoption program is located in 7 (seven) areas, they are:\n * Rantau Kermas customary forest with the total area is approximately 120 hectares, located in Jangkat Subdistrict, Merangin District, Jambi Province .\n\n* Sungai Buluah village forest with the total area is approximately 1,336 hectares located in Padang Pariaman district, West Sumatera province.\n\n* Simanau Tiga Lurah village forest with the total area is approximately 1,088 hectares located in Solok Distict, West Sumatera province.\nSirukam village forest with the total area is approximately 3,398 hectares, Solok District, West Sumatera province.\n\n* Simancuang Pauh Duo village forest with the total area is approximately 650 hectares in South Solok District, West Sumatera province.\n\n* Sinar Wajo village forest area located in peat land area with the total area approximately 5,088 hectares, Tanjung Jabung Timur district, Jambi province.\n\n* Kampong Laham village forest with the total area is approximately 1,933 hectares located Laham Subdistrict, Mahakam Ulu District, Kalimantan Timur./li>',
@@ -137,7 +140,7 @@ class _FaqWidgetState extends State<FaqWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Text(
                           '3. Why is this program Important?',
                           textAlign: TextAlign.start,
@@ -160,7 +163,7 @@ class _FaqWidgetState extends State<FaqWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Text(
                           '4. Requirements of tree adoption:',
                           textAlign: TextAlign.start,
@@ -183,7 +186,7 @@ class _FaqWidgetState extends State<FaqWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: Text(
                           '5. The adoption fees will cover:',
                           textAlign: TextAlign.start,
@@ -206,7 +209,7 @@ class _FaqWidgetState extends State<FaqWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: Text(
                           '6. How to transfer funds for tree adoption?',
                           textAlign: TextAlign.start,
@@ -220,7 +223,7 @@ class _FaqWidgetState extends State<FaqWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                         child: Text(
                           'Bank transfer\nBNI Cabang Jambi\na/n: POHON ASUH KKI WARSI\nNo Rekening: 474721885',
                           style:

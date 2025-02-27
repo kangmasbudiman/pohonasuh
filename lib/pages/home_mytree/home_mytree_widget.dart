@@ -13,6 +13,9 @@ export 'home_mytree_model.dart';
 class HomeMytreeWidget extends StatefulWidget {
   const HomeMytreeWidget({super.key});
 
+  static String routeName = 'homeMytree';
+  static String routePath = '/homeMytree';
+
   @override
   State<HomeMytreeWidget> createState() => _HomeMytreeWidgetState();
 }
@@ -54,10 +57,10 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
               Container(
                 width: double.infinity,
                 height: double.infinity,
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(20.0, 60.0, 20.0, 80.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 60.0, 20.0, 80.0),
                   child: FutureBuilder<ApiCallResponse>(
                     future: TreesGroup.mytreesCall.call(
                       iduser: currentUserData?.id,
@@ -103,7 +106,7 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    boxShadow: const [
+                                    boxShadow: [
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x33000000),
@@ -116,7 +119,7 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -154,7 +157,7 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
-                                            boxShadow: const [
+                                            boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x33000000),
@@ -169,9 +172,9 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 0.0, 0.0, 0.0),
                                               child: RichText(
@@ -203,7 +206,7 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
                                                                 FontWeight.w600,
                                                           ),
                                                     ),
-                                                    const TextSpan(
+                                                    TextSpan(
                                                       text: '/ ',
                                                       style: TextStyle(),
                                                     ),
@@ -214,13 +217,13 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
                                                             .toString(),
                                                         '0',
                                                       ),
-                                                      style: const TextStyle(),
+                                                      style: TextStyle(),
                                                     ),
-                                                    const TextSpan(
+                                                    TextSpan(
                                                       text: ' (Year)',
                                                       style: TextStyle(),
                                                     ),
-                                                    const TextSpan(
+                                                    TextSpan(
                                                       text: '(',
                                                       style: TextStyle(),
                                                     ),
@@ -231,9 +234,9 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
                                                             .idpohon,
                                                         'idpohon',
                                                       ),
-                                                      style: const TextStyle(),
+                                                      style: TextStyle(),
                                                     ),
-                                                    const TextSpan(
+                                                    TextSpan(
                                                       text: ')',
                                                       style: TextStyle(),
                                                     )
@@ -275,7 +278,7 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
                                                   responseMytreeItem.tglExp,
                                                   'tglExp',
                                                 ),
-                                                style: const TextStyle(),
+                                                style: TextStyle(),
                                               )
                                             ],
                                             style: FlutterFlowTheme.of(context)
@@ -361,11 +364,11 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
                                                 ),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(height: 10.0)),
+                                      ].divide(SizedBox(height: 10.0)),
                                     ),
                                   ),
                                 );
-                              }).divide(const SizedBox(height: 10.0)),
+                              }).divide(SizedBox(height: 10.0)),
                             ),
                           );
                         },
@@ -377,14 +380,14 @@ class _HomeMytreeWidgetState extends State<HomeMytreeWidget> {
               wrapWithModel(
                 model: _model.navbarModel,
                 updateCallback: () => safeSetState(() {}),
-                child: const NavbarWidget(
+                child: NavbarWidget(
                   pageIndex: 5,
                 ),
               ),
               wrapWithModel(
                 model: _model.appBarModel,
                 updateCallback: () => safeSetState(() {}),
-                child: const AppBarWidget(),
+                child: AppBarWidget(),
               ),
             ],
           ),

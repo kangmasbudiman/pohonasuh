@@ -7,8 +7,9 @@ import '/backend/schema/structs/index.dart';
 
 import '/auth/custom_auth/custom_auth_user_provider.dart';
 
-import '/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+
+import '/index.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -76,32 +77,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomePageWidget() : const OnboardingWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : OnboardingWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomePageWidget() : const OnboardingWidget(),
+              appStateNotifier.loggedIn ? HomePageWidget() : OnboardingWidget(),
         ),
         FFRoute(
-          name: 'HomePage',
-          path: '/homePage',
-          builder: (context, params) => const HomePageWidget(),
+          name: HomePageWidget.routeName,
+          path: HomePageWidget.routePath,
+          builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
-          name: 'onboarding',
-          path: '/onboarding',
-          builder: (context, params) => const OnboardingWidget(),
+          name: OnboardingWidget.routeName,
+          path: OnboardingWidget.routePath,
+          builder: (context, params) => OnboardingWidget(),
         ),
         FFRoute(
-          name: 'loginRegister',
-          path: '/loginRegister',
-          builder: (context, params) => const LoginRegisterWidget(),
+          name: LoginRegisterWidget.routeName,
+          path: LoginRegisterWidget.routePath,
+          builder: (context, params) => LoginRegisterWidget(),
         ),
         FFRoute(
-          name: 'loginRegister2',
-          path: '/loginRegister2',
+          name: LoginRegister2Widget.routeName,
+          path: LoginRegister2Widget.routePath,
           builder: (context, params) => LoginRegister2Widget(
             tabbar: params.getParam(
               'tabbar',
@@ -110,48 +111,48 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'HomeMap',
-          path: '/homeMap',
-          builder: (context, params) => const HomeMapWidget(),
+          name: HomeMapWidget.routeName,
+          path: HomeMapWidget.routePath,
+          builder: (context, params) => HomeMapWidget(),
         ),
         FFRoute(
-          name: 'HomeVilage',
-          path: '/homeVilage',
-          builder: (context, params) => const HomeVilageWidget(),
+          name: HomeVilageWidget.routeName,
+          path: HomeVilageWidget.routePath,
+          builder: (context, params) => HomeVilageWidget(),
         ),
         FFRoute(
-          name: 'homeBlog',
-          path: '/homeBlog',
-          builder: (context, params) => const HomeBlogWidget(),
+          name: HomeBlogWidget.routeName,
+          path: HomeBlogWidget.routePath,
+          builder: (context, params) => HomeBlogWidget(),
         ),
         FFRoute(
-          name: 'homeMytree',
-          path: '/homeMytree',
-          builder: (context, params) => const HomeMytreeWidget(),
+          name: HomeMytreeWidget.routeName,
+          path: HomeMytreeWidget.routePath,
+          builder: (context, params) => HomeMytreeWidget(),
         ),
         FFRoute(
-          name: 'aboutus',
-          path: '/aboutus',
-          builder: (context, params) => const AboutusWidget(),
+          name: AboutusWidget.routeName,
+          path: AboutusWidget.routePath,
+          builder: (context, params) => AboutusWidget(),
         ),
         FFRoute(
-          name: 'rules',
-          path: '/rules',
-          builder: (context, params) => const RulesWidget(),
+          name: RulesWidget.routeName,
+          path: RulesWidget.routePath,
+          builder: (context, params) => RulesWidget(),
         ),
         FFRoute(
-          name: 'FAQ',
-          path: '/faq',
-          builder: (context, params) => const FaqWidget(),
+          name: FaqWidget.routeName,
+          path: FaqWidget.routePath,
+          builder: (context, params) => FaqWidget(),
         ),
         FFRoute(
-          name: 'ContactUs',
-          path: '/contactUs',
-          builder: (context, params) => const ContactUsWidget(),
+          name: ContactUsWidget.routeName,
+          path: ContactUsWidget.routePath,
+          builder: (context, params) => ContactUsWidget(),
         ),
         FFRoute(
-          name: 'deskripsi',
-          path: '/deskripsi',
+          name: DeskripsiWidget.routeName,
+          path: DeskripsiWidget.routePath,
           builder: (context, params) => DeskripsiWidget(
             judul: params.getParam(
               'judul',
@@ -176,13 +177,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'HomePageCopy',
-          path: '/homePageCopy',
-          builder: (context, params) => const HomePageCopyWidget(),
+          name: HomePageCopyWidget.routeName,
+          path: HomePageCopyWidget.routePath,
+          builder: (context, params) => HomePageCopyWidget(),
         ),
         FFRoute(
-          name: 'detailtree',
-          path: '/detailtree',
+          name: DetailtreeWidget.routeName,
+          path: DetailtreeWidget.routePath,
           builder: (context, params) => DetailtreeWidget(
             price: params.getParam(
               'price',
@@ -255,13 +256,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'Listmytrolly',
-          path: '/listmytrolly',
-          builder: (context, params) => const ListmytrollyWidget(),
+          name: ListmytrollyWidget.routeName,
+          path: ListmytrollyWidget.routePath,
+          builder: (context, params) => ListmytrollyWidget(),
         ),
         FFRoute(
-          name: 'YourTrolley',
-          path: '/yourTrolley',
+          name: YourTrolleyWidget.routeName,
+          path: YourTrolleyWidget.routePath,
           builder: (context, params) => YourTrolleyWidget(
             idku: params.getParam(
               'idku',
@@ -282,8 +283,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'checkoutorder',
-          path: '/checkoutorder',
+          name: CheckoutorderWidget.routeName,
+          path: CheckoutorderWidget.routePath,
           builder: (context, params) => CheckoutorderWidget(
             iconbank: params.getParam(
               'iconbank',
@@ -308,13 +309,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'listTransaksi',
-          path: '/listTransaksi',
-          builder: (context, params) => const ListTransaksiWidget(),
+          name: ListTransaksiWidget.routeName,
+          path: ListTransaksiWidget.routePath,
+          builder: (context, params) => ListTransaksiWidget(),
         ),
         FFRoute(
-          name: 'uploadtransferr',
-          path: '/uploadtransferr',
+          name: UploadtransferrWidget.routeName,
+          path: UploadtransferrWidget.routePath,
           builder: (context, params) => UploadtransferrWidget(
             id: params.getParam(
               'id',
@@ -323,13 +324,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'OrdersTrees',
-          path: '/ordersTrees',
-          builder: (context, params) => const OrdersTreesWidget(),
+          name: OrdersTreesWidget.routeName,
+          path: OrdersTreesWidget.routePath,
+          builder: (context, params) => OrdersTreesWidget(),
         ),
         FFRoute(
-          name: 'viewtransaksi',
-          path: '/viewtransaksi',
+          name: ViewtransaksiWidget.routeName,
+          path: ViewtransaksiWidget.routePath,
           builder: (context, params) => ViewtransaksiWidget(
             image: params.getParam(
               'image',
@@ -338,13 +339,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'mycertifikat',
-          path: '/mycertifikat',
-          builder: (context, params) => const MycertifikatWidget(),
+          name: MycertifikatWidget.routeName,
+          path: MycertifikatWidget.routePath,
+          builder: (context, params) => MycertifikatWidget(),
         ),
         FFRoute(
-          name: 'certificateview',
-          path: '/certificateview',
+          name: CertificateviewWidget.routeName,
+          path: CertificateviewWidget.routePath,
           builder: (context, params) => CertificateviewWidget(
             nama: params.getParam(
               'nama',
@@ -369,26 +370,40 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'downloadQrCode',
-          path: '/downloadQrCode',
-          builder: (context, params) => const DownloadQrCodeWidget(),
+          name: DownloadQrCodeWidget.routeName,
+          path: DownloadQrCodeWidget.routePath,
+          builder: (context, params) => DownloadQrCodeWidget(),
         ),
         FFRoute(
-          name: 'logincoba',
-          path: '/logincoba',
-          builder: (context, params) => LogincobaWidget(
-            response: params.getParam(
-              'response',
+          name: DetaildesaWidget.routeName,
+          path: DetaildesaWidget.routePath,
+          builder: (context, params) => DetaildesaWidget(
+            id: params.getParam(
+              'id',
+              ParamType.int,
+            ),
+            nama: params.getParam(
+              'nama',
               ParamType.String,
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'responlogin',
-          path: '/responlogin',
-          builder: (context, params) => ResponloginWidget(
-            respon: params.getParam(
-              'respon',
+            profil: params.getParam(
+              'profil',
+              ParamType.String,
+            ),
+            lat: params.getParam(
+              'lat',
+              ParamType.String,
+            ),
+            long: params.getParam(
+              'long',
+              ParamType.String,
+            ),
+            foto: params.getParam(
+              'foto',
+              ParamType.String,
+            ),
+            hutandesa: params.getParam(
+              'hutandesa',
               ParamType.String,
             ),
           ),
@@ -625,7 +640,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

@@ -41,7 +41,7 @@ class _PaymentChoiceWidgetState extends State<PaymentChoiceWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(20.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -49,7 +49,7 @@ class _PaymentChoiceWidgetState extends State<PaymentChoiceWidget> {
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -70,13 +70,13 @@ class _PaymentChoiceWidgetState extends State<PaymentChoiceWidget> {
                     ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Container(
                   height: 321.44,
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: FutureBuilder<ApiCallResponse>(
                       future: PaymentGroup.getlistbankCall.call(),
                       builder: (context, snapshot) {
@@ -147,7 +147,7 @@ class _PaymentChoiceWidgetState extends State<PaymentChoiceWidget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        boxShadow: const [
+                                        boxShadow: [
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
@@ -161,7 +161,7 @@ class _PaymentChoiceWidgetState extends State<PaymentChoiceWidget> {
                                             BorderRadius.circular(10.0),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
+                                        padding: EdgeInsets.all(10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -169,7 +169,7 @@ class _PaymentChoiceWidgetState extends State<PaymentChoiceWidget> {
                                               width: 50.0,
                                               height: 50.0,
                                               clipBehavior: Clip.antiAlias,
-                                              decoration: const BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Image.network(
@@ -215,15 +215,15 @@ class _PaymentChoiceWidgetState extends State<PaymentChoiceWidget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
-                                                ].divide(const SizedBox(height: 5.0)),
+                                                ].divide(SizedBox(height: 5.0)),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(width: 10.0)),
+                                          ].divide(SizedBox(width: 10.0)),
                                         ),
                                       ),
                                     ),
                                   );
-                                }).divide(const SizedBox(height: 10.0)),
+                                }).divide(SizedBox(height: 10.0)),
                               ),
                             );
                           },
@@ -233,9 +233,9 @@ class _PaymentChoiceWidgetState extends State<PaymentChoiceWidget> {
                   ),
                 ),
               ),
-              const Spacer(),
+              Spacer(),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                 child: Text(
                   'Verification Transaction 1x24 Hours',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -244,7 +244,7 @@ class _PaymentChoiceWidgetState extends State<PaymentChoiceWidget> {
                       ),
                 ),
               ),
-            ].divide(const SizedBox(height: 10.0)),
+            ].divide(SizedBox(height: 10.0)),
           ),
         ),
       ),

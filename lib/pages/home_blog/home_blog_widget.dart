@@ -5,6 +5,7 @@ import '/componen/navbar/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -14,6 +15,9 @@ export 'home_blog_model.dart';
 
 class HomeBlogWidget extends StatefulWidget {
   const HomeBlogWidget({super.key});
+
+  static String routeName = 'homeBlog';
+  static String routePath = '/homeBlog';
 
   @override
   State<HomeBlogWidget> createState() => _HomeBlogWidgetState();
@@ -66,7 +70,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 0.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -76,7 +80,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 2.0),
                               child: FutureBuilder<ApiCallResponse>(
                                 future:
@@ -99,7 +103,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                   final stackBlogFirstResponse = snapshot.data!;
 
                                   return Stack(
-                                    alignment: const AlignmentDirectional(-1.0, 1.0),
+                                    alignment: AlignmentDirectional(-1.0, 1.0),
                                     children: [
                                       InkWell(
                                         splashColor: Colors.transparent,
@@ -108,7 +112,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                            'deskripsi',
+                                            DeskripsiWidget.routeName,
                                             queryParameters: {
                                               'judul': serializeParam(
                                                 ResponsenewblogfirstStruct
@@ -157,7 +161,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                           );
                                         },
                                         child: Container(
-                                          decoration: const BoxDecoration(),
+                                          decoration: BoxDecoration(),
                                           child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(0.0),
@@ -179,10 +183,10 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, 1.0),
+                                            AlignmentDirectional(-1.0, 1.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 20.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
@@ -191,7 +195,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'deskripsi',
+                                                DeskripsiWidget.routeName,
                                                 queryParameters: {
                                                   'judul': serializeParam(
                                                     ResponsenewblogfirstStruct
@@ -241,17 +245,17 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(
                                                   colors: [
-                                                    const Color(0x7AF1F4F8),
+                                                    Color(0x7AF1F4F8),
                                                     FlutterFlowTheme.of(context)
                                                         .alternate
                                                   ],
-                                                  stops: const [0.0, 1.0],
-                                                  begin: const AlignmentDirectional(
+                                                  stops: [0.0, 1.0],
+                                                  begin: AlignmentDirectional(
                                                       0.0, -1.0),
-                                                  end: const AlignmentDirectional(
+                                                  end: AlignmentDirectional(
                                                       0, 1.0),
                                                 ),
-                                                borderRadius: const BorderRadius.only(
+                                                borderRadius: BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(0.0),
                                                   bottomRight:
@@ -262,7 +266,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.all(10.0),
+                                                padding: EdgeInsets.all(10.0),
                                                 child: Text(
                                                   valueOrDefault<String>(
                                                     ResponsenewblogfirstStruct
@@ -294,7 +298,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                             ),
                             if (FFAppState().ISLOADING == false)
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 20.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -308,10 +312,10 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                       options: FFButtonOptions(
                                         width: 100.0,
                                         height: 40.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FFAppState().klikArtikel ==
                                                 'Artikel'
@@ -345,10 +349,10 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                       options: FFButtonOptions(
                                         width: 100.0,
                                         height: 40.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color:
                                             FFAppState().klikArtikel == 'berita'
@@ -373,11 +377,11 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(width: 5.0)),
+                                  ].divide(SizedBox(width: 5.0)),
                                 ),
                               ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 100.0),
                               child: Builder(
                                 builder: (context) {
@@ -434,7 +438,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                           responseBlogFilterIndex];
                                                   return Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(20.0, 5.0,
                                                                 20.0, 10.0),
                                                     child: InkWell(
@@ -448,7 +452,8 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                           Colors.transparent,
                                                       onTap: () async {
                                                         context.pushNamed(
-                                                          'deskripsi',
+                                                          DeskripsiWidget
+                                                              .routeName,
                                                           queryParameters: {
                                                             'judul':
                                                                 serializeParam(
@@ -491,7 +496,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
-                                                          boxShadow: const [
+                                                          boxShadow: [
                                                             BoxShadow(
                                                               blurRadius: 4.0,
                                                               color: Color(
@@ -533,7 +538,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                             Flexible(
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             0.0,
@@ -564,7 +569,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                             ),
                                                             Flexible(
                                                               child: Padding(
-                                                                padding: const EdgeInsetsDirectional
+                                                                padding: EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         0.0,
@@ -589,7 +594,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                                 ),
                                                               ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               height: 10.0)),
                                                         ),
                                                       ),
@@ -656,7 +661,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                           responblogbyfilterIndex];
                                                   return Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(20.0, 5.0,
                                                                 20.0, 10.0),
                                                     child: InkWell(
@@ -670,7 +675,8 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                           Colors.transparent,
                                                       onTap: () async {
                                                         context.pushNamed(
-                                                          'deskripsi',
+                                                          DeskripsiWidget
+                                                              .routeName,
                                                           queryParameters: {
                                                             'judul':
                                                                 serializeParam(
@@ -713,7 +719,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
-                                                          boxShadow: const [
+                                                          boxShadow: [
                                                             BoxShadow(
                                                               blurRadius: 4.0,
                                                               color: Color(
@@ -755,7 +761,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                             Flexible(
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             0.0,
@@ -786,7 +792,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                             ),
                                                             Flexible(
                                                               child: Padding(
-                                                                padding: const EdgeInsetsDirectional
+                                                                padding: EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         0.0,
@@ -811,7 +817,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                                 ),
                                                               ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               height: 10.0)),
                                                         ),
                                                       ),
@@ -873,7 +879,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                           responallblogIndex];
                                                   return Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(20.0, 5.0,
                                                                 20.0, 10.0),
                                                     child: InkWell(
@@ -887,7 +893,8 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                           Colors.transparent,
                                                       onTap: () async {
                                                         context.pushNamed(
-                                                          'deskripsi',
+                                                          DeskripsiWidget
+                                                              .routeName,
                                                           queryParameters: {
                                                             'judul':
                                                                 serializeParam(
@@ -946,7 +953,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
-                                                          boxShadow: const [
+                                                          boxShadow: [
                                                             BoxShadow(
                                                               blurRadius: 4.0,
                                                               color: Color(
@@ -988,7 +995,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                             Flexible(
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             0.0,
@@ -1019,7 +1026,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                             ),
                                                             Flexible(
                                                               child: Padding(
-                                                                padding: const EdgeInsetsDirectional
+                                                                padding: EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         0.0,
@@ -1044,7 +1051,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                                                 ),
                                                               ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               height: 10.0)),
                                                         ),
                                                       ),
@@ -1061,7 +1068,7 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
                                 },
                               ),
                             ),
-                          ].divide(const SizedBox(height: 5.0)),
+                          ].divide(SizedBox(height: 5.0)),
                         ),
                       ),
                     ],
@@ -1071,14 +1078,14 @@ class _HomeBlogWidgetState extends State<HomeBlogWidget> {
               wrapWithModel(
                 model: _model.navbarModel,
                 updateCallback: () => safeSetState(() {}),
-                child: const NavbarWidget(
+                child: NavbarWidget(
                   pageIndex: 4,
                 ),
               ),
               wrapWithModel(
                 model: _model.appBarModel,
                 updateCallback: () => safeSetState(() {}),
-                child: const AppBarWidget(),
+                child: AppBarWidget(),
               ),
             ],
           ),

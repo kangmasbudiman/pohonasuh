@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'confirmasi_model.dart';
 export 'confirmasi_model.dart';
@@ -49,10 +50,10 @@ class _ConfirmasiWidgetState extends State<ConfirmasiWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(25.0),
+      padding: EdgeInsets.all(25.0),
       child: Container(
         width: 500.0,
-        constraints: const BoxConstraints(
+        constraints: BoxConstraints(
           maxWidth: 570.0,
         ),
         decoration: BoxDecoration(
@@ -64,12 +65,12 @@ class _ConfirmasiWidgetState extends State<ConfirmasiWidget> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -108,7 +109,7 @@ class _ConfirmasiWidgetState extends State<ConfirmasiWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -116,7 +117,7 @@ class _ConfirmasiWidgetState extends State<ConfirmasiWidget> {
                     FFButtonWidget(
                       onPressed: () async {
                         context.pushNamed(
-                          'viewtransaksi',
+                          ViewtransaksiWidget.routeName,
                           queryParameters: {
                             'image': serializeParam(
                               widget.image,
@@ -126,16 +127,16 @@ class _ConfirmasiWidgetState extends State<ConfirmasiWidget> {
                         );
                       },
                       text: 'Image    ',
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.image,
                         size: 35.0,
                       ),
                       options: FFButtonOptions(
                         height: 44.0,
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         textStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
@@ -164,18 +165,18 @@ class _ConfirmasiWidgetState extends State<ConfirmasiWidget> {
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  title: const Text('Confirmation'),
-                                  content: const Text('Are You Sure To verivication'),
+                                  title: Text('Confirmation'),
+                                  content: Text('Are You Sure To verivication'),
                                   actions: [
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, false),
-                                      child: const Text('Cancel'),
+                                      child: Text('Cancel'),
                                     ),
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, true),
-                                      child: const Text('Confirm'),
+                                      child: Text('Confirm'),
                                     ),
                                   ],
                                 );
@@ -194,13 +195,13 @@ class _ConfirmasiWidgetState extends State<ConfirmasiWidget> {
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  title: const Text('Information'),
-                                  content: const Text('Verivication Success'),
+                                  title: Text('Information'),
+                                  content: Text('Verivication Success'),
                                   actions: [
                                     TextButton(
                                       onPressed: () =>
                                           Navigator.pop(alertDialogContext),
-                                      child: const Text('Ok'),
+                                      child: Text('Ok'),
                                     ),
                                   ],
                                 );
@@ -211,13 +212,13 @@ class _ConfirmasiWidgetState extends State<ConfirmasiWidget> {
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  title: const Text('Information'),
-                                  content: const Text('Verification Faild'),
+                                  title: Text('Information'),
+                                  content: Text('Verification Faild'),
                                   actions: [
                                     TextButton(
                                       onPressed: () =>
                                           Navigator.pop(alertDialogContext),
-                                      child: const Text('Ok'),
+                                      child: Text('Ok'),
                                     ),
                                   ],
                                 );
@@ -233,17 +234,17 @@ class _ConfirmasiWidgetState extends State<ConfirmasiWidget> {
                         safeSetState(() {});
                       },
                       text: 'Approve',
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.check_circle,
                         size: 30.0,
                       ),
                       options: FFButtonOptions(
                         height: 44.0,
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                         iconAlignment: IconAlignment.end,
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -252,7 +253,7 @@ class _ConfirmasiWidgetState extends State<ConfirmasiWidget> {
                                       .secondaryBackground,
                                   letterSpacing: 0.0,
                                 ),
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
@@ -267,10 +268,10 @@ class _ConfirmasiWidgetState extends State<ConfirmasiWidget> {
                         hoverElevation: 0.0,
                       ),
                     ),
-                  ].divide(const SizedBox(width: 16.0)),
+                  ].divide(SizedBox(width: 16.0)),
                 ),
               ),
-            ].divide(const SizedBox(height: 4.0)).addToEnd(const SizedBox(height: 12.0)),
+            ].divide(SizedBox(height: 4.0)).addToEnd(SizedBox(height: 12.0)),
           ),
         ),
       ),

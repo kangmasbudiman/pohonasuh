@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -62,7 +63,7 @@ class FFAppState extends ChangeNotifier {
     _klikArtikel = value;
   }
 
-  bool _ISLOADING = true;
+  bool _ISLOADING = false;
   bool get ISLOADING => _ISLOADING;
   set ISLOADING(bool value) {
     _ISLOADING = value;
@@ -155,6 +156,12 @@ class FFAppState extends ChangeNotifier {
   String get nomor => _nomor;
   set nomor(String value) {
     _nomor = value;
+  }
+
+  LatLng? _latlong;
+  LatLng? get latlong => _latlong;
+  set latlong(LatLng? value) {
+    _latlong = value;
   }
 }
 

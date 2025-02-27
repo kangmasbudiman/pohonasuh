@@ -8,6 +8,9 @@ export 'aboutus_model.dart';
 class AboutusWidget extends StatefulWidget {
   const AboutusWidget({super.key});
 
+  static String routeName = 'aboutus';
+  static String routePath = '/aboutus';
+
   @override
   State<AboutusWidget> createState() => _AboutusWidgetState();
 }
@@ -50,7 +53,7 @@ class _AboutusWidgetState extends State<AboutusWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -68,7 +71,7 @@ class _AboutusWidgetState extends State<AboutusWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -88,7 +91,7 @@ class _AboutusWidgetState extends State<AboutusWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(20.0),
                   child: Text(
                     'Tree Adoption is interpreted as a public reward given to a community for its contributions to tree care based on an agreed mechanism between said community and the customary forest group. A person willing to participate in tree adaption will hereafter be referred to as the caregiver of a tree in customary forest. This adoption scheme will establish a fund that will disburse funds to the relevant customary forest group.\n\nReceived funds will cover the operational costs of the forest management group or provide other benefits that improve the economic livelihoods and capacities of local people.\n\nWe have already recorded dozens of potential trees to be used in the adoption scheme. In the future, tree adoption in the Rantau Kremas customary forest may become a useful model, drawing support from people who care about the forest issues and a proper balance between development and conservation.\n\nYour participation in this project will help save our forest.',
                     textAlign: TextAlign.justify,

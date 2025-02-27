@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'uploadtransferr_model.dart';
 export 'uploadtransferr_model.dart';
@@ -15,6 +16,9 @@ class UploadtransferrWidget extends StatefulWidget {
   });
 
   final int? id;
+
+  static String routeName = 'uploadtransferr';
+  static String routePath = '/uploadtransferr';
 
   @override
   State<UploadtransferrWidget> createState() => _UploadtransferrWidgetState();
@@ -58,7 +62,7 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -76,14 +80,14 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(20.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -110,7 +114,7 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                         );
                       } else {
                         return Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: EdgeInsets.all(10.0),
                           child: Container(
                             width: double.infinity,
                             height: 160.0,
@@ -149,7 +153,7 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -204,7 +208,7 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                                       FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
-                              duration: const Duration(milliseconds: 4000),
+                              duration: Duration(milliseconds: 4000),
                               backgroundColor:
                                   FlutterFlowTheme.of(context).secondary,
                             ),
@@ -213,9 +217,9 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                         text: 'Select ',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
@@ -241,21 +245,21 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  title: const Text('Information'),
-                                  content: const Text(
+                                  title: Text('Information'),
+                                  content: Text(
                                       'proof of transfer has been uploaded'),
                                   actions: [
                                     TextButton(
                                       onPressed: () =>
                                           Navigator.pop(alertDialogContext),
-                                      child: const Text('Ok'),
+                                      child: Text('Ok'),
                                     ),
                                   ],
                                 );
                               },
                             );
 
-                            context.goNamed('listTransaksi');
+                            context.goNamed(ListTransaksiWidget.routeName);
                           }
 
                           safeSetState(() {});
@@ -263,9 +267,9 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                         text: 'Upload',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:

@@ -3,6 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/backend/schema/structs/index.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'app_bar_model.dart';
@@ -49,7 +50,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
         color: FlutterFlowTheme.of(context).primary,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(10.0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -71,29 +72,20 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                       size: 24.0,
                     ),
                   ),
-                  InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed('downloadQrCode');
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        'assets/images/logo_(1).png',
-                        width: 203.7,
-                        height: 42.5,
-                        fit: BoxFit.cover,
-                      ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/logo_(1).png',
+                      width: 203.7,
+                      height: 42.5,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                ].divide(const SizedBox(width: 10.0)),
+                ].divide(SizedBox(width: 10.0)),
               ),
             ),
             Stack(
-              alignment: const AlignmentDirectional(1.0, -1.0),
+              alignment: AlignmentDirectional(1.0, -1.0),
               children: [
                 Icon(
                   Icons.notifications_active,
@@ -101,7 +93,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                   size: 30.0,
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(1.0, -1.0),
+                  alignment: AlignmentDirectional(1.0, -1.0),
                   child: Container(
                     width: 15.0,
                     height: 15.0,
@@ -109,7 +101,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                       color: FlutterFlowTheme.of(context).error,
                       shape: BoxShape.circle,
                     ),
-                    alignment: const AlignmentDirectional(1.0, -1.0),
+                    alignment: AlignmentDirectional(1.0, -1.0),
                   ),
                 ),
               ],
@@ -120,10 +112,10 @@ class _AppBarWidgetState extends State<AppBarWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.pushNamed('Listmytrolly');
+                context.pushNamed(ListmytrollyWidget.routeName);
               },
               child: Stack(
-                alignment: const AlignmentDirectional(1.0, -1.0),
+                alignment: AlignmentDirectional(1.0, -1.0),
                 children: [
                   Icon(
                     Icons.shopping_cart,
@@ -131,7 +123,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                     size: 30.0,
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(1.0, -1.0),
+                    alignment: AlignmentDirectional(1.0, -1.0),
                     child: Container(
                       width: 18.0,
                       height: 18.0,
@@ -139,7 +131,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                         color: FlutterFlowTheme.of(context).error,
                         shape: BoxShape.circle,
                       ),
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: FutureBuilder<ApiCallResponse>(
                         future: RestAPiPohonAsuhGroup.gettrollyCall.call(
                           idmember: valueOrDefault<String>(
@@ -196,7 +188,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                 ],
               ),
             ),
-          ].divide(const SizedBox(width: 6.0)),
+          ].divide(SizedBox(width: 6.0)),
         ),
       ),
     );

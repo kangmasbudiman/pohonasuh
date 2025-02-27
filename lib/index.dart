@@ -35,5 +35,4 @@ export '/myprofil/certificateview/certificateview_widget.dart'
     show CertificateviewWidget;
 export '/myprofil/download_qr_code/download_qr_code_widget.dart'
     show DownloadQrCodeWidget;
-export '/logincoba/logincoba_widget.dart' show LogincobaWidget;
-export '/responlogin/responlogin_widget.dart' show ResponloginWidget;
+export '/desa/detaildesa/detaildesa_widget.dart' show DetaildesaWidget;

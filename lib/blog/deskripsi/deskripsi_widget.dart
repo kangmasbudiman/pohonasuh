@@ -21,6 +21,9 @@ class DeskripsiWidget extends StatefulWidget {
   final int? view;
   final String? cover;
 
+  static String routeName = 'deskripsi';
+  static String routePath = '/deskripsi';
+
   @override
   State<DeskripsiWidget> createState() => _DeskripsiWidgetState();
 }
@@ -63,7 +66,7 @@ class _DeskripsiWidgetState extends State<DeskripsiWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Stack(
-                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  alignment: AlignmentDirectional(0.0, 1.0),
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
@@ -75,9 +78,9 @@ class _DeskripsiWidgetState extends State<DeskripsiWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 10.0, 0.0, 150.0),
                         child: FlutterFlowIconButton(
                           borderRadius: 50.0,
@@ -96,23 +99,23 @@ class _DeskripsiWidgetState extends State<DeskripsiWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                         child: Container(
                           width: double.infinity,
                           height: 40.0,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: Color(0x63FFFFFF),
                           ),
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Icon(
                                   Icons.remove_red_eye,
@@ -122,7 +125,7 @@ class _DeskripsiWidgetState extends State<DeskripsiWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 20.0, 0.0),
                                 child: Text(
                                   valueOrDefault<String>(
@@ -147,7 +150,7 @@ class _DeskripsiWidgetState extends State<DeskripsiWidget> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Text(
                     valueOrDefault<String>(
                       widget.judul,
@@ -162,7 +165,7 @@ class _DeskripsiWidgetState extends State<DeskripsiWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -180,7 +183,7 @@ class _DeskripsiWidgetState extends State<DeskripsiWidget> {
                             widget.posted,
                             'posted',
                           ),
-                          style: const TextStyle(),
+                          style: TextStyle(),
                         )
                       ],
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -195,7 +198,7 @@ class _DeskripsiWidgetState extends State<DeskripsiWidget> {
                   color: FlutterFlowTheme.of(context).alternate,
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Text(
                     valueOrDefault<String>(
                       widget.deskripsi,
@@ -208,7 +211,7 @@ class _DeskripsiWidgetState extends State<DeskripsiWidget> {
                         ),
                   ),
                 ),
-              ].divide(const SizedBox(height: 10.0)),
+              ].divide(SizedBox(height: 10.0)),
             ),
           ),
         ),

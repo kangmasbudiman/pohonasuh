@@ -1,12 +1,16 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'login_register_model.dart';
 export 'login_register_model.dart';
 
 class LoginRegisterWidget extends StatefulWidget {
   const LoginRegisterWidget({super.key});
+
+  static String routeName = 'loginRegister';
+  static String routePath = '/loginRegister';
 
   @override
   State<LoginRegisterWidget> createState() => _LoginRegisterWidgetState();
@@ -58,14 +62,14 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
             child: Stack(
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Spacer(),
+                      Spacer(),
                       Container(
                         decoration: BoxDecoration(
-                          boxShadow: const [
+                          boxShadow: [
                             BoxShadow(
                               blurRadius: 4.0,
                               color: Color(0x33000000),
@@ -80,7 +84,7 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
                         child: FFButtonWidget(
                           onPressed: () async {
                             context.pushNamed(
-                              'loginRegister2',
+                              LoginRegister2Widget.routeName,
                               queryParameters: {
                                 'tabbar': serializeParam(
                                   2,
@@ -93,11 +97,11 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFF10791D),
+                            color: Color(0xFF10791D),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -112,7 +116,7 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          boxShadow: const [
+                          boxShadow: [
                             BoxShadow(
                               blurRadius: 4.0,
                               color: Color(0x33000000),
@@ -127,7 +131,7 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
                         child: FFButtonWidget(
                           onPressed: () async {
                             context.pushNamed(
-                              'loginRegister2',
+                              LoginRegister2Widget.routeName,
                               queryParameters: {
                                 'tabbar': serializeParam(
                                   1,
@@ -140,11 +144,11 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFF10791D),
+                            color: Color(0xFF10791D),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -158,11 +162,11 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 0.0, 0.0, 130.0),
                         child: Container(
                           decoration: BoxDecoration(
-                            boxShadow: const [
+                            boxShadow: [
                               BoxShadow(
                                 blurRadius: 4.0,
                                 color: Color(0x33000000),
@@ -182,11 +186,11 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: const Color(0xFF10791D),
+                              color: Color(0xFF10791D),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -200,13 +204,13 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
                           ),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 10.0)),
+                    ].divide(SizedBox(height: 10.0)),
                   ),
                 ),
                 Container(
                   width: double.infinity,
                   height: 350.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0x98FBEBDC),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(100.0),
@@ -228,12 +232,12 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Container(
                           width: 90.0,
                           height: 90.0,
                           clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             shape: BoxShape.circle,
                           ),
                           child: Image.asset(
@@ -242,7 +246,7 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
                           ),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 10.0)),
+                    ].divide(SizedBox(height: 10.0)),
                   ),
                 ),
               ],

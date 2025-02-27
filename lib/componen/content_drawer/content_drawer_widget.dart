@@ -3,6 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/backend/schema/structs/index.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -43,7 +44,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +78,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                       color: FlutterFlowTheme.of(context).primary,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: EdgeInsets.all(20.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -170,7 +171,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
-                              ].divide(const SizedBox(height: 3.0)),
+                              ].divide(SizedBox(height: 3.0)),
                             ),
                           ),
                           InkWell(
@@ -210,7 +211,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
             },
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
             child: Builder(
               builder: (context) {
                 if (currentUserData?.admin == 0) {
@@ -218,16 +219,16 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 20.0, 20.0),
                         child: Container(
                           width: double.infinity,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Icon(
                                   Icons.person,
@@ -257,7 +258,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                         color: FlutterFlowTheme.of(context).alternate,
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 20.0, 20.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -265,16 +266,16 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed('homeMytree');
+                            context.pushNamed(HomeMytreeWidget.routeName);
                           },
                           child: Container(
                             width: double.infinity,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Icon(
                                     Icons.forest_rounded,
@@ -305,7 +306,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                         color: FlutterFlowTheme.of(context).alternate,
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 20.0, 20.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -313,16 +314,16 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed('mycertifikat');
+                            context.pushNamed(MycertifikatWidget.routeName);
                           },
                           child: Container(
                             width: double.infinity,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Icon(
                                     Icons.document_scanner_sharp,
@@ -353,7 +354,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                         color: FlutterFlowTheme.of(context).alternate,
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 20.0, 20.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -361,16 +362,16 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed('listTransaksi');
+                            context.pushNamed(ListTransaksiWidget.routeName);
                           },
                           child: Container(
                             width: double.infinity,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: FaIcon(
                                     FontAwesomeIcons.donate,
@@ -403,16 +404,16 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 20.0, 20.0),
                         child: Container(
                           width: double.infinity,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Icon(
                                   Icons.person,
@@ -442,16 +443,16 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                         color: FlutterFlowTheme.of(context).alternate,
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 20.0, 20.0),
                         child: Container(
                           width: double.infinity,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Icon(
                                   Icons.forest,
@@ -483,16 +484,16 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 20.0, 20.0),
                         child: Container(
                           width: double.infinity,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Icon(
                                   Icons.person,
@@ -522,16 +523,16 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                         color: FlutterFlowTheme.of(context).alternate,
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 20.0, 20.0),
                         child: Container(
                           width: double.infinity,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Icon(
                                   Icons.supervised_user_circle_sharp,
@@ -557,7 +558,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 20.0, 20.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -565,16 +566,16 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed('OrdersTrees');
+                            context.pushNamed(OrdersTreesWidget.routeName);
                           },
                           child: Container(
                             width: double.infinity,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: FaIcon(
                                     FontAwesomeIcons.tree,
@@ -606,9 +607,9 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
               },
             ),
           ),
-          const Spacer(),
+          Spacer(),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
             child: InkWell(
               splashColor: Colors.transparent,
               focusColor: Colors.transparent,
@@ -616,9 +617,9 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
               highlightColor: Colors.transparent,
               onTap: () async {
                 context.pushNamed(
-                  'aboutus',
+                  AboutusWidget.routeName,
                   extra: <String, dynamic>{
-                    kTransitionInfoKey: const TransitionInfo(
+                    kTransitionInfoKey: TransitionInfo(
                       hasTransition: true,
                       transitionType: PageTransitionType.fade,
                     ),
@@ -627,13 +628,13 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
               },
               child: Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'About Us',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -654,10 +655,10 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
             color: FlutterFlowTheme.of(context).alternate,
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
             child: Container(
               width: double.infinity,
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -665,9 +666,9 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   context.pushNamed(
-                    'rules',
+                    RulesWidget.routeName,
                     extra: <String, dynamic>{
-                      kTransitionInfoKey: const TransitionInfo(
+                      kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
                         transitionType: PageTransitionType.bottomToTop,
                       ),
@@ -679,7 +680,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'Rules',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -700,7 +701,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
             color: FlutterFlowTheme.of(context).alternate,
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
             child: InkWell(
               splashColor: Colors.transparent,
               focusColor: Colors.transparent,
@@ -708,9 +709,9 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
               highlightColor: Colors.transparent,
               onTap: () async {
                 context.pushNamed(
-                  'FAQ',
+                  FaqWidget.routeName,
                   extra: <String, dynamic>{
-                    kTransitionInfoKey: const TransitionInfo(
+                    kTransitionInfoKey: TransitionInfo(
                       hasTransition: true,
                       transitionType: PageTransitionType.fade,
                     ),
@@ -719,13 +720,13 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
               },
               child: Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'FAQ',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -746,7 +747,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
             color: FlutterFlowTheme.of(context).alternate,
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
             child: InkWell(
               splashColor: Colors.transparent,
               focusColor: Colors.transparent,
@@ -754,9 +755,9 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
               highlightColor: Colors.transparent,
               onTap: () async {
                 context.pushNamed(
-                  'ContactUs',
+                  ContactUsWidget.routeName,
                   extra: <String, dynamic>{
-                    kTransitionInfoKey: const TransitionInfo(
+                    kTransitionInfoKey: TransitionInfo(
                       hasTransition: true,
                       transitionType: PageTransitionType.fade,
                     ),
@@ -765,13 +766,13 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
               },
               child: Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'Contact Us',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -797,17 +798,17 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                     context: context,
                     builder: (alertDialogContext) {
                       return AlertDialog(
-                        content: const Text('Are you sure you want to leave'),
+                        content: Text('Are you sure you want to leave'),
                         actions: [
                           TextButton(
                             onPressed: () =>
                                 Navigator.pop(alertDialogContext, false),
-                            child: const Text('Cancel'),
+                            child: Text('Cancel'),
                           ),
                           TextButton(
                             onPressed: () =>
                                 Navigator.pop(alertDialogContext, true),
-                            child: const Text('Confirm'),
+                            child: Text('Confirm'),
                           ),
                         ],
                       );
@@ -819,7 +820,8 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                 await authManager.signOut();
                 GoRouter.of(context).clearRedirectLocation();
 
-                context.goNamedAuth('loginRegister', context.mounted);
+                context.goNamedAuth(
+                    LoginRegisterWidget.routeName, context.mounted);
               } else {
                 Navigator.pop(context);
               }
@@ -831,7 +833,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                 color: FlutterFlowTheme.of(context).error,
               ),
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(20.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -857,7 +859,7 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
               ),
             ),
           ),
-        ].divide(const SizedBox(height: 5.0)),
+        ].divide(SizedBox(height: 5.0)),
       ),
     );
   }

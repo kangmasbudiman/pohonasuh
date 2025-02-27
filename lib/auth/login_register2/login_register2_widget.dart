@@ -4,6 +4,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'login_register2_model.dart';
@@ -16,6 +17,9 @@ class LoginRegister2Widget extends StatefulWidget {
   });
 
   final int? tabbar;
+
+  static String routeName = 'loginRegister2';
+  static String routePath = '/loginRegister2';
 
   @override
   State<LoginRegister2Widget> createState() => _LoginRegister2WidgetState();
@@ -92,7 +96,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -112,19 +116,19 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        child: SizedBox(
+                        child: Container(
                           height: MediaQuery.sizeOf(context).height * 0.712,
                           child: Column(
                             children: [
                               Align(
-                                alignment: const Alignment(0.0, 0),
+                                alignment: Alignment(0.0, 0),
                                 child: TabBar(
                                   labelColor:
                                       FlutterFlowTheme.of(context).primaryText,
@@ -148,7 +152,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                           ),
                                   indicatorColor:
                                       FlutterFlowTheme.of(context).primary,
-                                  tabs: const [
+                                  tabs: [
                                     Tab(
                                       text: 'Login',
                                     ),
@@ -175,7 +179,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 40.0, 0.0, 0.0),
                                             child: Text(
                                               'Login in your account',
@@ -193,11 +197,11 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 50.0, 10.0, 0.0),
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                boxShadow: const [
+                                                boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 2.0,
                                                     color: Color(0x33000000),
@@ -210,7 +214,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                 borderRadius:
                                                     BorderRadius.circular(10.0),
                                               ),
-                                              child: SizedBox(
+                                              child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller: _model
@@ -251,7 +255,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 0.0,
@@ -290,7 +294,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     fillColor: FlutterFlowTheme
                                                             .of(context)
                                                         .secondaryBackground,
-                                                    prefixIcon: const Icon(
+                                                    prefixIcon: Icon(
                                                       Icons.email,
                                                     ),
                                                   ),
@@ -314,11 +318,11 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 20.0, 10.0, 0.0),
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                boxShadow: const [
+                                                boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 2.0,
                                                     color: Color(0x33000000),
@@ -331,7 +335,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                 borderRadius:
                                                     BorderRadius.circular(10.0),
                                               ),
-                                              child: SizedBox(
+                                              child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller: _model
@@ -373,7 +377,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 1.0,
@@ -412,7 +416,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     fillColor: FlutterFlowTheme
                                                             .of(context)
                                                         .secondaryBackground,
-                                                    prefixIcon: const Icon(
+                                                    prefixIcon: Icon(
                                                       Icons.lock,
                                                     ),
                                                     suffixIcon: InkWell(
@@ -471,7 +475,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                   BorderRadius.circular(20.0),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 30.0, 0.0, 0.0),
                                               child: FFButtonWidget(
@@ -496,16 +500,16 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: const Text(
+                                                          title: Text(
                                                               'Information'),
-                                                          content: const Text(
+                                                          content: Text(
                                                               'Login Success'),
                                                           actions: [
                                                             TextButton(
                                                               onPressed: () =>
                                                                   Navigator.pop(
                                                                       alertDialogContext),
-                                                              child: const Text('Ok'),
+                                                              child: Text('Ok'),
                                                             ),
                                                           ],
                                                         );
@@ -569,11 +573,11 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     );
 
                                                     context.pushNamedAuth(
-                                                      'HomePage',
+                                                      HomePageWidget.routeName,
                                                       context.mounted,
                                                       extra: <String, dynamic>{
                                                         kTransitionInfoKey:
-                                                            const TransitionInfo(
+                                                            TransitionInfo(
                                                           hasTransition: true,
                                                           transitionType:
                                                               PageTransitionType
@@ -582,18 +586,23 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                       },
                                                     );
                                                   } else {
-                                                    context.pushNamedAuth(
-                                                      'responlogin',
-                                                      context.mounted,
-                                                      queryParameters: {
-                                                        'respon':
-                                                            serializeParam(
-                                                          (_model.apiResultf31
-                                                                  ?.bodyText ??
-                                                              ''),
-                                                          ParamType.String,
-                                                        ),
-                                                      }.withoutNulls,
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return AlertDialog(
+                                                          title: Text(
+                                                              'Login Failed'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
                                                     );
                                                   }
 
@@ -603,11 +612,11 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                 options: FFButtonOptions(
                                                   width: double.infinity,
                                                   height: 40.0,
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 16.0, 0.0),
                                                   iconPadding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -650,7 +659,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                               fit: BoxFit.contain,
                                             ),
                                           ),
-                                        ].divide(const SizedBox(height: 20.0)),
+                                        ].divide(SizedBox(height: 20.0)),
                                       ),
                                     ),
                                     Form(
@@ -662,7 +671,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 40.0, 0.0, 0.0),
                                             child: Text(
                                               'Become part of the future',
@@ -680,11 +689,11 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 20.0, 10.0, 0.0),
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                boxShadow: const [
+                                                boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 2.0,
                                                     color: Color(0x33000000),
@@ -697,7 +706,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                 borderRadius:
                                                     BorderRadius.circular(10.0),
                                               ),
-                                              child: SizedBox(
+                                              child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller: _model
@@ -738,7 +747,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 0.0,
@@ -777,7 +786,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     fillColor: FlutterFlowTheme
                                                             .of(context)
                                                         .secondaryBackground,
-                                                    prefixIcon: const Icon(
+                                                    prefixIcon: Icon(
                                                       Icons.person,
                                                     ),
                                                   ),
@@ -801,11 +810,11 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                boxShadow: const [
+                                                boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 2.0,
                                                     color: Color(0x33000000),
@@ -818,7 +827,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                 borderRadius:
                                                     BorderRadius.circular(10.0),
                                               ),
-                                              child: SizedBox(
+                                              child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller: _model
@@ -859,7 +868,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 0.0,
@@ -898,7 +907,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     fillColor: FlutterFlowTheme
                                                             .of(context)
                                                         .secondaryBackground,
-                                                    prefixIcon: const Icon(
+                                                    prefixIcon: Icon(
                                                       Icons.email,
                                                     ),
                                                   ),
@@ -922,11 +931,11 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                boxShadow: const [
+                                                boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 2.0,
                                                     color: Color(0x33000000),
@@ -939,7 +948,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                 borderRadius:
                                                     BorderRadius.circular(10.0),
                                               ),
-                                              child: SizedBox(
+                                              child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller: _model
@@ -980,7 +989,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 0.0,
@@ -1019,7 +1028,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     fillColor: FlutterFlowTheme
                                                             .of(context)
                                                         .secondaryBackground,
-                                                    prefixIcon: const Icon(
+                                                    prefixIcon: Icon(
                                                       Icons.phone_iphone,
                                                     ),
                                                   ),
@@ -1043,11 +1052,11 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                boxShadow: const [
+                                                boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 2.0,
                                                     color: Color(0x33000000),
@@ -1060,7 +1069,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                 borderRadius:
                                                     BorderRadius.circular(10.0),
                                               ),
-                                              child: SizedBox(
+                                              child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller: _model
@@ -1102,7 +1111,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 1.0,
@@ -1141,7 +1150,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     fillColor: FlutterFlowTheme
                                                             .of(context)
                                                         .secondaryBackground,
-                                                    prefixIcon: const Icon(
+                                                    prefixIcon: Icon(
                                                       Icons.lock,
                                                     ),
                                                     suffixIcon: InkWell(
@@ -1183,11 +1192,11 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                boxShadow: const [
+                                                boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 2.0,
                                                     color: Color(0x33000000),
@@ -1200,7 +1209,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                 borderRadius:
                                                     BorderRadius.circular(10.0),
                                               ),
-                                              child: SizedBox(
+                                              child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
                                                   controller: _model
@@ -1243,7 +1252,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 1.0,
@@ -1282,7 +1291,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     fillColor: FlutterFlowTheme
                                                             .of(context)
                                                         .secondaryBackground,
-                                                    prefixIcon: const Icon(
+                                                    prefixIcon: Icon(
                                                       Icons.lock,
                                                     ),
                                                     suffixIcon: InkWell(
@@ -1322,7 +1331,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                               ),
                                             ),
                                           ),
-                                          const Spacer(),
+                                          Spacer(),
                                           Container(
                                             decoration: BoxDecoration(
                                               borderRadius:
@@ -1330,7 +1339,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                             ),
                                             child: FFButtonWidget(
                                               onPressed: () async {
-                                                var shouldSetState = false;
+                                                var _shouldSetState = false;
                                                 if (_model
                                                         .txtpasswordTextController2
                                                         .text ==
@@ -1355,7 +1364,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                         .text,
                                                   );
 
-                                                  shouldSetState = true;
+                                                  _shouldSetState = true;
                                                   FFAppState().messageRegister =
                                                       ResponregisterStruct
                                                               .maybeFromMap((_model
@@ -1372,24 +1381,23 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: const Text(
+                                                          title: Text(
                                                               'Information'),
-                                                          content: const Text(
+                                                          content: Text(
                                                               'email has been registered'),
                                                           actions: [
                                                             TextButton(
                                                               onPressed: () =>
                                                                   Navigator.pop(
                                                                       alertDialogContext),
-                                                              child: const Text('Ok'),
+                                                              child: Text('Ok'),
                                                             ),
                                                           ],
                                                         );
                                                       },
                                                     );
-                                                    if (shouldSetState) {
+                                                    if (_shouldSetState)
                                                       safeSetState(() {});
-                                                    }
                                                     return;
                                                   } else {
                                                     await showDialog(
@@ -1397,16 +1405,16 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: const Text(
+                                                          title: Text(
                                                               'Information'),
-                                                          content: const Text(
+                                                          content: Text(
                                                               'Please log in with email and password'),
                                                           actions: [
                                                             TextButton(
                                                               onPressed: () =>
                                                                   Navigator.pop(
                                                                       alertDialogContext),
-                                                              child: const Text('Ok'),
+                                                              child: Text('Ok'),
                                                             ),
                                                           ],
                                                         );
@@ -1414,7 +1422,8 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                     );
 
                                                     context.pushNamed(
-                                                      'loginRegister2',
+                                                      LoginRegister2Widget
+                                                          .routeName,
                                                       queryParameters: {
                                                         'tabbar':
                                                             serializeParam(
@@ -1424,9 +1433,8 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                       }.withoutNulls,
                                                     );
 
-                                                    if (shouldSetState) {
+                                                    if (_shouldSetState)
                                                       safeSetState(() {});
-                                                    }
                                                     return;
                                                   }
                                                 } else {
@@ -1436,39 +1444,37 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                                         (alertDialogContext) {
                                                       return AlertDialog(
                                                         title:
-                                                            const Text('Information'),
-                                                        content: const Text(
+                                                            Text('Information'),
+                                                        content: Text(
                                                             'Password Not Match'),
                                                         actions: [
                                                           TextButton(
                                                             onPressed: () =>
                                                                 Navigator.pop(
                                                                     alertDialogContext),
-                                                            child: const Text('Ok'),
+                                                            child: Text('Ok'),
                                                           ),
                                                         ],
                                                       );
                                                     },
                                                   );
-                                                  if (shouldSetState) {
+                                                  if (_shouldSetState)
                                                     safeSetState(() {});
-                                                  }
                                                   return;
                                                 }
 
-                                                if (shouldSetState) {
+                                                if (_shouldSetState)
                                                   safeSetState(() {});
-                                                }
                                               },
                                               text: 'Joint Community',
                                               options: FFButtonOptions(
                                                 width: double.infinity,
                                                 height: 40.0,
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 iconPadding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -1558,7 +1564,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                             ),
                                             textAlign: TextAlign.center,
                                           ),
-                                        ].divide(const SizedBox(height: 10.0)),
+                                        ].divide(SizedBox(height: 10.0)),
                                       ),
                                     ),
                                   ],

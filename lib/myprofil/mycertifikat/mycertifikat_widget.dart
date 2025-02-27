@@ -4,6 +4,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'mycertifikat_model.dart';
@@ -11,6 +12,9 @@ export 'mycertifikat_model.dart';
 
 class MycertifikatWidget extends StatefulWidget {
   const MycertifikatWidget({super.key});
+
+  static String routeName = 'mycertifikat';
+  static String routePath = '/mycertifikat';
 
   @override
   State<MycertifikatWidget> createState() => _MycertifikatWidgetState();
@@ -54,7 +58,7 @@ class _MycertifikatWidgetState extends State<MycertifikatWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -72,14 +76,14 @@ class _MycertifikatWidgetState extends State<MycertifikatWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
             child: FutureBuilder<ApiCallResponse>(
               future: TreesGroup.mycertificateCall.call(
                 idpengasuh: currentUserData?.id,
@@ -123,7 +127,7 @@ class _MycertifikatWidgetState extends State<MycertifikatWidget> {
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              boxShadow: const [
+                              boxShadow: [
                                 BoxShadow(
                                   blurRadius: 4.0,
                                   color: Color(0x33000000),
@@ -136,13 +140,13 @@ class _MycertifikatWidgetState extends State<MycertifikatWidget> {
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(10.0),
+                              padding: EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Expanded(
                                     child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
+                                      padding: EdgeInsets.all(10.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:
@@ -182,7 +186,7 @@ class _MycertifikatWidgetState extends State<MycertifikatWidget> {
                                                     responseItem.tglExp,
                                                     'tgl_exp',
                                                   ),
-                                                  style: const TextStyle(),
+                                                  style: TextStyle(),
                                                 )
                                               ],
                                               style:
@@ -215,7 +219,7 @@ class _MycertifikatWidgetState extends State<MycertifikatWidget> {
                                                         .toString(),
                                                     '0',
                                                   ),
-                                                  style: const TextStyle(),
+                                                  style: TextStyle(),
                                                 )
                                               ],
                                               style:
@@ -229,7 +233,7 @@ class _MycertifikatWidgetState extends State<MycertifikatWidget> {
                                                       ),
                                             ),
                                           ),
-                                        ].divide(const SizedBox(height: 10.0)),
+                                        ].divide(SizedBox(height: 10.0)),
                                       ),
                                     ),
                                   ),
@@ -241,7 +245,7 @@ class _MycertifikatWidgetState extends State<MycertifikatWidget> {
                                     onTap: () async {
                                       if (responseItem.confirmation == 'yes') {
                                         context.pushNamed(
-                                          'certificateview',
+                                          CertificateviewWidget.routeName,
                                           queryParameters: {
                                             'nama': serializeParam(
                                               valueOrDefault<String>(
@@ -285,15 +289,15 @@ class _MycertifikatWidgetState extends State<MycertifikatWidget> {
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return AlertDialog(
-                                              title: const Text('Information'),
-                                              content: const Text(
+                                              title: Text('Information'),
+                                              content: Text(
                                                   'Your payment has not been confirmed'),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>
                                                       Navigator.pop(
                                                           alertDialogContext),
-                                                  child: const Text('Ok'),
+                                                  child: Text('Ok'),
                                                 ),
                                               ],
                                             );
@@ -322,7 +326,7 @@ class _MycertifikatWidgetState extends State<MycertifikatWidget> {
                               ),
                             ),
                           );
-                        }).divide(const SizedBox(height: 10.0)),
+                        }).divide(SizedBox(height: 10.0)),
                       ),
                     );
                   },

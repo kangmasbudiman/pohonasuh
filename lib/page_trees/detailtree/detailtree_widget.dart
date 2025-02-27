@@ -34,22 +34,22 @@ class DetailtreeWidget extends StatefulWidget {
     String? tgladopt,
     String? tglexp,
     this.idpohon,
-  })  : price = price ?? '0',
-        vilage = vilage ?? '-',
-        locaname = locaname ?? '-',
-        spesies = spesies ?? '-',
-        family = family ?? '-',
-        slop = slop ?? '-',
-        diameter = diameter ?? '-',
-        circumference = circumference ?? '-',
-        height = height ?? '-',
-        asl = asl ?? '-',
-        surveidate = surveidate ?? '-',
-        photosby = photosby ?? '-',
-        surveyedby = surveyedby ?? '-',
-        adopttedby = adopttedby ?? '-',
-        tgladopt = tgladopt ?? '-',
-        tglexp = tglexp ?? '-';
+  })  : this.price = price ?? '0',
+        this.vilage = vilage ?? '-',
+        this.locaname = locaname ?? '-',
+        this.spesies = spesies ?? '-',
+        this.family = family ?? '-',
+        this.slop = slop ?? '-',
+        this.diameter = diameter ?? '-',
+        this.circumference = circumference ?? '-',
+        this.height = height ?? '-',
+        this.asl = asl ?? '-',
+        this.surveidate = surveidate ?? '-',
+        this.photosby = photosby ?? '-',
+        this.surveyedby = surveyedby ?? '-',
+        this.adopttedby = adopttedby ?? '-',
+        this.tgladopt = tgladopt ?? '-',
+        this.tglexp = tglexp ?? '-';
 
   final String price;
   final String vilage;
@@ -68,6 +68,9 @@ class DetailtreeWidget extends StatefulWidget {
   final String tgladopt;
   final String tglexp;
   final String? idpohon;
+
+  static String routeName = 'detailtree';
+  static String routePath = '/detailtree';
 
   @override
   State<DetailtreeWidget> createState() => _DetailtreeWidgetState();
@@ -111,7 +114,7 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -129,14 +132,14 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Stack(
-            alignment: const AlignmentDirectional(0.0, 1.0),
+            alignment: AlignmentDirectional(0.0, 1.0),
             children: [
               SingleChildScrollView(
                 child: Column(
@@ -176,7 +179,7 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                                     .toList() ??
                                 [];
 
-                            return SizedBox(
+                            return Container(
                               width: double.infinity,
                               height: 200.0,
                               child: CarouselSlider.builder(
@@ -210,9 +213,9 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                                   scrollDirection: Axis.horizontal,
                                   autoPlay: true,
                                   autoPlayAnimationDuration:
-                                      const Duration(milliseconds: 800),
+                                      Duration(milliseconds: 800),
                                   autoPlayInterval:
-                                      const Duration(milliseconds: (800 + 4000)),
+                                      Duration(milliseconds: (800 + 4000)),
                                   autoPlayCurve: Curves.linear,
                                   pauseAutoPlayInFiniteScroll: true,
                                   onPageChanged: (index, _) =>
@@ -226,7 +229,7 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -265,9 +268,9 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: EdgeInsets.all(10.0),
                                 child: AutoSizeText(
                                   valueOrDefault<String>(
                                     widget.idpohon,
@@ -290,11 +293,11 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 5.0)),
+                        ].divide(SizedBox(width: 5.0)),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      padding: EdgeInsetsDirectional.fromSTEB(
                           20.0, 20.0, 20.0, 80.0),
                       child: Card(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -304,7 +307,7 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: EdgeInsets.all(10.0),
                           child: Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
@@ -651,7 +654,10 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                                         ),
                                       ),
                                       Text(
-                                        widget.photosby,
+                                        widget.photosby.maybeHandleOverflow(
+                                          maxChars: 25,
+                                          replacement: '…',
+                                        ),
                                         maxLines: 1,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -740,7 +746,7 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                                       ),
                                     ],
                                   ),
-                                ].divide(const SizedBox(height: 10.0)),
+                                ].divide(SizedBox(height: 10.0)),
                               ),
                             ),
                           ),
@@ -753,7 +759,7 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
               Builder(
                 builder: (context) => Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       _model.apiResultmtf =
@@ -781,7 +787,7 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                                 elevation: 0,
                                 insetPadding: EdgeInsets.zero,
                                 backgroundColor: Colors.transparent,
-                                alignment: const AlignmentDirectional(0.0, 0.0)
+                                alignment: AlignmentDirectional(0.0, 0.0)
                                     .resolve(Directionality.of(context)),
                                 child: GestureDetector(
                                   onTap: () {
@@ -789,7 +795,7 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                                     FocusManager.instance.primaryFocus
                                         ?.unfocus();
                                   },
-                                  child: const SizedBox(
+                                  child: Container(
                                     height: 90.0,
                                     width: double.infinity,
                                     child: InformationWidget(
@@ -810,7 +816,7 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                                 elevation: 0,
                                 insetPadding: EdgeInsets.zero,
                                 backgroundColor: Colors.transparent,
-                                alignment: const AlignmentDirectional(0.0, 0.0)
+                                alignment: AlignmentDirectional(0.0, 0.0)
                                     .resolve(Directionality.of(context)),
                                 child: GestureDetector(
                                   onTap: () {
@@ -818,7 +824,7 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                                     FocusManager.instance.primaryFocus
                                         ?.unfocus();
                                   },
-                                  child: const SizedBox(
+                                  child: Container(
                                     height: 90.0,
                                     width: double.infinity,
                                     child: InformationWidget(
@@ -836,13 +842,13 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                           context: context,
                           builder: (alertDialogContext) {
                             return AlertDialog(
-                              title: const Text('Information'),
-                              content: const Text('Add Trolley Failed'),
+                              title: Text('Information'),
+                              content: Text('Add Trolley Failed'),
                               actions: [
                                 TextButton(
                                   onPressed: () =>
                                       Navigator.pop(alertDialogContext),
-                                  child: const Text('Ok'),
+                                  child: Text('Ok'),
                                 ),
                               ],
                             );
@@ -857,9 +863,9 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                       width: double.infinity,
                       height: 40.0,
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(

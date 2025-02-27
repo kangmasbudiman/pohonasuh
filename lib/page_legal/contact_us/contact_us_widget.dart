@@ -8,6 +8,9 @@ export 'contact_us_model.dart';
 class ContactUsWidget extends StatefulWidget {
   const ContactUsWidget({super.key});
 
+  static String routeName = 'ContactUs';
+  static String routePath = '/contactUs';
+
   @override
   State<ContactUsWidget> createState() => _ContactUsWidgetState();
 }
@@ -50,7 +53,7 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -68,7 +71,7 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -80,7 +83,7 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(20.0),
                   child: Text(
                     'Send text or call to\nMrs. Emmy +62 811-7453-700\nor',
                     textAlign: TextAlign.start,
@@ -93,7 +96,7 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -105,7 +108,7 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).accent4,
-                        boxShadow: const [
+                        boxShadow: [
                           BoxShadow(
                             blurRadius: 4.0,
                             color: Color(0x33000000),
@@ -118,7 +121,7 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -131,7 +134,7 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
                                     .secondaryBackground,
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   image: Image.asset(
                                     'assets/images/download.png',
                                   ).image,
@@ -140,7 +143,7 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Chat Via WhatsApp',
