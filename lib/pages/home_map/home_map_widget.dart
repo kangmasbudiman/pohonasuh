@@ -1,13 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
-import '/backend/schema/structs/index.dart';
 import '/componen/navbar/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
 import 'home_map_model.dart';
 export 'home_map_model.dart';
@@ -95,77 +94,65 @@ class _HomeMapWidgetState extends State<HomeMapWidget> {
           top: true,
           child: Stack(
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 95.0),
-                child: FutureBuilder<ApiCallResponse>(
-                  future: TreesGroup.pohonmapCall.call(
-                    limit: 100,
-                  ),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 20.0,
-                          height: 20.0,
-                          child: SpinKitThreeBounce(
-                            color: FlutterFlowTheme.of(context).primary,
-                            size: 20.0,
-                          ),
-                        ),
-                      );
-                    }
-                    final googleMapPohonmapResponse = snapshot.data!;
-
-                    return FlutterFlowGoogleMap(
-                      controller: _model.googleMapsController,
-                      onCameraIdle: (latLng) =>
-                          safeSetState(() => _model.googleMapsCenter = latLng),
-                      initialLocation: _model.googleMapsCenter ??=
-                          currentUserLocationValue!,
-                      markers: ((googleMapPohonmapResponse.jsonBody
-                                          .toList()
-                                          .map<ReponPohonMapStruct?>(
-                                              ReponPohonMapStruct.maybeFromMap)
-                                          .toList()
-                                      as Iterable<ReponPohonMapStruct?>)
-                                  .withoutNulls
-                                  .map((e) => e.location)
-                                  .withoutNulls
-                                  .toList() ??
-                              [])
-                          .map(
-                            (marker) => FlutterFlowMarker(
-                              marker.serialize(),
-                              marker,
-                            ),
-                          )
-                          .toList(),
-                      markerColor: GoogleMarkerColor.violet,
-                      mapType: MapType.normal,
-                      style: GoogleMapStyle.standard,
-                      initialZoom: 14.0,
-                      allowInteraction: true,
-                      allowZoom: true,
-                      showZoomControls: true,
-                      showLocation: true,
-                      showCompass: true,
-                      showMapToolbar: true,
-                      showTraffic: true,
-                      centerMapOnMarkerTap: true,
-                    );
-                  },
+              wrapWithModel(
+                model: _model.navbarModel,
+                updateCallback: () => safeSetState(() {}),
+                child: NavbarWidget(
+                  pageIndex: 1,
                 ),
               ),
-              PointerInterceptor(
-                intercepting: isWeb,
-                child: wrapWithModel(
-                  model: _model.navbarModel,
-                  updateCallback: () => safeSetState(() {}),
-                  child: NavbarWidget(
-                    pageIndex: 1,
-                  ),
+              FutureBuilder<ApiCallResponse>(
+                future: TreesGroup.pohonmapCall.call(
+                  limit: 100,
                 ),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 20.0,
+                        height: 20.0,
+                        child: SpinKitThreeBounce(
+                          color: FlutterFlowTheme.of(context).primary,
+                          size: 20.0,
+                        ),
+                      ),
+                    );
+                  }
+                  final googleMapPohonmapResponse = snapshot.data!;
+
+                  return FlutterFlowGoogleMap(
+                    controller: _model.googleMapsController,
+                    onCameraIdle: (latLng) =>
+                        safeSetState(() => _model.googleMapsCenter = latLng),
+                    initialLocation: _model.googleMapsCenter ??=
+                        currentUserLocationValue!,
+                    markers: functions
+                        .stringToLatLng(getJsonField(
+                          googleMapPohonmapResponse.jsonBody,
+                          r'''$.location''',
+                        ))
+                        .map(
+                          (marker) => FlutterFlowMarker(
+                            marker.serialize(),
+                            marker,
+                          ),
+                        )
+                        .toList(),
+                    markerColor: GoogleMarkerColor.cyan,
+                    mapType: MapType.normal,
+                    style: GoogleMapStyle.dark,
+                    initialZoom: 14.0,
+                    allowInteraction: true,
+                    allowZoom: true,
+                    showZoomControls: true,
+                    showLocation: true,
+                    showCompass: true,
+                    showMapToolbar: true,
+                    showTraffic: true,
+                    centerMapOnMarkerTap: true,
+                  );
+                },
               ),
             ],
           ),

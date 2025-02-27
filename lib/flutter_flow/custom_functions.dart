@@ -54,3 +54,19 @@ int? stringToInt(String? totalHarga) {
   String cleanString = totalHarga.replaceAll(RegExp(r'[^0-9]'), '');
   return int.tryParse(cleanString);
 }
+
+List<LatLng> stringToLatLng(dynamic locationString) {
+  if (locationString is Map<String, dynamic> &&
+      locationString.containsKey('latitude') &&
+      locationString.containsKey('longitude')) {
+    double? lat = double.tryParse(locationString['latitude'].toString());
+    double? lng = double.tryParse(locationString['longitude'].toString());
+
+    if (lat != null && lng != null) {
+      return [LatLng(lat, lng)];
+    }
+  }
+
+  // Jika data tidak valid, kembalikan list dengan nilai default
+  return [const LatLng(0.0, 0.0)];
+}

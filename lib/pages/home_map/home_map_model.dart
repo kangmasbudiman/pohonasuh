@@ -20,11 +20,11 @@ class HomeMapModel extends FlutterFlowModel<HomeMapWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  // Model for navbar component.
+  late NavbarModel navbarModel;
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
-  // Model for navbar component.
-  late NavbarModel navbarModel;
 
   @override
   void initState(BuildContext context) {
