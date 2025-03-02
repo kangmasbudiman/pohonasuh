@@ -36,10 +36,6 @@ dependencies:
   csslib: 0.17.3
   easy_debounce: 2.0.1
   equatable: 2.0.5
-  ff_commons:
-    path: ./dependencies/ff_commons # 1.0.0+1
-  ff_theme:
-    path: ./dependencies/ff_theme # 1.0.0+1
   file_picker: 8.1.2
   flutter_animate: 4.5.0
   flutter_cache_manager: 3.4.1
@@ -107,8 +103,6 @@ dependencies:
   smooth_page_indicator: 1.1.0
   sqflite: 2.3.3+1
   sqflite_common: 2.5.4+3
-  supabase_google_map_library_s065pd:
-    path: ./dependencies/supabase_google_map_library_s065pd # 1.0.0
   timeago: 3.6.1
   url_launcher: 6.3.0
   url_launcher_android: 6.3.10
@@ -172,13 +166,6 @@ flutter:
     - assets/rive_animations/
     - assets/pdfs/
     - assets/jsons/
-    - dependencies/supabase_google_map_library_s065pd/assets/fonts/
-    - dependencies/supabase_google_map_library_s065pd/assets/images/
-    - dependencies/supabase_google_map_library_s065pd/assets/videos/
-    - dependencies/supabase_google_map_library_s065pd/assets/audios/
-    - dependencies/supabase_google_map_library_s065pd/assets/rive_animations/
-    - dependencies/supabase_google_map_library_s065pd/assets/pdfs/
-    - dependencies/supabase_google_map_library_s065pd/assets/jsons/
 
 
 
