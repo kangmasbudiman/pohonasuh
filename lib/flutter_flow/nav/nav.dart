@@ -407,6 +407,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: HomeMapallWidget.routeName,
+          path: HomeMapallWidget.routePath,
+          builder: (context, params) => HomeMapallWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

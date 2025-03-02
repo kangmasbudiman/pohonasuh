@@ -1,6 +1,6 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -32,8 +32,6 @@ class _NavbarWidgetState extends State<NavbarWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => NavbarModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -58,7 +56,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                 'assets/images/navbar_6_bg_white.svg',
                 width: double.infinity,
                 height: 107.0,
-                fit: BoxFit.contain,
+                fit: BoxFit.fitWidth,
                 alignment: Alignment(0.0, 1.0),
               ),
             ),
@@ -469,7 +467,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
           Align(
             alignment: AlignmentDirectional(0.0, 1.0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,

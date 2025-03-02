@@ -2,11 +2,11 @@ import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/componen/payment_choice/payment_choice_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -62,8 +62,6 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
         safeSetState(() {});
       }
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

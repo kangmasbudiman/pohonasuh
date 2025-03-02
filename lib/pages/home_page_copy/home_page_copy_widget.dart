@@ -3,10 +3,10 @@ import '/backend/schema/structs/index.dart';
 import '/componen/app_bar/app_bar_widget.dart';
 import '/componen/content_drawer/content_drawer_widget.dart';
 import '/componen/navbar/navbar_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'home_page_copy_model.dart';
@@ -31,8 +31,6 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageCopyModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

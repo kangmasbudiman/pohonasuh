@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 import 'certificateview_model.dart';
@@ -39,8 +39,6 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CertificateviewModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

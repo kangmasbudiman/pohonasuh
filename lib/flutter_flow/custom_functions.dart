@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'lat_lng.dart';
-import 'place.dart';
-import 'uploaded_file.dart';
+import 'package:ff_commons/flutter_flow/lat_lng.dart';
+import 'package:ff_commons/flutter_flow/place.dart';
+import 'package:ff_commons/flutter_flow/uploaded_file.dart';
 import '/backend/schema/structs/index.dart';
 import '/auth/custom_auth/auth_util.dart';
+import 'package:supabase_google_map_library_s065pd/flutter_flow/custom_functions.dart'
+    as supabase_google_map_library_s065pd_functions;
 
 String? sumSubtotal(List<dynamic>? apiResult) {
   // Jika apiResult null atau bukan List, return "Rp 0"
@@ -69,4 +71,61 @@ List<LatLng> stringToLatLng(dynamic locationString) {
 
   // Jika data tidak valid, kembalikan list dengan nilai default
   return [const LatLng(0.0, 0.0)];
+}
+
+String? latlngTostring(LatLng? input) {
+  // return Input location as string
+  if (input != null) {
+    return '${input.latitude},${input.longitude}';
+  } else {
+    return null;
+  }
+}
+
+List<LatLng>? doubleToLatlng(
+  List<double>? latitude,
+  List<double>? longitude,
+) {
+  // return latlongitude and longitude  combained
+  if (latitude == null || longitude == null) {
+    return null;
+  }
+
+  if (latitude.length != longitude.length) {
+    throw ArgumentError(
+        'Latitude and Longitude lists must have the same length');
+  }
+
+  List<LatLng> latLngList = [];
+  for (int i = 0; i < latitude.length; i++) {
+    latLngList.add(LatLng(latitude[i], longitude[i]));
+  }
+
+  return latLngList;
+}
+
+int? indexMarkerIdentifier(
+  LatLng? centreMarkerCoordinate,
+  List<LatLng>? listOfLocation,
+) {
+  if (centreMarkerCoordinate == null ||
+      listOfLocation == null ||
+      listOfLocation.isEmpty) {
+    return null;
+  }
+
+  const double epsilon = 0.000001; // Toleransi presisi
+
+  for (int i = 0; i < listOfLocation.length; i++) {
+    if ((centreMarkerCoordinate.latitude - listOfLocation[i].latitude).abs() <
+            epsilon &&
+        (centreMarkerCoordinate.longitude - listOfLocation[i].longitude).abs() <
+            epsilon) {
+      print("Marker ditemukan di index: $i"); // Debugging
+      return i;
+    }
+  }
+
+  print("Marker tidak ditemukan");
+  return null; // Jika marker tidak ditemukan
 }

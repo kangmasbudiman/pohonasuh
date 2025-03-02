@@ -3,9 +3,9 @@ import '/backend/schema/structs/index.dart';
 import '/componen/app_bar/app_bar_widget.dart';
 import '/componen/navbar/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -45,8 +45,6 @@ class _HomeVilageWidgetState extends State<HomeVilageWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -1,7 +1,7 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'login_register_model.dart';
 export 'login_register_model.dart';
@@ -25,8 +25,6 @@ class _LoginRegisterWidgetState extends State<LoginRegisterWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LoginRegisterModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

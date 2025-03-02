@@ -36,3 +36,4 @@ export '/myprofil/certificateview/certificateview_widget.dart'
 export '/myprofil/download_qr_code/download_qr_code_widget.dart'
     show DownloadQrCodeWidget;
 export '/desa/detaildesa/detaildesa_widget.dart' show DetaildesaWidget;
+export '/pages/home_mapall/home_mapall_widget.dart' show HomeMapallWidget;

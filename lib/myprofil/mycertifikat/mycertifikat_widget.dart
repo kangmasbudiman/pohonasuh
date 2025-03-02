@@ -2,9 +2,9 @@ import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'mycertifikat_model.dart';
@@ -29,8 +29,6 @@ class _MycertifikatWidgetState extends State<MycertifikatWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MycertifikatModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

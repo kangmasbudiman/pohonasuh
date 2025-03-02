@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/backend/schema/structs/index.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -162,6 +163,44 @@ class FFAppState extends ChangeNotifier {
   LatLng? get latlong => _latlong;
   set latlong(LatLng? value) {
     _latlong = value;
+  }
+
+  List<LatlangStruct> _latlang = [
+    LatlangStruct.fromSerializableMap(jsonDecode(
+        '{\"latlang\":\"[\\\"-1.6505284,103.5755084\\\",\\\"-1.6375582,103.5829759\\\",\\\"-1.5895648,103.6148296\\\",\\\"38.86771069999999,-77.4470208\\\"]\"}'))
+  ];
+  List<LatlangStruct> get latlang => _latlang;
+  set latlang(List<LatlangStruct> value) {
+    _latlang = value;
+  }
+
+  void addToLatlang(LatlangStruct value) {
+    latlang.add(value);
+  }
+
+  void removeFromLatlang(LatlangStruct value) {
+    latlang.remove(value);
+  }
+
+  void removeAtIndexFromLatlang(int index) {
+    latlang.removeAt(index);
+  }
+
+  void updateLatlangAtIndex(
+    int index,
+    LatlangStruct Function(LatlangStruct) updateFn,
+  ) {
+    latlang[index] = updateFn(_latlang[index]);
+  }
+
+  void insertAtIndexInLatlang(int index, LatlangStruct value) {
+    latlang.insert(index, value);
+  }
+
+  bool _bootomsheet = true;
+  bool get bootomsheet => _bootomsheet;
+  set bootomsheet(bool value) {
+    _bootomsheet = value;
   }
 }
 

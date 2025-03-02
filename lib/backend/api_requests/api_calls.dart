@@ -3,9 +3,10 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
-import 'api_manager.dart';
+import 'package:ff_commons/api_requests/api_manager.dart';
 
-export 'api_manager.dart' show ApiCallResponse;
+
+export 'package:ff_commons/api_requests/api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
@@ -583,6 +584,7 @@ class TreesGroup {
   static GetdesaCall getdesaCall = GetdesaCall();
   static PohodesaCall pohodesaCall = PohodesaCall();
   static PohonmapCall pohonmapCall = PohonmapCall();
+  static PohonmapallCall pohonmapallCall = PohonmapallCall();
 }
 
 class MytreesCall {
@@ -787,33 +789,861 @@ class PohonmapCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  List<String>? location(dynamic response) => (getJsonField(
+  List<double>? lat(dynamic response) => (getJsonField(
         response,
-        r'''$[:].location''',
+        r'''$[:].location.latitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  List<double>? lng(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].location.longitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  List<String>? localname(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].localname''',
         true,
       ) as List?)
           ?.withoutNulls
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  List<String>? family(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].family''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? adopted(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].adopted''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? dur(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].dur''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? price(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].price''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? qrcode(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].qrcode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? tglexp(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].tgl_exp''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? fotoPohon(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].foto_pohon''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? asl(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].asl''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<int>? harga(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].harga''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? keterangan(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].keterangan''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? proses(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].proses''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<int>? admin(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].admin''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? catatan(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].catatan''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? nama(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].nama''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? gform(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].gfrom''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? pengasuh(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].pengasuh''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? methode(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].methode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? cur(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].cur''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? tgladopt(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].tgl_adopt''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? tglPesan(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].tgl_pesan''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? score(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].score''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? beku(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].beku''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? hit(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].hit''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? dilihta(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].dilihat''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? fotografer(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].fotografer''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? tglsurvey(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].tgl_survey''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? surveyor(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].surveyor''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? soil(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].soil''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? manfaat(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].manfaat''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? slope(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].slope''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? dpl(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].dpl''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<int>? keliling(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].keliling''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<int>? tinggi(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].tinggi''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<int>? diameter(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].diameter''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? jenis(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].jenis''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? status(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].status''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? highlight(dynamic response) => getJsonField(
+        response,
+        r'''$[:].highlight''',
+        true,
+      ) as List?;
+}
+
+class PohonmapallCall {
+  Future<ApiCallResponse> call({
+    int? limit,
+  }) async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'pohonmapall',
+      apiUrl: '${baseUrl}/pohonmapall',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'limit': limit,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List<int>? id(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? gpscode(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].gpscode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? latitude(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].latitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? longitude(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].longitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? desa(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].desa''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? idpohon(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].idpohon''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? species(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].species''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<double>? lat(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].location.latitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  List<double>? lng(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].location.longitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  List<String>? localname(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].localname''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? family(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].family''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? adopted(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].adopted''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? dur(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].dur''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? price(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].price''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? qrcode(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].qrcode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? tglexp(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].tgl_exp''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? fotoPohon(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].foto_pohon''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? asl(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].asl''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<int>? harga(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].harga''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? keterangan(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].keterangan''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? proses(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].proses''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<int>? admin(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].admin''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? catatan(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].catatan''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? nama(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].nama''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? gform(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].gfrom''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? pengasuh(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].pengasuh''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? methode(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].methode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? cur(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].cur''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? tgladopt(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].tgl_adopt''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? tglPesan(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].tgl_pesan''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? score(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].score''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? beku(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].beku''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? hit(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].hit''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? dilihta(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].dilihat''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? fotografer(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].fotografer''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? tglsurvey(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].tgl_survey''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? surveyor(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].surveyor''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? soil(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].soil''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? manfaat(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].manfaat''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? slope(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].slope''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? dpl(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].dpl''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<int>? keliling(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].keliling''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<int>? tinggi(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].tinggi''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<int>? diameter(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].diameter''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? jenis(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].jenis''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? status(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].status''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List? highlight(dynamic response) => getJsonField(
+        response,
+        r'''$[:].highlight''',
+        true,
+      ) as List?;
 }
 
 /// End Trees Group Code
 
-class ApiPagingParams {
-  int nextPageNumber = 0;
-  int numItems = 0;
-  dynamic lastResponse;
+class NearByCall {
+  static Future<ApiCallResponse> call({
+    String? latlng = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'nearBy',
+      apiUrl: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'key': "AIzaSyBYNYHpCo3bX3v9PRwfiH7zGDDw___CsBQ",
+        'radius': "2000",
+        'type': "restaurant",
+        'location': latlng,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 
-  ApiPagingParams({
-    required this.nextPageNumber,
-    required this.numItems,
-    required this.lastResponse,
-  });
-
-  @override
-  String toString() =>
-      'PagingParams(nextPageNumber: $nextPageNumber, numItems: $numItems, lastResponse: $lastResponse,)';
+  static List<double>? lat(dynamic response) => (getJsonField(
+        response,
+        r'''$.results[:].geometry.location.lat''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  static List<double>? lng(dynamic response) => (getJsonField(
+        response,
+        r'''$.results[:].geometry.location.lng''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? name(dynamic response) => (getJsonField(
+        response,
+        r'''$.results[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 String _toEncodable(dynamic item) {

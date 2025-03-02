@@ -1,6 +1,6 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'rules_model.dart';
 export 'rules_model.dart';
@@ -24,8 +24,6 @@ class _RulesWidgetState extends State<RulesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => RulesModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

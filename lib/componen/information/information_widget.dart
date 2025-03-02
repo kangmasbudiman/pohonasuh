@@ -1,5 +1,5 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'information_model.dart';
 export 'information_model.dart';
@@ -29,8 +29,6 @@ class _InformationWidgetState extends State<InformationWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => InformationModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

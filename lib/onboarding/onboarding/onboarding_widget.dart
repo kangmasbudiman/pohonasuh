@@ -1,9 +1,9 @@
 import '/auth/custom_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'onboarding_model.dart';
@@ -36,8 +36,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
         context.pushNamed(HomePageWidget.routeName);
       }
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
