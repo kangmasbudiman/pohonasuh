@@ -82,27 +82,87 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                 ].divide(SizedBox(width: 10.0)),
               ),
             ),
-            Stack(
-              alignment: AlignmentDirectional(1.0, -1.0),
-              children: [
-                Icon(
-                  Icons.notifications_active,
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  size: 30.0,
-                ),
-                Align(
-                  alignment: AlignmentDirectional(1.0, -1.0),
-                  child: Container(
-                    width: 15.0,
-                    height: 15.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).error,
-                      shape: BoxShape.circle,
-                    ),
-                    alignment: AlignmentDirectional(1.0, -1.0),
+            InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.pushNamed(ListPesanWidget.routeName);
+              },
+              child: Stack(
+                alignment: AlignmentDirectional(1.0, -1.0),
+                children: [
+                  Icon(
+                    Icons.notifications_active,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    size: 30.0,
                   ),
-                ),
-              ],
+                  Align(
+                    alignment: AlignmentDirectional(1.0, -1.0),
+                    child: Container(
+                      width: 18.0,
+                      height: 18.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).error,
+                        shape: BoxShape.circle,
+                      ),
+                      alignment: AlignmentDirectional(1.0, -1.0),
+                      child: FutureBuilder<ApiCallResponse>(
+                        future: RestAPiPohonAsuhGroup.getPesankuCall.call(
+                          idmember: currentUserData?.id,
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 20.0,
+                                height: 20.0,
+                                child: SpinKitThreeBounce(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  size: 20.0,
+                                ),
+                              ),
+                            );
+                          }
+                          final columnGetPesankuResponse = snapshot.data!;
+
+                          return Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    ResponGetPesanStruct.maybeFromMap(
+                                            columnGetPesankuResponse.jsonBody)
+                                        ?.jumlah
+                                        .toString(),
+                                    '0',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        fontSize: 10.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             InkWell(
               splashColor: Colors.transparent,

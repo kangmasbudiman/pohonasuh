@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/api_requests/api_manager.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -202,6 +204,27 @@ class FFAppState extends ChangeNotifier {
   set bootomsheet(bool value) {
     _bootomsheet = value;
   }
+
+  bool _connected = false;
+  bool get connected => _connected;
+  set connected(bool value) {
+    _connected = value;
+  }
+
+  final _profilManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> profil({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _profilManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearProfilCache() => _profilManager.clear();
+  void clearProfilCacheKey(String? uniqueKey) =>
+      _profilManager.clearRequest(uniqueKey);
 }
 
 Color? _colorFromIntValue(int? val) {

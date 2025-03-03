@@ -37,3 +37,10 @@ export '/myprofil/download_qr_code/download_qr_code_widget.dart'
     show DownloadQrCodeWidget;
 export '/desa/detaildesa/detaildesa_widget.dart' show DetaildesaWidget;
 export '/pages/home_mapall/home_mapall_widget.dart' show HomeMapallWidget;
+export '/pages/home_map_copy/home_map_copy_widget.dart' show HomeMapCopyWidget;
+export '/page_trees/orders_trees_by_pengurus/orders_trees_by_pengurus_widget.dart'
+    show OrdersTreesByPengurusWidget;
+export '/page_trees/download_form_taging/download_form_taging_widget.dart'
+    show DownloadFormTagingWidget;
+export '/list_pesan/list_pesan_widget.dart' show ListPesanWidget;
+export '/detail_pesan/detail_pesan_widget.dart' show DetailPesanWidget;

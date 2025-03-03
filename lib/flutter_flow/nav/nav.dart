@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '/backend/schema/structs/index.dart';
 
+
 import '/auth/custom_auth/custom_auth_user_provider.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
@@ -412,6 +413,73 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: HomeMapallWidget.routeName,
           path: HomeMapallWidget.routePath,
           builder: (context, params) => HomeMapallWidget(),
+        ),
+        FFRoute(
+          name: HomeMapCopyWidget.routeName,
+          path: HomeMapCopyWidget.routePath,
+          builder: (context, params) => HomeMapCopyWidget(),
+        ),
+        FFRoute(
+          name: OrdersTreesByPengurusWidget.routeName,
+          path: OrdersTreesByPengurusWidget.routePath,
+          builder: (context, params) => OrdersTreesByPengurusWidget(),
+        ),
+        FFRoute(
+          name: DownloadFormTagingWidget.routeName,
+          path: DownloadFormTagingWidget.routePath,
+          builder: (context, params) => DownloadFormTagingWidget(
+            kodePohon: params.getParam(
+              'kodePohon',
+              ParamType.String,
+            ),
+            namaPohon: params.getParam(
+              'namaPohon',
+              ParamType.String,
+            ),
+            tinggi: params.getParam(
+              'tinggi',
+              ParamType.int,
+            ),
+            diameter: params.getParam(
+              'diameter',
+              ParamType.int,
+            ),
+            keliling: params.getParam(
+              'keliling',
+              ParamType.int,
+            ),
+            lat: params.getParam(
+              'lat',
+              ParamType.String,
+            ),
+            lng: params.getParam(
+              'lng',
+              ParamType.String,
+            ),
+            exp: params.getParam(
+              'exp',
+              ParamType.String,
+            ),
+            namapengasuh: params.getParam(
+              'namapengasuh',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ListPesanWidget.routeName,
+          path: ListPesanWidget.routePath,
+          builder: (context, params) => ListPesanWidget(),
+        ),
+        FFRoute(
+          name: DetailPesanWidget.routeName,
+          path: DetailPesanWidget.routePath,
+          builder: (context, params) => DetailPesanWidget(
+            pesan: params.getParam(
+              'pesan',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

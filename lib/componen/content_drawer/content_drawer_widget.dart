@@ -7,6 +7,7 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'content_drawer_model.dart';
 export 'content_drawer_model.dart';
 
@@ -41,6 +42,8 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       decoration: BoxDecoration(),
       child: Column(
@@ -48,8 +51,10 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           FutureBuilder<ApiCallResponse>(
-            future: RestAPiPohonAsuhGroup.getProfilCall.call(
-              id: currentUserData?.id,
+            future: FFAppState().profil(
+              requestFn: () => RestAPiPohonAsuhGroup.getProfilCall.call(
+                id: currentUserData?.id,
+              ),
             ),
             builder: (context, snapshot) {
               // Customize what your widget looks like when it's loading.
@@ -73,7 +78,12 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primary,
+                      color: valueOrDefault<Color>(
+                        FFAppState().connected == false
+                            ? Color(0xFFE83C46)
+                            : FlutterFlowTheme.of(context).primary,
+                        FlutterFlowTheme.of(context).primary,
+                      ),
                     ),
                     child: Padding(
                       padding: EdgeInsets.all(20.0),
@@ -443,35 +453,45 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 20.0, 20.0),
-                        child: Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 10.0, 0.0),
-                                child: Icon(
-                                  Icons.forest,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  size: 24.0,
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(
+                                OrdersTreesByPengurusWidget.routeName);
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: Icon(
+                                    Icons.forest,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                'Order Taging Trees',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                              ),
-                            ],
+                                Text(
+                                  'Order Taging Trees',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -817,6 +837,8 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                 GoRouter.of(context).prepareAuthEvent();
                 await authManager.signOut();
                 GoRouter.of(context).clearRedirectLocation();
+
+                FFAppState().clearProfilCache();
 
                 context.goNamedAuth(
                     LoginRegisterWidget.routeName, context.mounted);

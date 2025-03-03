@@ -26,6 +26,10 @@ class RestAPiPohonAsuhGroup {
   static ImagepohonCall imagepohonCall = ImagepohonCall();
   static TobasketCall tobasketCall = TobasketCall();
   static GettrollyCall gettrollyCall = GettrollyCall();
+  static GetPesankuCall getPesankuCall = GetPesankuCall();
+  static ListPesankuCall listPesankuCall = ListPesankuCall();
+  static MypesanupdateCall mypesanupdateCall = MypesanupdateCall();
+  static MypesandeleteCall mypesandeleteCall = MypesandeleteCall();
 }
 
 class LoginuserCall {
@@ -359,6 +363,106 @@ class GettrollyCall {
   }
 }
 
+class GetPesankuCall {
+  Future<ApiCallResponse> call({
+    int? idmember,
+  }) async {
+    final baseUrl = RestAPiPohonAsuhGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getPesanku',
+      apiUrl: '${baseUrl}getPesanku',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'idmember': idmember,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class ListPesankuCall {
+  Future<ApiCallResponse> call({
+    int? idmember,
+  }) async {
+    final baseUrl = RestAPiPohonAsuhGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'listPesanku',
+      apiUrl: '${baseUrl}listPesanku',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'idmember': idmember,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class MypesanupdateCall {
+  Future<ApiCallResponse> call({
+    int? id,
+  }) async {
+    final baseUrl = RestAPiPohonAsuhGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'mypesanupdate',
+      apiUrl: '${baseUrl}mypesanupdate',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'id': id,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class MypesandeleteCall {
+  Future<ApiCallResponse> call({
+    int? id,
+  }) async {
+    final baseUrl = RestAPiPohonAsuhGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'mypesandelete',
+      apiUrl: '${baseUrl}mypesandelete',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'id': id,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 /// End RestAPiPohonAsuh Group Code
 
 /// Start Trolly Group Code
@@ -433,6 +537,8 @@ class PaymentGroup {
   static UploadbuktitransferCall uploadbuktitransferCall =
       UploadbuktitransferCall();
   static VerivicationCall verivicationCall = VerivicationCall();
+  static UpdateStatusProsesTagingCall updateStatusProsesTagingCall =
+      UpdateStatusProsesTagingCall();
 }
 
 class GetlistbankCall {
@@ -569,6 +675,31 @@ class VerivicationCall {
   }
 }
 
+class UpdateStatusProsesTagingCall {
+  Future<ApiCallResponse> call({
+    int? id,
+  }) async {
+    final baseUrl = PaymentGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'updateStatusProsesTaging',
+      apiUrl: '${baseUrl}/updatestatusproses',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'id': id,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 /// End payment Group Code
 
 /// Start Trees Group Code
@@ -584,6 +715,7 @@ class TreesGroup {
   static PohodesaCall pohodesaCall = PohodesaCall();
   static PohonmapCall pohonmapCall = PohonmapCall();
   static PohonmapallCall pohonmapallCall = PohonmapallCall();
+  static PohonbypengurusCall pohonbypengurusCall = PohonbypengurusCall();
 }
 
 class MytreesCall {
@@ -1590,23 +1722,21 @@ class PohonmapallCall {
       ) as List?;
 }
 
-/// End Trees Group Code
-
-class NearByCall {
-  static Future<ApiCallResponse> call({
-    String? latlng = '',
+class PohonbypengurusCall {
+  Future<ApiCallResponse> call({
+    String? iduser = '',
   }) async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
     return ApiManager.instance.makeApiCall(
-      callName: 'nearBy',
-      apiUrl: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
-      callType: ApiCallType.GET,
+      callName: 'pohonbypengurus',
+      apiUrl: '${baseUrl}/ordercustomerbypengurus',
+      callType: ApiCallType.POST,
       headers: {},
       params: {
-        'key': "AIzaSyBYNYHpCo3bX3v9PRwfiH7zGDDw___CsBQ",
-        'radius': "2000",
-        'type': "restaurant",
-        'location': latlng,
+        'iduser': iduser,
       },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -1615,35 +1745,9 @@ class NearByCall {
       alwaysAllowBody: false,
     );
   }
-
-  static List<double>? lat(dynamic response) => (getJsonField(
-        response,
-        r'''$.results[:].geometry.location.lat''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<double>(x))
-          .withoutNulls
-          .toList();
-  static List<double>? lng(dynamic response) => (getJsonField(
-        response,
-        r'''$.results[:].geometry.location.lng''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<double>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? name(dynamic response) => (getJsonField(
-        response,
-        r'''$.results[:].name''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
 }
+
+/// End Trees Group Code
 
 class ApiPagingParams {
   int nextPageNumber = 0;

@@ -1,6 +1,4 @@
 import '/backend/api_requests/api_calls.dart';
-import '/componen/app_bar/app_bar_widget.dart';
-import '/componen/content_drawer/content_drawer_widget.dart';
 import '/componen/navbar/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -16,21 +14,21 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
-import 'home_map_model.dart';
-export 'home_map_model.dart';
+import 'home_map_copy_model.dart';
+export 'home_map_copy_model.dart';
 
-class HomeMapWidget extends StatefulWidget {
-  const HomeMapWidget({super.key});
+class HomeMapCopyWidget extends StatefulWidget {
+  const HomeMapCopyWidget({super.key});
 
-  static String routeName = 'HomeMap';
-  static String routePath = '/homeMap';
+  static String routeName = 'HomeMapCopy';
+  static String routePath = '/homeMapCopy';
 
   @override
-  State<HomeMapWidget> createState() => _HomeMapWidgetState();
+  State<HomeMapCopyWidget> createState() => _HomeMapCopyWidgetState();
 }
 
-class _HomeMapWidgetState extends State<HomeMapWidget> {
-  late HomeMapModel _model;
+class _HomeMapCopyWidgetState extends State<HomeMapCopyWidget> {
+  late HomeMapCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
@@ -38,7 +36,7 @@ class _HomeMapWidgetState extends State<HomeMapWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomeMapModel());
+    _model = createModel(context, () => HomeMapCopyModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -97,10 +95,12 @@ class _HomeMapWidgetState extends State<HomeMapWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         drawer: Drawer(
           elevation: 16.0,
-          child: wrapWithModel(
-            model: _model.contentDrawerModel,
-            updateCallback: () => safeSetState(() {}),
-            child: ContentDrawerWidget(),
+          child: Text(
+            'mantap',
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Inter',
+                  letterSpacing: 0.0,
+                ),
           ),
         ),
         body: SafeArea(
@@ -1159,11 +1159,24 @@ class _HomeMapWidgetState extends State<HomeMapWidget> {
                     ),
                   ),
                 ),
-              wrapWithModel(
-                model: _model.navbarModel,
-                updateCallback: () => safeSetState(() {}),
-                child: NavbarWidget(
-                  pageIndex: 1,
+              Align(
+                alignment: AlignmentDirectional(-1.0, 1.0),
+                child: Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 90.0),
+                  child: FlutterFlowIconButton(
+                    borderRadius: 8.0,
+                    buttonSize: 40.0,
+                    fillColor: FlutterFlowTheme.of(context).primary,
+                    icon: Icon(
+                      Icons.link_rounded,
+                      color: FlutterFlowTheme.of(context).info,
+                      size: 24.0,
+                    ),
+                    onPressed: () async {
+                      context.pushNamed(HomeMapallWidget.routeName);
+                    },
+                  ),
                 ),
               ),
               if (FFAppState().ISLOADING == true)
@@ -1192,82 +1205,58 @@ class _HomeMapWidgetState extends State<HomeMapWidget> {
                     animate: true,
                   ),
                 ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 70.0),
-                child: FlutterFlowGoogleMap(
-                  controller: _model.googleMapsController,
-                  onCameraIdle: (latLng) =>
-                      safeSetState(() => _model.googleMapsCenter = latLng),
-                  initialLocation: _model.googleMapsCenter ??=
-                      currentUserLocationValue!,
-                  markers: (functions.doubleToLatlng(
-                              TreesGroup.pohonmapCall
-                                  .lat(
-                                    (_model.outputNearby?.jsonBody ?? ''),
-                                  )
-                                  ?.toList(),
-                              TreesGroup.pohonmapCall
-                                  .lng(
-                                    (_model.outputNearby?.jsonBody ?? ''),
-                                  )
-                                  ?.toList()) ??
-                          [])
-                      .map(
-                        (marker) => FlutterFlowMarker(
-                          marker.serialize(),
-                          marker,
-                          () async {
-                            FFAppState().bootomsheet = true;
-                            safeSetState(() {});
-                          },
-                        ),
-                      )
-                      .toList(),
-                  markerColor: GoogleMarkerColor.red,
-                  mapType: MapType.normal,
-                  style: GoogleMapStyle.standard,
-                  initialZoom: 12.0,
-                  allowInteraction: true,
-                  allowZoom: true,
-                  showZoomControls: true,
-                  showLocation: true,
-                  showCompass: true,
-                  showMapToolbar: true,
-                  showTraffic: true,
-                  centerMapOnMarkerTap: true,
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(-1.0, 1.0),
-                child: PointerInterceptor(
-                  intercepting: isWeb,
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 90.0),
-                    child: FlutterFlowIconButton(
-                      borderRadius: 8.0,
-                      buttonSize: 40.0,
-                      fillColor: FlutterFlowTheme.of(context).primary,
-                      icon: Icon(
-                        Icons.link_rounded,
-                        color: FlutterFlowTheme.of(context).info,
-                        size: 24.0,
+              FlutterFlowGoogleMap(
+                controller: _model.googleMapsController,
+                onCameraIdle: (latLng) =>
+                    safeSetState(() => _model.googleMapsCenter = latLng),
+                initialLocation: _model.googleMapsCenter ??=
+                    currentUserLocationValue!,
+                markers: (functions.doubleToLatlng(
+                            TreesGroup.pohonmapCall
+                                .lat(
+                                  (_model.outputNearby?.jsonBody ?? ''),
+                                )
+                                ?.toList(),
+                            TreesGroup.pohonmapCall
+                                .lng(
+                                  (_model.outputNearby?.jsonBody ?? ''),
+                                )
+                                ?.toList()) ??
+                        [])
+                    .map(
+                      (marker) => FlutterFlowMarker(
+                        marker.serialize(),
+                        marker,
+                        () async {
+                          FFAppState().bootomsheet = true;
+                          safeSetState(() {});
+                        },
                       ),
-                      onPressed: () async {
-                        context.pushNamed(HomeMapallWidget.routeName);
-                      },
-                    ),
-                  ),
-                ),
+                    )
+                    .toList(),
+                markerColor: GoogleMarkerColor.red,
+                mapType: MapType.normal,
+                style: GoogleMapStyle.standard,
+                initialZoom: 12.0,
+                allowInteraction: true,
+                allowZoom: true,
+                showZoomControls: true,
+                showLocation: true,
+                showCompass: true,
+                showMapToolbar: true,
+                showTraffic: true,
+                centerMapOnMarkerTap: true,
               ),
-              Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
-                child: PointerInterceptor(
-                  intercepting: isWeb,
+              PointerInterceptor(
+                intercepting: isWeb,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 645.0, 0.0, 0.0),
                   child: wrapWithModel(
-                    model: _model.appBarModel,
+                    model: _model.navbarModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: AppBarWidget(),
+                    child: NavbarWidget(
+                      pageIndex: 1,
+                    ),
                   ),
                 ),
               ),

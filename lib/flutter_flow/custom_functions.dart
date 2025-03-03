@@ -9,6 +9,7 @@ import 'lat_lng.dart';
 import 'place.dart';
 import 'uploaded_file.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/auth/custom_auth/auth_util.dart';
 
 String? sumSubtotal(List<dynamic>? apiResult) {
