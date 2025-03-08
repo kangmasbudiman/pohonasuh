@@ -539,6 +539,8 @@ class PaymentGroup {
   static VerivicationCall verivicationCall = VerivicationCall();
   static UpdateStatusProsesTagingCall updateStatusProsesTagingCall =
       UpdateStatusProsesTagingCall();
+  static UpdateStatusComplateCall updateStatusComplateCall =
+      UpdateStatusComplateCall();
 }
 
 class GetlistbankCall {
@@ -700,6 +702,33 @@ class UpdateStatusProsesTagingCall {
   }
 }
 
+class UpdateStatusComplateCall {
+  Future<ApiCallResponse> call({
+    int? id,
+    String? idpohon = '',
+  }) async {
+    final baseUrl = PaymentGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'updateStatusComplate',
+      apiUrl: '${baseUrl}/updatestatuscomplate',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'id': id,
+        'idpohon': idpohon,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 /// End payment Group Code
 
 /// Start Trees Group Code
@@ -716,6 +745,7 @@ class TreesGroup {
   static PohonmapCall pohonmapCall = PohonmapCall();
   static PohonmapallCall pohonmapallCall = PohonmapallCall();
   static PohonbypengurusCall pohonbypengurusCall = PohonbypengurusCall();
+  static TambahFototagingCall tambahFototagingCall = TambahFototagingCall();
 }
 
 class MytreesCall {
@@ -1747,7 +1777,73 @@ class PohonbypengurusCall {
   }
 }
 
+class TambahFototagingCall {
+  Future<ApiCallResponse> call({
+    String? idpohon = '',
+    int? idmember,
+    int? idadopsi,
+    String? tanggal = '',
+    String? urlGambar = '',
+  }) async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'tambahFototaging',
+      apiUrl: '${baseUrl}/addfototaging',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'idpohon': idpohon,
+        'idmember': idmember,
+        'idadopsi': idadopsi,
+        'tanggal': tanggal,
+        'urlGambar': urlGambar,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 /// End Trees Group Code
+
+class CekJarakPohonCall {
+  static Future<ApiCallResponse> call({
+    String? destination = '',
+    String? origin = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'CekJarakPohon',
+      apiUrl:
+          'https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destination}',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'key': "AIzaSyDsc1dFvcyeI0OiCBNjxVdSBkTx4xTtgns",
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? jarak(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.rows[:].elements[:].distance.text''',
+      ));
+  static String? waktu(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.rows[:].elements[:].duration.text''',
+      ));
+}
 
 class ApiPagingParams {
   int nextPageNumber = 0;

@@ -480,6 +480,63 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: UploadFotoTagingWidget.routeName,
+          path: UploadFotoTagingWidget.routePath,
+          builder: (context, params) => UploadFotoTagingWidget(
+            idpohon: params.getParam(
+              'idpohon',
+              ParamType.String,
+            ),
+            tgladopsi: params.getParam(
+              'tgladopsi',
+              ParamType.String,
+            ),
+            idadopsi: params.getParam(
+              'idadopsi',
+              ParamType.int,
+            ),
+            idmember: params.getParam(
+              'idmember',
+              ParamType.int,
+            ),
+            namapohon: params.getParam(
+              'namapohon',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: UploadImageTagingWidget.routeName,
+          path: UploadImageTagingWidget.routePath,
+          builder: (context, params) => UploadImageTagingWidget(
+            idpohon: params.getParam(
+              'idpohon',
+              ParamType.String,
+            ),
+            idadopsi: params.getParam(
+              'idadopsi',
+              ParamType.int,
+            ),
+            namapohon: params.getParam(
+              'namapohon',
+              ParamType.String,
+            ),
+            tanggaladopsi: params.getParam(
+              'tanggaladopsi',
+              ParamType.String,
+            ),
+            idmember: params.getParam(
+              'idmember',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: GetDestinationWidget.routeName,
+          path: GetDestinationWidget.routePath,
+          builder: (context, params) => GetDestinationWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

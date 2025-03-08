@@ -5,3 +5,6 @@ export 'onesignal_init.dart' show onesignalInit;
 export 'onesignal_login.dart' show onesignalLogin;
 export 'onesignal_logout.dart' show onesignalLogout;
 export 'connected.dart' show connected;
+export 'fotolocal.dart' show fotolocal;
+export 'imagepath.dart' show imagepath;
+export 'upload_base64_to_supabase.dart' show uploadBase64ToSupabase;

@@ -307,7 +307,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                                           size: 24.0,
                                         ),
                                         Text(
-                                          'Village',
+                                          'Tree',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

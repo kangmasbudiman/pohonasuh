@@ -412,8 +412,8 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 20.0, 20.0, 20.0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 20.0, 5.0),
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(),
@@ -451,8 +451,8 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                         color: FlutterFlowTheme.of(context).alternate,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 20.0, 20.0, 20.0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 20.0, 5.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -480,6 +480,78 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                                 ),
                                 Text(
                                   'Order Taging Trees',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Divider(
+                        thickness: 2.0,
+                        color: FlutterFlowTheme.of(context).alternate,
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 20.0, 5.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(
+                              UploadFotoTagingWidget.routeName,
+                              queryParameters: {
+                                'idpohon': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'tgladopsi': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'idadopsi': serializeParam(
+                                  0,
+                                  ParamType.int,
+                                ),
+                                'idmember': serializeParam(
+                                  0,
+                                  ParamType.int,
+                                ),
+                                'namapohon': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.server,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
+                                  ),
+                                ),
+                                Text(
+                                  'Data Offline',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

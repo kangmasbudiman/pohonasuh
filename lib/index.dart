@@ -42,5 +42,11 @@ export '/page_trees/orders_trees_by_pengurus/orders_trees_by_pengurus_widget.dar
     show OrdersTreesByPengurusWidget;
 export '/page_trees/download_form_taging/download_form_taging_widget.dart'
     show DownloadFormTagingWidget;
-export '/list_pesan/list_pesan_widget.dart' show ListPesanWidget;
-export '/detail_pesan/detail_pesan_widget.dart' show DetailPesanWidget;
+export '/myprofil/pesan/list_pesan/list_pesan_widget.dart' show ListPesanWidget;
+export '/myprofil/pesan/detail_pesan/detail_pesan_widget.dart'
+    show DetailPesanWidget;
+export '/upload_foto_taging/upload_foto_taging_widget.dart'
+    show UploadFotoTagingWidget;
+export '/upload_image_taging/upload_image_taging_widget.dart'
+    show UploadImageTagingWidget;
+export '/get_destination/get_destination_widget.dart' show GetDestinationWidget;

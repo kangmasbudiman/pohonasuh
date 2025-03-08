@@ -268,6 +268,47 @@ class _OrdersTreesByPengurusWidgetState
                                                 text: TextSpan(
                                                   children: [
                                                     TextSpan(
+                                                      text: 'Kd Pohon : ',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: valueOrDefault<
+                                                          String>(
+                                                        responseDataTagingItem
+                                                            .idpohon,
+                                                        'idpohon',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    )
+                                                  ],
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                              RichText(
+                                                textScaler:
+                                                    MediaQuery.of(context)
+                                                        .textScaler,
+                                                text: TextSpan(
+                                                  children: [
+                                                    TextSpan(
                                                       text: 'Status : ',
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -412,6 +453,20 @@ class _OrdersTreesByPengurusWidgetState
                                                                 exp:
                                                                     responseDataTagingItem
                                                                         .tglExp,
+                                                                idpengasuh:
+                                                                    valueOrDefault<
+                                                                        int>(
+                                                                  responseDataTagingItem
+                                                                      .pengasuh,
+                                                                  0,
+                                                                ),
+                                                                tgladopsi:
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                  responseDataTagingItem
+                                                                      .tglAdopt,
+                                                                  'tgl_adopt',
+                                                                ),
                                                               ),
                                                             ),
                                                           ),

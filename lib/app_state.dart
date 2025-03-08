@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'flutter_flow/request_manager.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/api_requests/api_manager.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -17,12 +18,48 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _dataoffline = prefs
+              .getStringList('ff_dataoffline')
+              ?.map((x) {
+                try {
+                  return DatafototagingStruct.fromSerializableMap(
+                      jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _dataoffline;
+    });
+    _safeInit(() {
+      _listPhoto = prefs
+              .getStringList('ff_listPhoto')
+              ?.map((x) {
+                try {
+                  return ListPototagingStruct.fromSerializableMap(
+                      jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _listPhoto;
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   bool _captca = false;
   bool get captca => _captca;
@@ -211,6 +248,135 @@ class FFAppState extends ChangeNotifier {
     _connected = value;
   }
 
+  List<DatafototagingStruct> _dataoffline = [
+    DatafototagingStruct.fromSerializableMap(jsonDecode(
+        '{\"idpohon\":\"Hello World\",\"tanggaladopt\":\"Hello World\",\"keterangan\":\"Hello World\",\"idadopsi\":\"0\",\"idmember\":\"0\",\"caption\":\"Hello World\",\"foto\":\"[\\\"https://picsum.photos/seed/54/600\\\"]\"}'))
+  ];
+  List<DatafototagingStruct> get dataoffline => _dataoffline;
+  set dataoffline(List<DatafototagingStruct> value) {
+    _dataoffline = value;
+    prefs.setStringList(
+        'ff_dataoffline', value.map((x) => x.serialize()).toList());
+  }
+
+  void addToDataoffline(DatafototagingStruct value) {
+    dataoffline.add(value);
+    prefs.setStringList(
+        'ff_dataoffline', _dataoffline.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromDataoffline(DatafototagingStruct value) {
+    dataoffline.remove(value);
+    prefs.setStringList(
+        'ff_dataoffline', _dataoffline.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromDataoffline(int index) {
+    dataoffline.removeAt(index);
+    prefs.setStringList(
+        'ff_dataoffline', _dataoffline.map((x) => x.serialize()).toList());
+  }
+
+  void updateDataofflineAtIndex(
+    int index,
+    DatafototagingStruct Function(DatafototagingStruct) updateFn,
+  ) {
+    dataoffline[index] = updateFn(_dataoffline[index]);
+    prefs.setStringList(
+        'ff_dataoffline', _dataoffline.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInDataoffline(int index, DatafototagingStruct value) {
+    dataoffline.insert(index, value);
+    prefs.setStringList(
+        'ff_dataoffline', _dataoffline.map((x) => x.serialize()).toList());
+  }
+
+  String _base64 = '';
+  String get base64 => _base64;
+  set base64(String value) {
+    _base64 = value;
+  }
+
+  String _imagePath = '';
+  String get imagePath => _imagePath;
+  set imagePath(String value) {
+    _imagePath = value;
+  }
+
+  List<ListPototagingStruct> _listPhoto = [];
+  List<ListPototagingStruct> get listPhoto => _listPhoto;
+  set listPhoto(List<ListPototagingStruct> value) {
+    _listPhoto = value;
+    prefs.setStringList(
+        'ff_listPhoto', value.map((x) => x.serialize()).toList());
+  }
+
+  void addToListPhoto(ListPototagingStruct value) {
+    listPhoto.add(value);
+    prefs.setStringList(
+        'ff_listPhoto', _listPhoto.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromListPhoto(ListPototagingStruct value) {
+    listPhoto.remove(value);
+    prefs.setStringList(
+        'ff_listPhoto', _listPhoto.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromListPhoto(int index) {
+    listPhoto.removeAt(index);
+    prefs.setStringList(
+        'ff_listPhoto', _listPhoto.map((x) => x.serialize()).toList());
+  }
+
+  void updateListPhotoAtIndex(
+    int index,
+    ListPototagingStruct Function(ListPototagingStruct) updateFn,
+  ) {
+    listPhoto[index] = updateFn(_listPhoto[index]);
+    prefs.setStringList(
+        'ff_listPhoto', _listPhoto.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInListPhoto(int index, ListPototagingStruct value) {
+    listPhoto.insert(index, value);
+    prefs.setStringList(
+        'ff_listPhoto', _listPhoto.map((x) => x.serialize()).toList());
+  }
+
+  List<LatLng> _latihanlatlang = [
+    LatLng(-1.6375582, 103.5829759),
+    LatLng(-1.671202, 103.614698)
+  ];
+  List<LatLng> get latihanlatlang => _latihanlatlang;
+  set latihanlatlang(List<LatLng> value) {
+    _latihanlatlang = value;
+  }
+
+  void addToLatihanlatlang(LatLng value) {
+    latihanlatlang.add(value);
+  }
+
+  void removeFromLatihanlatlang(LatLng value) {
+    latihanlatlang.remove(value);
+  }
+
+  void removeAtIndexFromLatihanlatlang(int index) {
+    latihanlatlang.removeAt(index);
+  }
+
+  void updateLatihanlatlangAtIndex(
+    int index,
+    LatLng Function(LatLng) updateFn,
+  ) {
+    latihanlatlang[index] = updateFn(_latihanlatlang[index]);
+  }
+
+  void insertAtIndexInLatihanlatlang(int index, LatLng value) {
+    latihanlatlang.insert(index, value);
+  }
+
   final _profilManager = FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> profil({
     String? uniqueQueryKey,
@@ -225,6 +391,18 @@ class FFAppState extends ChangeNotifier {
   void clearProfilCache() => _profilManager.clear();
   void clearProfilCacheKey(String? uniqueKey) =>
       _profilManager.clearRequest(uniqueKey);
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }
 
 Color? _colorFromIntValue(int? val) {
