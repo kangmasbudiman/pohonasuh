@@ -53,66 +53,45 @@ class _PolylineGoogleMapCustomWidgetState
     extends State<PolylineGoogleMapCustomWidget> {
   gmap.GoogleMapController? mapController;
   Set<gmap.Marker> markers = {};
-  Set<gmap.Polyline> polylines = {}; // 🔹 Tambahkan polyline set
+  Set<gmap.Polyline> polylines = {};
   List<gmap.LatLng> routePoints = []; // ✅ Pastikan variabel ini ada
 
   @override
   void initState() {
     super.initState();
     _createMarkers();
-    _createPolylines(); // 🔹 Tambahkan polyline setelah marker dibuat
-    _fetchRoute(); // ✅ Ambil rute dari Google Directions API
+    _fetchRoute();
   }
 
-/*
-// Fungsi untuk mengambil rute dari Google Directions API
-  Future<List<gmap.LatLng>> getPolylinePoints(
-      String startLat, String startLng, String endLat, String endLng) async {
-    const String apiKey =
-        "AIzaSyDsc1dFvcyeI0OiCBNjxVdSBkTx4xTtgns"; // 🔹 Ganti dengan API key-mu
-    final String url =
-        "https://maps.googleapis.com/maps/api/directions/json?origin=$startLat,$startLng&destination=$endLat,$endLng&key=$apiKey";
-
-    final response = await http.get(Uri.parse(url));
-
-    if (response.statusCode == 200) {
-      final data = json.decode(response.body);
-      if ((data['routes'] as List).isNotEmpty) {
-        final points = data['routes'][0]['overview_polyline']['points'];
-        return decodePolyline(points);
-      }
-    }
-    return [];
-  }
-*/
   Future<void> _fetchRoute() async {
     String apiKey =
         "AIzaSyDsc1dFvcyeI0OiCBNjxVdSBkTx4xTtgns"; // 🔑 Ganti dengan API Key kamu
     String url =
         "https://maps.googleapis.com/maps/api/directions/json?origin=${widget.latStart},${widget.lngStart}&destination=${widget.latEnd},${widget.lngEnd}&key=$apiKey";
 
+    debugPrint("🔍 Fetching route from API: $url");
+
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
+
+      debugPrint("📌 API Response: ${response.body}");
+
       if (data['routes'].isNotEmpty) {
         List<gmap.LatLng> points =
             _decodePolyline(data['routes'][0]['overview_polyline']['points']);
+
+        debugPrint("✅ Decoded ${points.length} polyline points.");
+
         setState(() {
           routePoints = points;
-          _createPolylines(); // 🔹 Tambahkan polyline setelah data masuk
-          polylines.add(
-            gmap.Polyline(
-              polylineId: const gmap.PolylineId("route"),
-              color: widget.polylineColor,
-              width: widget.polylineWidth.toInt(),
-              //  points: routePoints,
-              points: routePoints.isNotEmpty
-                  ? routePoints
-                  : [], // 🔹 Cek jika tidak kosong
-            ),
-          );
+          _createPolylines();
         });
+      } else {
+        debugPrint("⚠️ No routes found in API response!");
       }
+    } else {
+      debugPrint("⚠️ API Request Failed! Status Code: ${response.statusCode}");
     }
   }
 
@@ -149,13 +128,11 @@ class _PolylineGoogleMapCustomWidgetState
 
   void _createMarkers() {
     try {
-      // Ubah string menjadi double
       double latStart = double.parse(widget.latStart);
       double lngStart = double.parse(widget.lngStart);
       double latEnd = double.parse(widget.latEnd);
       double lngEnd = double.parse(widget.lngEnd);
 
-      // Start marker
       markers.add(
         gmap.Marker(
           markerId: const gmap.MarkerId('start'),
@@ -163,7 +140,6 @@ class _PolylineGoogleMapCustomWidgetState
         ),
       );
 
-      // End marker
       markers.add(
         gmap.Marker(
           markerId: const gmap.MarkerId('end'),
@@ -171,48 +147,50 @@ class _PolylineGoogleMapCustomWidgetState
         ),
       );
     } catch (e) {
-      debugPrint("Error parsing coordinates: $e");
+      debugPrint("⚠️ Error parsing coordinates: $e");
     }
   }
 
   void _createPolylines() {
-    try {
-      double latStart = double.parse(widget.latStart);
-      double lngStart = double.parse(widget.lngStart);
-      double latEnd = double.parse(widget.latEnd);
-      double lngEnd = double.parse(widget.lngEnd);
-
-      polylines.add(
-        gmap.Polyline(
-          polylineId: const gmap.PolylineId('route'),
-          color: widget.polylineColor,
-          width: widget.polylineWidth.toInt(),
-          points:
-              routePoints, // 🔹 Gunakan titik-titik dari Google Directions API
-        ),
-      );
-    } catch (e) {
-      debugPrint("Error creating polyline: $e");
+    if (routePoints.isEmpty) {
+      debugPrint("⚠️ Route points masih kosong, tidak bisa buat polyline!");
+      return;
     }
+
+    polylines.add(
+      gmap.Polyline(
+        polylineId: const gmap.PolylineId("route"),
+        color: widget.polylineColor,
+        width: widget.polylineWidth.toInt(),
+        points: routePoints,
+      ),
+    );
+
+    debugPrint(
+        "✅ Polyline berhasil dibuat dengan ${routePoints.length} titik!");
   }
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("📌 Total Markers: ${markers.length}");
+    debugPrint("📌 Total Polylines: ${polylines.length}");
+
     return SizedBox(
       width: widget.width,
       height: widget.height,
       child: gmap.GoogleMap(
         initialCameraPosition: gmap.CameraPosition(
           target: gmap.LatLng(
-            double.parse(widget.latStart), // Fokus pada titik start
+            double.parse(widget.latStart),
             double.parse(widget.lngStart),
           ),
           zoom: widget.initialZoom,
         ),
         markers: markers,
-        polylines: polylines, // 🔹 Tambahkan polyline ke Google Map
+        polylines: polylines,
         onMapCreated: (gmap.GoogleMapController controller) {
           mapController = controller;
+          debugPrint("✅ Map Created!");
         },
       ),
     );
