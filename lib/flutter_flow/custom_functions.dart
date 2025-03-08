@@ -153,7 +153,7 @@ String? gabunglatlang(
 String? stringFromCurrentLocation(LatLng? currentLocation) {
   // get string from argument1
   if (currentLocation != null) {
-    return currentLocation.toString();
+    return "${currentLocation.latitude}, ${currentLocation.longitude}";
   } else {
     return null;
   }
