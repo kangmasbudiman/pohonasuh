@@ -72,6 +72,15 @@ List<LatLng> stringToLatLng(dynamic locationString) {
   return [const LatLng(0.0, 0.0)];
 }
 
+String? getLong(LatLng? currentLocation) {
+  // get latitude from argument1
+  if (currentLocation != null) {
+    return currentLocation.longitude.toString();
+  } else {
+    return null;
+  }
+}
+
 String? latlngTostring(LatLng? input) {
   // return Input location as string
   if (input != null) {
@@ -127,4 +136,34 @@ int? indexMarkerIdentifier(
 
   print("Marker tidak ditemukan");
   return null; // Jika marker tidak ditemukan
+}
+
+String? gabunglatlang(
+  String? lat,
+  String? long,
+) {
+  // combine argument1 and argumen2
+  if (lat != null && long != null) {
+    return '$lat,$long';
+  } else {
+    return null;
+  }
+}
+
+String? stringFromCurrentLocation(LatLng? currentLocation) {
+  // get string from argument1
+  if (currentLocation != null) {
+    return currentLocation.toString();
+  } else {
+    return null;
+  }
+}
+
+String? getLat(LatLng? currentLocation) {
+  // get latitude from argument1
+  if (currentLocation != null) {
+    return currentLocation.latitude.toString();
+  } else {
+    return null;
+  }
 }

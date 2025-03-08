@@ -998,19 +998,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               ),
               Align(
                 alignment: AlignmentDirectional(0.0, -1.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.pushNamed(GetDestinationWidget.routeName);
-                  },
-                  child: wrapWithModel(
-                    model: _model.appBarModel,
-                    updateCallback: () => safeSetState(() {}),
-                    child: AppBarWidget(),
-                  ),
+                child: wrapWithModel(
+                  model: _model.appBarModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: AppBarWidget(),
                 ),
               ),
             ],

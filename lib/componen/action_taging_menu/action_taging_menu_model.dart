@@ -10,6 +10,8 @@ class ActionTagingMenuModel extends FlutterFlowModel<ActionTagingMenuWidget> {
   ApiCallResponse? apiResult2kr;
   // Stores action output result for [Backend Call - API (updateStatusComplate)] action in Container widget.
   ApiCallResponse? apiResult2krCopyy;
+  // Stores action output result for [Backend Call - API (CekJarakPohon)] action in Container widget.
+  ApiCallResponse? apiResultfhj;
 
   @override
   void initState(BuildContext context) {}

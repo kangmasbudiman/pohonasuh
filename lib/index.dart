@@ -45,8 +45,9 @@ export '/page_trees/download_form_taging/download_form_taging_widget.dart'
 export '/myprofil/pesan/list_pesan/list_pesan_widget.dart' show ListPesanWidget;
 export '/myprofil/pesan/detail_pesan/detail_pesan_widget.dart'
     show DetailPesanWidget;
-export '/upload_foto_taging/upload_foto_taging_widget.dart'
+export '/petugas_taging/upload_foto_taging/upload_foto_taging_widget.dart'
     show UploadFotoTagingWidget;
-export '/upload_image_taging/upload_image_taging_widget.dart'
+export '/petugas_taging/upload_image_taging/upload_image_taging_widget.dart'
     show UploadImageTagingWidget;
-export '/get_destination/get_destination_widget.dart' show GetDestinationWidget;
+export '/petugas_taging/get_destination/get_destination_widget.dart'
+    show GetDestinationWidget;

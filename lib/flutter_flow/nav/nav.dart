@@ -536,7 +536,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: GetDestinationWidget.routeName,
           path: GetDestinationWidget.routePath,
-          builder: (context, params) => GetDestinationWidget(),
+          builder: (context, params) => GetDestinationWidget(
+            latTujuan: params.getParam(
+              'latTujuan',
+              ParamType.String,
+            ),
+            lngTujuan: params.getParam(
+              'lngTujuan',
+              ParamType.String,
+            ),
+            namaPohon: params.getParam(
+              'namaPohon',
+              ParamType.String,
+            ),
+            waktu: params.getParam(
+              'waktu',
+              ParamType.String,
+            ),
+            kilometer: params.getParam(
+              'kilometer',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

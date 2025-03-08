@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -45,6 +46,8 @@ class ActionTagingMenuWidget extends StatefulWidget {
 
 class _ActionTagingMenuWidgetState extends State<ActionTagingMenuWidget> {
   late ActionTagingMenuModel _model;
+
+  LatLng? currentUserLocationValue;
 
   @override
   void setState(VoidCallback callback) {
@@ -364,56 +367,117 @@ class _ActionTagingMenuWidgetState extends State<ActionTagingMenuWidget> {
                 ),
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: 60.0,
-              decoration: BoxDecoration(),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Color(0xFFF1F4F8),
-                      elevation: 0.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40.0),
+            InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                currentUserLocationValue = await getCurrentUserLocation(
+                    defaultLocation: LatLng(0.0, 0.0));
+                _model.apiResultfhj = await CekJarakPohonCall.call(
+                  destination: valueOrDefault<String>(
+                    functions.gabunglatlang(widget.lat, widget.lng),
+                    '0',
+                  ),
+                  origin: valueOrDefault<String>(
+                    functions
+                        .stringFromCurrentLocation(currentUserLocationValue),
+                    '0',
+                  ),
+                );
+
+                if ((_model.apiResultfhj?.succeeded ?? true)) {
+                  context.pushNamed(
+                    GetDestinationWidget.routeName,
+                    queryParameters: {
+                      'latTujuan': serializeParam(
+                        widget.lat,
+                        ParamType.String,
                       ),
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.map,
-                          color: Color(0xFF57636C),
-                          size: 20.0,
+                      'lngTujuan': serializeParam(
+                        widget.lng,
+                        ParamType.String,
+                      ),
+                      'namaPohon': serializeParam(
+                        widget.namapohon,
+                        ParamType.String,
+                      ),
+                      'waktu': serializeParam(
+                        valueOrDefault<String>(
+                          CekJarakPohonCall.waktu(
+                            (_model.apiResultfhj?.jsonBody ?? ''),
+                          ),
+                          '0',
+                        ),
+                        ParamType.String,
+                      ),
+                      'kilometer': serializeParam(
+                        valueOrDefault<String>(
+                          CekJarakPohonCall.jarak(
+                            (_model.apiResultfhj?.jsonBody ?? ''),
+                          ),
+                          '0',
+                        ),
+                        ParamType.String,
+                      ),
+                    }.withoutNulls,
+                  );
+                }
+
+                safeSetState(() {});
+              },
+              child: Container(
+                width: double.infinity,
+                height: 60.0,
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Card(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        color: Color(0xFFF1F4F8),
+                        elevation: 0.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40.0),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.map,
+                            color: Color(0xFF57636C),
+                            size: 20.0,
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Go To Tree',
-                              style: FlutterFlowTheme.of(context)
-                                  .labelLarge
-                                  .override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                            ),
-                          ],
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 0.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Go To Tree',
+                                style: FlutterFlowTheme.of(context)
+                                    .labelLarge
+                                    .override(
+                                      fontFamily: 'Plus Jakarta Sans',
+                                      color: Color(0xFF57636C),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
