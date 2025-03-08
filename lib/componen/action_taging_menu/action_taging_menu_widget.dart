@@ -375,6 +375,20 @@ class _ActionTagingMenuWidgetState extends State<ActionTagingMenuWidget> {
               onTap: () async {
                 currentUserLocationValue = await getCurrentUserLocation(
                     defaultLocation: LatLng(0.0, 0.0));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      functions
+                          .stringFromCurrentLocation(currentUserLocationValue)!,
+                      style: TextStyle(
+                        color: FlutterFlowTheme.of(context).primaryText,
+                      ),
+                    ),
+                    duration: Duration(milliseconds: 4000),
+                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                  ),
+                );
+                Navigator.pop(context);
                 _model.apiResultfhj = await CekJarakPohonCall.call(
                   destination: valueOrDefault<String>(
                     functions.gabunglatlang(widget.lat, widget.lng),
@@ -388,40 +402,20 @@ class _ActionTagingMenuWidgetState extends State<ActionTagingMenuWidget> {
                 );
 
                 if ((_model.apiResultfhj?.succeeded ?? true)) {
-                  context.pushNamed(
-                    GetDestinationWidget.routeName,
-                    queryParameters: {
-                      'latTujuan': serializeParam(
-                        widget.lat,
-                        ParamType.String,
-                      ),
-                      'lngTujuan': serializeParam(
-                        widget.lng,
-                        ParamType.String,
-                      ),
-                      'namaPohon': serializeParam(
-                        widget.namapohon,
-                        ParamType.String,
-                      ),
-                      'waktu': serializeParam(
-                        valueOrDefault<String>(
-                          CekJarakPohonCall.waktu(
-                            (_model.apiResultfhj?.jsonBody ?? ''),
-                          ),
-                          '0',
+                  Navigator.pop(context);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        CekJarakPohonCall.jarak(
+                          (_model.apiResultfhj?.jsonBody ?? ''),
+                        )!,
+                        style: TextStyle(
+                          color: FlutterFlowTheme.of(context).primaryText,
                         ),
-                        ParamType.String,
                       ),
-                      'kilometer': serializeParam(
-                        valueOrDefault<String>(
-                          CekJarakPohonCall.jarak(
-                            (_model.apiResultfhj?.jsonBody ?? ''),
-                          ),
-                          '0',
-                        ),
-                        ParamType.String,
-                      ),
-                    }.withoutNulls,
+                      duration: Duration(milliseconds: 4000),
+                      backgroundColor: FlutterFlowTheme.of(context).secondary,
+                    ),
                   );
                 }
 
