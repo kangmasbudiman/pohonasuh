@@ -51,3 +51,6 @@ export '/petugas_taging/upload_image_taging/upload_image_taging_widget.dart'
     show UploadImageTagingWidget;
 export '/petugas_taging/get_destination/get_destination_widget.dart'
     show GetDestinationWidget;
+export '/petugas_taging/upload_image_tagin_online/upload_image_tagin_online_widget.dart'
+    show UploadImageTaginOnlineWidget;
+export '/detail_taging/detail_taging_widget.dart' show DetailTagingWidget;

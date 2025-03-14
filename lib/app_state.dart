@@ -242,7 +242,7 @@ class FFAppState extends ChangeNotifier {
     _bootomsheet = value;
   }
 
-  bool _connected = false;
+  bool _connected = true;
   bool get connected => _connected;
   set connected(bool value) {
     _connected = value;
@@ -377,6 +377,38 @@ class FFAppState extends ChangeNotifier {
     latihanlatlang.insert(index, value);
   }
 
+  List<ListImageOnlineStruct> _listPhotoOnline = [
+    ListImageOnlineStruct.fromSerializableMap(jsonDecode(
+        '{\"idadopsi\":\"0\",\"image\":\"https://picsum.photos/seed/363/600\",\"imageString\":\"Hello World\"}'))
+  ];
+  List<ListImageOnlineStruct> get listPhotoOnline => _listPhotoOnline;
+  set listPhotoOnline(List<ListImageOnlineStruct> value) {
+    _listPhotoOnline = value;
+  }
+
+  void addToListPhotoOnline(ListImageOnlineStruct value) {
+    listPhotoOnline.add(value);
+  }
+
+  void removeFromListPhotoOnline(ListImageOnlineStruct value) {
+    listPhotoOnline.remove(value);
+  }
+
+  void removeAtIndexFromListPhotoOnline(int index) {
+    listPhotoOnline.removeAt(index);
+  }
+
+  void updateListPhotoOnlineAtIndex(
+    int index,
+    ListImageOnlineStruct Function(ListImageOnlineStruct) updateFn,
+  ) {
+    listPhotoOnline[index] = updateFn(_listPhotoOnline[index]);
+  }
+
+  void insertAtIndexInListPhotoOnline(int index, ListImageOnlineStruct value) {
+    listPhotoOnline.insert(index, value);
+  }
+
   final _profilManager = FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> profil({
     String? uniqueQueryKey,
@@ -391,6 +423,51 @@ class FFAppState extends ChangeNotifier {
   void clearProfilCache() => _profilManager.clear();
   void clearProfilCacheKey(String? uniqueKey) =>
       _profilManager.clearRequest(uniqueKey);
+
+  final _sliderHomePageManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> sliderHomePage({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _sliderHomePageManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearSliderHomePageCache() => _sliderHomePageManager.clear();
+  void clearSliderHomePageCacheKey(String? uniqueKey) =>
+      _sliderHomePageManager.clearRequest(uniqueKey);
+
+  final _highLightTreeManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> highLightTree({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _highLightTreeManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearHighLightTreeCache() => _highLightTreeManager.clear();
+  void clearHighLightTreeCacheKey(String? uniqueKey) =>
+      _highLightTreeManager.clearRequest(uniqueKey);
+
+  final _pohonTreeManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> pohonTree({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _pohonTreeManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearPohonTreeCache() => _pohonTreeManager.clear();
+  void clearPohonTreeCacheKey(String? uniqueKey) =>
+      _pohonTreeManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

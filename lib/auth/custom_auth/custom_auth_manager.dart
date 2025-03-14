@@ -31,13 +31,13 @@ class CustomAuthManager {
     uid = null;
     userData = null;
     // Update the current user.
-    pohonAsuhAuthUserSubject.add(
-      PohonAsuhAuthUser(loggedIn: false),
+    adopsiPohonAuthUserSubject.add(
+      AdopsiPohonAuthUser(loggedIn: false),
     );
     persistAuthData();
   }
 
-  Future<PohonAsuhAuthUser?> signIn({
+  Future<AdopsiPohonAuthUser?> signIn({
     String? authenticationToken,
     String? refreshToken,
     DateTime? tokenExpiration,
@@ -73,7 +73,7 @@ class CustomAuthManager {
     );
   }
 
-  PohonAsuhAuthUser? _updateCurrentUser({
+  AdopsiPohonAuthUser? _updateCurrentUser({
     String? authenticationToken,
     String? refreshToken,
     DateTime? tokenExpiration,
@@ -86,12 +86,12 @@ class CustomAuthManager {
     this.uid = authUid;
     this.userData = userData;
     // Update the current user stream.
-    final updatedUser = PohonAsuhAuthUser(
+    final updatedUser = AdopsiPohonAuthUser(
       loggedIn: true,
       uid: authUid,
       userData: userData,
     );
-    pohonAsuhAuthUserSubject.add(updatedUser);
+    adopsiPohonAuthUserSubject.add(updatedUser);
     persistAuthData();
     return updatedUser;
   }
@@ -124,12 +124,12 @@ class CustomAuthManager {
     final authTokenExists = authenticationToken != null;
     final tokenExpired =
         tokenExpiration != null && tokenExpiration!.isBefore(DateTime.now());
-    final updatedUser = PohonAsuhAuthUser(
+    final updatedUser = AdopsiPohonAuthUser(
       loggedIn: authTokenExists && !tokenExpired,
       uid: uid,
       userData: userData,
     );
-    pohonAsuhAuthUserSubject.add(updatedUser);
+    adopsiPohonAuthUserSubject.add(updatedUser);
   }
 
   void persistAuthData() {
@@ -151,5 +151,5 @@ class CustomAuthManager {
   }
 }
 
-PohonAsuhAuthUser? currentUser;
+AdopsiPohonAuthUser? currentUser;
 bool get loggedIn => currentUser?.loggedIn ?? false;

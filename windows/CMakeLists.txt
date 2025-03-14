@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(pohon_asuh LANGUAGES CXX)
+project(adopsi_pohon LANGUAGES CXX)
 
-set(BINARY_NAME "pohon_asuh")
+set(BINARY_NAME "adopsi_pohon")
 
 cmake_policy(SET CMP0063 NEW)
 

@@ -167,3 +167,8 @@ String? getLat(LatLng? currentLocation) {
     return null;
   }
 }
+
+String? imagePathToString(String? imagepath) {
+  // convert argument1 to string
+  return imagepath?.toString();
+}

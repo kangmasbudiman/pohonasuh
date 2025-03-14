@@ -25,8 +25,8 @@ class AppStateNotifier extends ChangeNotifier {
   static AppStateNotifier? _instance;
   static AppStateNotifier get instance => _instance ??= AppStateNotifier._();
 
-  PohonAsuhAuthUser? initialUser;
-  PohonAsuhAuthUser? user;
+  AdopsiPohonAuthUser? initialUser;
+  AdopsiPohonAuthUser? user;
   bool showSplashImage = true;
   String? _redirectLocation;
 
@@ -51,7 +51,7 @@ class AppStateNotifier extends ChangeNotifier {
   /// to perform subsequent actions (such as navigation) afterwards.
   void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
 
-  void update(PohonAsuhAuthUser newUser) {
+  void update(AdopsiPohonAuthUser newUser) {
     final shouldUpdate =
         user?.uid == null || newUser.uid == null || user?.uid != newUser.uid;
     initialUser ??= newUser;
@@ -555,6 +555,46 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             kilometer: params.getParam(
               'kilometer',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: UploadImageTaginOnlineWidget.routeName,
+          path: UploadImageTaginOnlineWidget.routePath,
+          builder: (context, params) => UploadImageTaginOnlineWidget(
+            idpohon: params.getParam(
+              'idpohon',
+              ParamType.String,
+            ),
+            idadopsi: params.getParam(
+              'idadopsi',
+              ParamType.int,
+            ),
+            namapohon: params.getParam(
+              'namapohon',
+              ParamType.String,
+            ),
+            tanggaladopsi: params.getParam(
+              'tanggaladopsi',
+              ParamType.String,
+            ),
+            idmember: params.getParam(
+              'idmember',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: DetailTagingWidget.routeName,
+          path: DetailTagingWidget.routePath,
+          builder: (context, params) => DetailTagingWidget(
+            namaPohon: params.getParam(
+              'namaPohon',
+              ParamType.String,
+            ),
+            idpohon: params.getParam(
+              'idpohon',
               ParamType.String,
             ),
           ),

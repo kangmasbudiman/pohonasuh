@@ -76,11 +76,11 @@ class _HomeMapWidgetState extends State<HomeMapWidget> {
         color: FlutterFlowTheme.of(context).primaryBackground,
         child: Center(
           child: SizedBox(
-            width: 20.0,
-            height: 20.0,
-            child: SpinKitThreeBounce(
+            width: 10.0,
+            height: 10.0,
+            child: SpinKitRotatingPlain(
               color: FlutterFlowTheme.of(context).primary,
-              size: 20.0,
+              size: 10.0,
             ),
           ),
         ),
@@ -109,1057 +109,6 @@ class _HomeMapWidgetState extends State<HomeMapWidget> {
           child: Stack(
             alignment: AlignmentDirectional(0.0, 0.0),
             children: [
-              if (FFAppState().bootomsheet == true)
-                Align(
-                  alignment: AlignmentDirectional(0.0, 1.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 40.0, 20.0, 140.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 210.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 4.0,
-                            color: Color(0x33000000),
-                            offset: Offset(
-                              0.0,
-                              4.0,
-                            ),
-                          )
-                        ],
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(20.0),
-                          bottomRight: Radius.circular(20.0),
-                          topLeft: Radius.circular(20.0),
-                          topRight: Radius.circular(20.0),
-                        ),
-                      ),
-                      alignment: AlignmentDirectional(0.0, 1.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 20.0, 20.0, 0.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                FlutterFlowIconButton(
-                                  borderRadius: 50.0,
-                                  buttonSize: 40.0,
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  icon: FaIcon(
-                                    FontAwesomeIcons.tree,
-                                    color: FlutterFlowTheme.of(context).info,
-                                    size: 20.0,
-                                  ),
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
-                                  },
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .localname(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'localname',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    FFAppState().bootomsheet = false;
-                                    safeSetState(() {});
-                                  },
-                                  child: Icon(
-                                    Icons.close_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 24.0,
-                                  ),
-                                ),
-                              ].divide(SizedBox(width: 10.0)),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
-                                      TreesGroup.pohonmapCall
-                                          .fotoPohon(
-                                            (_model.outputNearby?.jsonBody ??
-                                                ''),
-                                          )
-                                          ?.elementAtOrNull(valueOrDefault<int>(
-                                            functions.indexMarkerIdentifier(
-                                                _model.googleMapsCenter,
-                                                functions
-                                                    .doubleToLatlng(
-                                                        TreesGroup.pohonmapCall
-                                                            .lat(
-                                                              (_model.outputNearby
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )
-                                                            ?.toList(),
-                                                        TreesGroup.pohonmapCall
-                                                            .lng(
-                                                              (_model.outputNearby
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )
-                                                            ?.toList())
-                                                    ?.toList()),
-                                            0,
-                                          )),
-                                      'fotopohon',
-                                    ),
-                                    width: 70.0,
-                                    height: 70.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
-                                        child: RichText(
-                                          textScaler:
-                                              MediaQuery.of(context).textScaler,
-                                          text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: 'Spesies : ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                              TextSpan(
-                                                text: valueOrDefault<String>(
-                                                  TreesGroup.pohonmapCall
-                                                      .species(
-                                                        (_model.outputNearby
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )
-                                                      ?.elementAtOrNull(
-                                                          valueOrDefault<int>(
-                                                        functions.indexMarkerIdentifier(
-                                                            _model.googleMapsCenter,
-                                                            functions
-                                                                .doubleToLatlng(
-                                                                    TreesGroup.pohonmapCall
-                                                                        .lat(
-                                                                          (_model.outputNearby?.jsonBody ??
-                                                                              ''),
-                                                                        )
-                                                                        ?.toList(),
-                                                                    TreesGroup.pohonmapCall
-                                                                        .lng(
-                                                                          (_model.outputNearby?.jsonBody ??
-                                                                              ''),
-                                                                        )
-                                                                        ?.toList())
-                                                                ?.toList()),
-                                                        0,
-                                                      )),
-                                                  'spesies',
-                                                ),
-                                                style: TextStyle(),
-                                              )
-                                            ],
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
-                                        child: RichText(
-                                          textScaler:
-                                              MediaQuery.of(context).textScaler,
-                                          text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: 'VIllage : ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                              TextSpan(
-                                                text: valueOrDefault<String>(
-                                                  TreesGroup.pohonmapCall
-                                                      .desa(
-                                                        (_model.outputNearby
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )
-                                                      ?.elementAtOrNull(
-                                                          valueOrDefault<int>(
-                                                        functions.indexMarkerIdentifier(
-                                                            _model.googleMapsCenter,
-                                                            functions
-                                                                .doubleToLatlng(
-                                                                    TreesGroup.pohonmapCall
-                                                                        .lat(
-                                                                          (_model.outputNearby?.jsonBody ??
-                                                                              ''),
-                                                                        )
-                                                                        ?.toList(),
-                                                                    TreesGroup.pohonmapCall
-                                                                        .lng(
-                                                                          (_model.outputNearby?.jsonBody ??
-                                                                              ''),
-                                                                        )
-                                                                        ?.toList())
-                                                                ?.toList()),
-                                                        0,
-                                                      )),
-                                                  'village',
-                                                ),
-                                                style: TextStyle(),
-                                              )
-                                            ],
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
-                                        child: RichText(
-                                          textScaler:
-                                              MediaQuery.of(context).textScaler,
-                                          text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: 'Adopted : ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                              TextSpan(
-                                                text: valueOrDefault<String>(
-                                                  TreesGroup.pohonmapCall
-                                                      .adopted(
-                                                        (_model.outputNearby
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )
-                                                      ?.elementAtOrNull(
-                                                          valueOrDefault<int>(
-                                                        functions.indexMarkerIdentifier(
-                                                            _model.googleMapsCenter,
-                                                            functions
-                                                                .doubleToLatlng(
-                                                                    TreesGroup.pohonmapCall
-                                                                        .lat(
-                                                                          (_model.outputNearby?.jsonBody ??
-                                                                              ''),
-                                                                        )
-                                                                        ?.toList(),
-                                                                    TreesGroup.pohonmapCall
-                                                                        .lng(
-                                                                          (_model.outputNearby?.jsonBody ??
-                                                                              ''),
-                                                                        )
-                                                                        ?.toList())
-                                                                ?.toList()),
-                                                        0,
-                                                      )),
-                                                  'village',
-                                                ),
-                                                style: TextStyle(),
-                                              )
-                                            ],
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ].divide(SizedBox(width: 10.0)),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                FFButtonWidget(
-                                  onPressed: () async {
-                                    context.pushNamed(
-                                      DetailtreeWidget.routeName,
-                                      queryParameters: {
-                                        'price': serializeParam(
-                                          valueOrDefault<String>(
-                                            (TreesGroup.pohonmapCall
-                                                .harga(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )))?.toString(),
-                                            'harga',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'vilage': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .desa(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'locaname': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .localname(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'spesies': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .species(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'family': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .family(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'slop': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .slope(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'diameter': serializeParam(
-                                          valueOrDefault<String>(
-                                            (TreesGroup.pohonmapCall
-                                                .diameter(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )))?.toString(),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'circumference': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .cur(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'height': serializeParam(
-                                          valueOrDefault<String>(
-                                            (TreesGroup.pohonmapCall
-                                                .tinggi(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )))?.toString(),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'asl': serializeParam(
-                                          valueOrDefault<String>(
-                                            (TreesGroup.pohonmapCall
-                                                .asl(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )))?.toString(),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'surveidate': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .tglsurvey(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'photosby': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .fotografer(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'surveyedby': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .surveyor(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'adopttedby': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .pengasuh(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'tgladopt': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .tgladopt(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'tglexp': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .tglexp(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                        'idpohon': serializeParam(
-                                          valueOrDefault<String>(
-                                            TreesGroup.pohonmapCall
-                                                .idpohon(
-                                                  (_model.outputNearby
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                ?.elementAtOrNull(
-                                                    valueOrDefault<int>(
-                                                  functions
-                                                      .indexMarkerIdentifier(
-                                                          _model
-                                                              .googleMapsCenter,
-                                                          functions
-                                                              .doubleToLatlng(
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lat(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList(),
-                                                                  TreesGroup
-                                                                      .pohonmapCall
-                                                                      .lng(
-                                                                        (_model.outputNearby?.jsonBody ??
-                                                                            ''),
-                                                                      )
-                                                                      ?.toList())
-                                                              ?.toList()),
-                                                  0,
-                                                )),
-                                            'spesies',
-                                          ),
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-                                  },
-                                  text: 'Detail',
-                                  options: FFButtonOptions(
-                                    height: 30.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Inter Tight',
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    elevation: 0.0,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                                FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: 'Adopt',
-                                  options: FFButtonOptions(
-                                    height: 30.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Inter Tight',
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    elevation: 0.0,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ].divide(SizedBox(height: 5.0)),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
               wrapWithModel(
                 model: _model.navbarModel,
                 updateCallback: () => safeSetState(() {}),
@@ -1238,6 +187,1035 @@ class _HomeMapWidgetState extends State<HomeMapWidget> {
                   centerMapOnMarkerTap: true,
                 ),
               ),
+              if (FFAppState().bootomsheet == true)
+                Align(
+                  alignment: AlignmentDirectional(0.0, 1.0),
+                  child: PointerInterceptor(
+                    intercepting: isWeb,
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          20.0, 40.0, 20.0, 140.0),
+                      child: Container(
+                        width: double.infinity,
+                        height: 210.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 4.0,
+                              color: Color(0x33000000),
+                              offset: Offset(
+                                0.0,
+                                4.0,
+                              ),
+                            )
+                          ],
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20.0),
+                            bottomRight: Radius.circular(20.0),
+                            topLeft: Radius.circular(20.0),
+                            topRight: Radius.circular(20.0),
+                          ),
+                        ),
+                        alignment: AlignmentDirectional(0.0, 1.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 20.0, 20.0, 0.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  FlutterFlowIconButton(
+                                    borderRadius: 50.0,
+                                    buttonSize: 40.0,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    icon: FaIcon(
+                                      FontAwesomeIcons.tree,
+                                      color: FlutterFlowTheme.of(context).info,
+                                      size: 20.0,
+                                    ),
+                                    onPressed: () {
+                                      print('IconButton pressed ...');
+                                    },
+                                  ),
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .localname(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'localname',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().bootomsheet = false;
+                                      safeSetState(() {});
+                                    },
+                                    child: Icon(
+                                      Icons.close_outlined,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 24.0,
+                                    ),
+                                  ),
+                                ].divide(SizedBox(width: 10.0)),
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.network(
+                                      valueOrDefault<String>(
+                                        TreesGroup.pohonmapCall
+                                            .fotoPohon(
+                                              (_model.outputNearby?.jsonBody ??
+                                                  ''),
+                                            )
+                                            ?.elementAtOrNull(
+                                                valueOrDefault<int>(
+                                              functions.indexMarkerIdentifier(
+                                                  _model.googleMapsCenter,
+                                                  functions
+                                                      .doubleToLatlng(
+                                                          TreesGroup
+                                                              .pohonmapCall
+                                                              .lat(
+                                                                (_model.outputNearby
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              ?.toList(),
+                                                          TreesGroup
+                                                              .pohonmapCall
+                                                              .lng(
+                                                                (_model.outputNearby
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              ?.toList())
+                                                      ?.toList()),
+                                              0,
+                                            )),
+                                        'fotopohon',
+                                      ),
+                                      width: 70.0,
+                                      height: 70.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: RichText(
+                                            textScaler: MediaQuery.of(context)
+                                                .textScaler,
+                                            text: TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'Spesies : ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                                TextSpan(
+                                                  text: valueOrDefault<String>(
+                                                    TreesGroup.pohonmapCall
+                                                        .species(
+                                                          (_model.outputNearby
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )
+                                                        ?.elementAtOrNull(
+                                                            valueOrDefault<int>(
+                                                          functions.indexMarkerIdentifier(
+                                                              _model.googleMapsCenter,
+                                                              functions
+                                                                  .doubleToLatlng(
+                                                                      TreesGroup.pohonmapCall
+                                                                          .lat(
+                                                                            (_model.outputNearby?.jsonBody ??
+                                                                                ''),
+                                                                          )
+                                                                          ?.toList(),
+                                                                      TreesGroup.pohonmapCall
+                                                                          .lng(
+                                                                            (_model.outputNearby?.jsonBody ??
+                                                                                ''),
+                                                                          )
+                                                                          ?.toList())
+                                                                  ?.toList()),
+                                                          0,
+                                                        )),
+                                                    'spesies',
+                                                  ),
+                                                  style: TextStyle(),
+                                                )
+                                              ],
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: RichText(
+                                            textScaler: MediaQuery.of(context)
+                                                .textScaler,
+                                            text: TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'VIllage : ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                                TextSpan(
+                                                  text: valueOrDefault<String>(
+                                                    TreesGroup.pohonmapCall
+                                                        .desa(
+                                                          (_model.outputNearby
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )
+                                                        ?.elementAtOrNull(
+                                                            valueOrDefault<int>(
+                                                          functions.indexMarkerIdentifier(
+                                                              _model.googleMapsCenter,
+                                                              functions
+                                                                  .doubleToLatlng(
+                                                                      TreesGroup.pohonmapCall
+                                                                          .lat(
+                                                                            (_model.outputNearby?.jsonBody ??
+                                                                                ''),
+                                                                          )
+                                                                          ?.toList(),
+                                                                      TreesGroup.pohonmapCall
+                                                                          .lng(
+                                                                            (_model.outputNearby?.jsonBody ??
+                                                                                ''),
+                                                                          )
+                                                                          ?.toList())
+                                                                  ?.toList()),
+                                                          0,
+                                                        )),
+                                                    'village',
+                                                  ),
+                                                  style: TextStyle(),
+                                                )
+                                              ],
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: RichText(
+                                            textScaler: MediaQuery.of(context)
+                                                .textScaler,
+                                            text: TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'Adopted : ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                                TextSpan(
+                                                  text: valueOrDefault<String>(
+                                                    TreesGroup.pohonmapCall
+                                                        .adopted(
+                                                          (_model.outputNearby
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )
+                                                        ?.elementAtOrNull(
+                                                            valueOrDefault<int>(
+                                                          functions.indexMarkerIdentifier(
+                                                              _model.googleMapsCenter,
+                                                              functions
+                                                                  .doubleToLatlng(
+                                                                      TreesGroup.pohonmapCall
+                                                                          .lat(
+                                                                            (_model.outputNearby?.jsonBody ??
+                                                                                ''),
+                                                                          )
+                                                                          ?.toList(),
+                                                                      TreesGroup.pohonmapCall
+                                                                          .lng(
+                                                                            (_model.outputNearby?.jsonBody ??
+                                                                                ''),
+                                                                          )
+                                                                          ?.toList())
+                                                                  ?.toList()),
+                                                          0,
+                                                        )),
+                                                    'village',
+                                                  ),
+                                                  style: TextStyle(),
+                                                )
+                                              ],
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ].divide(SizedBox(width: 10.0)),
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  FFButtonWidget(
+                                    onPressed: () async {
+                                      context.pushNamed(
+                                        DetailtreeWidget.routeName,
+                                        queryParameters: {
+                                          'price': serializeParam(
+                                            valueOrDefault<String>(
+                                              (TreesGroup.pohonmapCall
+                                                  .harga(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )))?.toString(),
+                                              'harga',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'vilage': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .desa(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'locaname': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .localname(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'spesies': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .species(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'family': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .family(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'slop': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .slope(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'diameter': serializeParam(
+                                            valueOrDefault<String>(
+                                              (TreesGroup.pohonmapCall
+                                                  .diameter(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )))?.toString(),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'circumference': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .cur(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'height': serializeParam(
+                                            valueOrDefault<String>(
+                                              (TreesGroup.pohonmapCall
+                                                  .tinggi(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )))?.toString(),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'asl': serializeParam(
+                                            valueOrDefault<String>(
+                                              (TreesGroup.pohonmapCall
+                                                  .asl(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )))?.toString(),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'surveidate': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .tglsurvey(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'photosby': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .fotografer(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'surveyedby': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .surveyor(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'adopttedby': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .pengasuh(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'tgladopt': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .tgladopt(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'tglexp': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .tglexp(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                          'idpohon': serializeParam(
+                                            valueOrDefault<String>(
+                                              TreesGroup.pohonmapCall
+                                                  .idpohon(
+                                                    (_model.outputNearby
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.elementAtOrNull(
+                                                      valueOrDefault<int>(
+                                                    functions.indexMarkerIdentifier(
+                                                        _model.googleMapsCenter,
+                                                        functions
+                                                            .doubleToLatlng(
+                                                                TreesGroup.pohonmapCall
+                                                                    .lat(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList(),
+                                                                TreesGroup.pohonmapCall
+                                                                    .lng(
+                                                                      (_model.outputNearby
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.toList())
+                                                            ?.toList()),
+                                                    0,
+                                                  )),
+                                              'spesies',
+                                            ),
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    },
+                                    text: 'Detail',
+                                    options: FFButtonOptions(
+                                      height: 30.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 0.0, 16.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Inter Tight',
+                                            color: Colors.white,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      elevation: 0.0,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ),
+                                  FFButtonWidget(
+                                    onPressed: () {
+                                      print('Button pressed ...');
+                                    },
+                                    text: 'Adopt',
+                                    options: FFButtonOptions(
+                                      height: 30.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 0.0, 16.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Inter Tight',
+                                            color: Colors.white,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      elevation: 0.0,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ].divide(SizedBox(height: 5.0)),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               Align(
                 alignment: AlignmentDirectional(-1.0, 1.0),
                 child: PointerInterceptor(

@@ -591,17 +591,31 @@ class _ActionTagingMenuWidgetState extends State<ActionTagingMenuWidget> {
               onTap: () async {
                 if (FFAppState().connected) {
                   Navigator.pop(context);
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        'Anda Online',
-                        style: TextStyle(
-                          color: FlutterFlowTheme.of(context).primaryText,
-                        ),
+
+                  context.pushNamed(
+                    UploadImageTaginOnlineWidget.routeName,
+                    queryParameters: {
+                      'idpohon': serializeParam(
+                        widget.kodepohon,
+                        ParamType.String,
                       ),
-                      duration: Duration(milliseconds: 4000),
-                      backgroundColor: FlutterFlowTheme.of(context).secondary,
-                    ),
+                      'idadopsi': serializeParam(
+                        widget.idadopsi,
+                        ParamType.int,
+                      ),
+                      'namapohon': serializeParam(
+                        widget.namapohon,
+                        ParamType.String,
+                      ),
+                      'tanggaladopsi': serializeParam(
+                        widget.tgladopsi,
+                        ParamType.String,
+                      ),
+                      'idmember': serializeParam(
+                        widget.idpengasuh,
+                        ParamType.int,
+                      ),
+                    }.withoutNulls,
                   );
                 } else {
                   var confirmDialogResponse = await showDialog<bool>(

@@ -746,6 +746,7 @@ class TreesGroup {
   static PohonmapallCall pohonmapallCall = PohonmapallCall();
   static PohonbypengurusCall pohonbypengurusCall = PohonbypengurusCall();
   static TambahFototagingCall tambahFototagingCall = TambahFototagingCall();
+  static LihatfototagingCall lihatfototagingCall = LihatfototagingCall();
 }
 
 class MytreesCall {
@@ -1798,6 +1799,31 @@ class TambahFototagingCall {
         'idadopsi': idadopsi,
         'tanggal': tanggal,
         'urlGambar': urlGambar,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class LihatfototagingCall {
+  Future<ApiCallResponse> call({
+    String? idpohon = '',
+  }) async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'lihatfototaging',
+      apiUrl: '${baseUrl}/lihatfototaging',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'idpohon': idpohon,
       },
       bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
       returnBody: true,

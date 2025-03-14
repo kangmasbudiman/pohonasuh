@@ -51,21 +51,26 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           FutureBuilder<ApiCallResponse>(
-            future: FFAppState().profil(
+            future: FFAppState()
+                .profil(
               requestFn: () => RestAPiPohonAsuhGroup.getProfilCall.call(
                 id: currentUserData?.id,
               ),
-            ),
+            )
+                .then((result) {
+              _model.apiRequestCompleted = true;
+              return result;
+            }),
             builder: (context, snapshot) {
               // Customize what your widget looks like when it's loading.
               if (!snapshot.hasData) {
                 return Center(
                   child: SizedBox(
-                    width: 20.0,
-                    height: 20.0,
-                    child: SpinKitThreeBounce(
+                    width: 10.0,
+                    height: 10.0,
+                    child: SpinKitRotatingPlain(
                       color: FlutterFlowTheme.of(context).primary,
-                      size: 20.0,
+                      size: 10.0,
                     ),
                   ),
                 );
@@ -906,11 +911,17 @@ class _ContentDrawerWidgetState extends State<ContentDrawerWidget> {
                   ) ??
                   false;
               if (confirmDialogResponse) {
+                FFAppState().clearProfilCache();
                 GoRouter.of(context).prepareAuthEvent();
                 await authManager.signOut();
                 GoRouter.of(context).clearRedirectLocation();
 
                 FFAppState().clearProfilCache();
+                safeSetState(() {
+                  FFAppState().clearProfilCache();
+                  _model.apiRequestCompleted = false;
+                });
+                await _model.waitForApiRequestCompleted();
 
                 context.goNamedAuth(
                     LoginRegisterWidget.routeName, context.mounted);

@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:share_plus/share_plus.dart';
 import 'certificateview_model.dart';
 export 'certificateview_model.dart';
 
@@ -95,286 +94,268 @@ class _CertificateviewWidgetState extends State<CertificateviewWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Builder(
-                  builder: (context) => InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      await Share.share(
-                        widget.nama!,
-                        sharePositionOrigin: getWidgetBoundingBox(context),
-                      );
-                    },
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Image.asset(
+                Stack(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 249.55,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: Image.asset(
                             'assets/images/certificate_template.jpg',
-                            width: double.infinity,
-                            height: 250.0,
-                            fit: BoxFit.cover,
-                          ),
+                          ).image,
                         ),
-                        Container(
-                          width: double.infinity,
-                          height: 249.55,
-                          decoration: BoxDecoration(),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                50.0, 0.0, 5.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 58.0, 0.0, 0.0),
-                                  child: Container(
-                                    width: 336.13,
-                                    decoration: BoxDecoration(),
-                                    child: Text(
-                                      'Pohon Asuh is intepreted as a public reward given to a community for its contributions to care tree in the forest',
-                                      textAlign: TextAlign.justify,
+                      ),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(50.0, 0.0, 5.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 58.0, 0.0, 0.0),
+                              child: Container(
+                                width: 336.13,
+                                decoration: BoxDecoration(),
+                                child: Text(
+                                  'Pohon Asuh is intepreted as a public reward given to a community for its contributions to care tree in the forest',
+                                  textAlign: TextAlign.justify,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 9.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: 336.1,
+                              decoration: BoxDecoration(),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Text(
+                                  'We give appreciation and thanks to :',
+                                  textAlign: TextAlign.justify,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 9.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 2.0, 0.0, 0.0),
+                              child: Text(
+                                valueOrDefault<String>(
+                                  widget.nama,
+                                  'nama',
+                                ),
+                                maxLines: 1,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
+                              child: RichText(
+                                textScaler: MediaQuery.of(context).textScaler,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'has adopted  ',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            fontSize: 9.0,
+                                            fontSize: 10.0,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 336.1,
-                                  decoration: BoxDecoration(),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
-                                    child: Text(
-                                      'We give appreciation and thanks to :',
-                                      textAlign: TextAlign.justify,
+                                    TextSpan(
+                                      text: valueOrDefault<String>(
+                                        widget.jumlahpohon?.toString(),
+                                        '0',
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            fontSize: 9.0,
+                                            fontSize: 10.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                            decoration:
+                                                TextDecoration.underline,
+                                          ),
+                                    ),
+                                    TextSpan(
+                                      text: ' in: ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            fontSize: 10.0,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
-                                  ),
+                                    TextSpan(
+                                      text: valueOrDefault<String>(
+                                        widget.desa,
+                                        'village',
+                                      ),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 10.0,
+                                      ),
+                                    )
+                                  ],
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 10.0,
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 2.0, 0.0, 0.0),
-                                  child: Text(
-                                    valueOrDefault<String>(
-                                      widget.nama,
-                                      'nama',
-                                    ),
-                                    maxLines: 1,
+                              ),
+                            ),
+                            RichText(
+                              textScaler: MediaQuery.of(context).textScaler,
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'From : ',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
+                                          fontSize: 10.0,
                                           letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
                                         ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
-                                  child: RichText(
-                                    textScaler:
-                                        MediaQuery.of(context).textScaler,
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: 'has adopted  ',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                fontSize: 10.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                        TextSpan(
-                                          text: valueOrDefault<String>(
-                                            widget.jumlahpohon?.toString(),
-                                            '0',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                fontSize: 10.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                decoration:
-                                                    TextDecoration.underline,
-                                              ),
-                                        ),
-                                        TextSpan(
-                                          text: ' in: ',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                fontSize: 10.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                        TextSpan(
-                                          text: valueOrDefault<String>(
-                                            widget.desa,
-                                            'village',
-                                          ),
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 10.0,
-                                          ),
-                                        )
-                                      ],
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            fontSize: 10.0,
-                                            letterSpacing: 0.0,
-                                          ),
+                                  TextSpan(
+                                    text: valueOrDefault<String>(
+                                      widget.tglStart,
+                                      'tgl_start',
                                     ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: 10.0,
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
-                                ),
-                                RichText(
+                                  TextSpan(
+                                    text: '  Until : ',
+                                    style: TextStyle(),
+                                  ),
+                                  TextSpan(
+                                    text: valueOrDefault<String>(
+                                      widget.tglexp,
+                                      'tgl_exp',
+                                    ),
+                                    style: TextStyle(),
+                                  )
+                                ],
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      fontSize: 10.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                            RichText(
+                              textScaler: MediaQuery.of(context).textScaler,
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Message and impresion : ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: 10.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  TextSpan(
+                                    text: 'message',
+                                    style: TextStyle(),
+                                  )
+                                ],
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      fontSize: 10.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 30.0, 0.0, 0.0),
+                                child: RichText(
                                   textScaler: MediaQuery.of(context).textScaler,
                                   text: TextSpan(
                                     children: [
                                       TextSpan(
-                                        text: 'From : ',
+                                        text: 'Jambi: ',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
                                               fontSize: 10.0,
                                               letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
                                             ),
                                       ),
                                       TextSpan(
                                         text: valueOrDefault<String>(
                                           widget.tglStart,
-                                          'tgl_start',
+                                          'tglStart',
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              fontSize: 10.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                      TextSpan(
-                                        text: '  Until : ',
-                                        style: TextStyle(),
-                                      ),
-                                      TextSpan(
-                                        text: valueOrDefault<String>(
-                                          widget.tglexp,
-                                          'tgl_exp',
+                                        style: TextStyle(
+                                          fontSize: 10.0,
                                         ),
-                                        style: TextStyle(),
                                       )
                                     ],
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 10.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
+                                  textAlign: TextAlign.center,
                                 ),
-                                RichText(
-                                  textScaler: MediaQuery.of(context).textScaler,
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: 'Message and impresion : ',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              fontSize: 10.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                      TextSpan(
-                                        text: 'message',
-                                        style: TextStyle(),
-                                      )
-                                    ],
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          fontSize: 10.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 30.0, 0.0, 0.0),
-                                    child: RichText(
-                                      textScaler:
-                                          MediaQuery.of(context).textScaler,
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: 'Jambi: ',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 10.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                          ),
-                                          TextSpan(
-                                            text: valueOrDefault<String>(
-                                              widget.tglStart,
-                                              'tglStart',
-                                            ),
-                                            style: TextStyle(
-                                              fontSize: 10.0,
-                                            ),
-                                          )
-                                        ],
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,

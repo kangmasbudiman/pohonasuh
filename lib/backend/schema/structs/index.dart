@@ -1,10 +1,12 @@
 export '/backend/schema/util/schema_util.dart';
 
+export 'lihatfototaging_struct.dart';
 export 'data_pohon_struct.dart';
 export 'datafototaging_struct.dart';
 export 'get_profil_t_ype_struct.dart';
 export 'image_slider_struct.dart';
 export 'latlang_struct.dart';
+export 'list_image_online_struct.dart';
 export 'list_pototaging_struct.dart';
 export 'loginuser_struct.dart';
 export 'repon_pohon_map_struct.dart';

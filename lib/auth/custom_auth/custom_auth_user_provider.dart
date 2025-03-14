@@ -3,8 +3,8 @@ import 'package:rxdart/rxdart.dart';
 import '/backend/schema/structs/index.dart';
 import 'custom_auth_manager.dart';
 
-class PohonAsuhAuthUser {
-  PohonAsuhAuthUser({
+class AdopsiPohonAuthUser {
+  AdopsiPohonAuthUser({
     required this.loggedIn,
     this.uid,
     this.userData,
@@ -16,8 +16,9 @@ class PohonAsuhAuthUser {
 }
 
 /// Generates a stream of the authenticated user.
-BehaviorSubject<PohonAsuhAuthUser> pohonAsuhAuthUserSubject =
-    BehaviorSubject.seeded(PohonAsuhAuthUser(loggedIn: false));
-Stream<PohonAsuhAuthUser> pohonAsuhAuthUserStream() => pohonAsuhAuthUserSubject
-    .asBroadcastStream()
-    .map((user) => currentUser = user);
+BehaviorSubject<AdopsiPohonAuthUser> adopsiPohonAuthUserSubject =
+    BehaviorSubject.seeded(AdopsiPohonAuthUser(loggedIn: false));
+Stream<AdopsiPohonAuthUser> adopsiPohonAuthUserStream() =>
+    adopsiPohonAuthUserSubject
+        .asBroadcastStream()
+        .map((user) => currentUser = user);

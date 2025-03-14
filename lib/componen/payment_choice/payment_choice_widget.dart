@@ -82,11 +82,11 @@ class _PaymentChoiceWidgetState extends State<PaymentChoiceWidget> {
                         if (!snapshot.hasData) {
                           return Center(
                             child: SizedBox(
-                              width: 20.0,
-                              height: 20.0,
-                              child: SpinKitThreeBounce(
+                              width: 10.0,
+                              height: 10.0,
+                              child: SpinKitRotatingPlain(
                                 color: FlutterFlowTheme.of(context).primary,
-                                size: 20.0,
+                                size: 10.0,
                               ),
                             ),
                           );

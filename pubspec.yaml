@@ -1,4 +1,4 @@
-name: pohon_asuh
+name: adopsi_pohon
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.5+5
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -37,6 +37,7 @@ dependencies:
   collection: 1.19.0
   connectivity_plus: ^4.0.2
   csslib: 0.17.3
+  dio: ^5.4.1
   easy_debounce: 2.0.1
   equatable: 2.0.5
   file_picker: 8.1.2
@@ -51,6 +52,7 @@ dependencies:
   font_awesome_flutter: 10.7.0
   from_css_color: 2.0.0
   functions_client: 2.3.2
+  gallery_saver: ^2.3.2
   geolocator: 13.0.1
   geolocator_android: 4.6.1
   geolocator_apple: 2.3.7
@@ -101,8 +103,7 @@ dependencies:
   qr_bar_code:
   realtime_client: 2.2.1
   screenshot:
-  share_plus: 10.0.2
-  share_plus_platform_interface: 5.0.0
+  share_plus: any
   shared_preferences: 2.3.2
   shared_preferences_android: 2.3.2
   shared_preferences_foundation: 2.5.2

@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "Pohon Asuh" "\0"
+            VALUE "CompanyName", "Adopsi Pohon" "\0"
             VALUE "FileDescription", "A new Flutter project." "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "Pohon Asuh" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 Pohon Asuh. All rights reserved." "\0"
-            VALUE "OriginalFilename", "pohon_asuh.exe" "\0"
-            VALUE "ProductName", "Pohon Asuh" "\0"
+            VALUE "InternalName", "Adopsi Pohon" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 Adopsi Pohon. All rights reserved." "\0"
+            VALUE "OriginalFilename", "adopsi_pohon.exe" "\0"
+            VALUE "ProductName", "Adopsi Pohon" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
