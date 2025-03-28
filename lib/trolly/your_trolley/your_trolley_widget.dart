@@ -107,6 +107,7 @@ class _YourTrolleyWidgetState extends State<YourTrolleyWidget> {
                 },
               ),
               title: Text(
+                
                 'Your Troley',
                 style: FlutterFlowTheme.of(context).titleLarge.override(
                       fontFamily: 'Inter Tight',

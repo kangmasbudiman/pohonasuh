@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
     <application
         android:label="Adopsi Pohon"
         tools:replace="android:label"
@@ -60,6 +63,13 @@
             android:name="flutterEmbedding"
             android:value="2" />
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDsc1dFvcyeI0OiCBNjxVdSBkTx4xTtgns"/>
+
+
+    <service
+    android:name="com.dexterous.flutterlocalnotifications.ForegroundService"
+    android:permission="android.permission.FOREGROUND_SERVICE"
+    android:exported="false"/>
+
 
 
     </application>
