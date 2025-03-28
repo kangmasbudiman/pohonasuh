@@ -409,6 +409,12 @@ class FFAppState extends ChangeNotifier {
     listPhotoOnline.insert(index, value);
   }
 
+  String _tokenFCM = '';
+  String get tokenFCM => _tokenFCM;
+  set tokenFCM(String value) {
+    _tokenFCM = value;
+  }
+
   final _profilManager = FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> profil({
     String? uniqueQueryKey,

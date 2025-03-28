@@ -11,9 +11,15 @@ import 'package:flutter/material.dart';
 
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!
-import 'package:firebase_messaging/firebase_messaging.dart';
 
-Future<String?> getFCMToken() async {
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+Future<void> initializeFirebase() async {
+  await Firebase.initializeApp(); // Inisialisasi Firebase
+}
+
+Future<void> requestPermission() async {
   FirebaseMessaging messaging = FirebaseMessaging.instance;
   NotificationSettings settings = await messaging.requestPermission(
     alert: true,
@@ -22,9 +28,17 @@ Future<String?> getFCMToken() async {
   );
 
   if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-    String? token = await messaging.getToken();
-    return token;
+    print("✅ Izin diberikan");
   } else {
-    return "Permission Denied";
+    print("❌ Izin ditolak");
   }
+}
+
+Future<String?> getFCMToken() async {
+  await initializeFirebase(); // Pastikan Firebase sudah diinisialisasi
+  await requestPermission(); // Minta izin dulu sebelum ambil token
+
+  String? token = await FirebaseMessaging.instance.getToken();
+  print("🔑 FCM Token: $token"); // Debugging di log
+  return token;
 }

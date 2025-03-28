@@ -11,6 +11,10 @@ import 'auth/custom_auth/custom_auth_user_provider.dart';
 import '/backend/supabase/supabase.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
+
+
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
