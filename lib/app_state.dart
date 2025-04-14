@@ -430,50 +430,35 @@ class FFAppState extends ChangeNotifier {
   void clearProfilCacheKey(String? uniqueKey) =>
       _profilManager.clearRequest(uniqueKey);
 
-  final _sliderHomePageManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> sliderHomePage({
+  final _sliderManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> slider({
     String? uniqueQueryKey,
     bool? overrideCache,
     required Future<ApiCallResponse> Function() requestFn,
   }) =>
-      _sliderHomePageManager.performRequest(
+      _sliderManager.performRequest(
         uniqueQueryKey: uniqueQueryKey,
         overrideCache: overrideCache,
         requestFn: requestFn,
       );
-  void clearSliderHomePageCache() => _sliderHomePageManager.clear();
-  void clearSliderHomePageCacheKey(String? uniqueKey) =>
-      _sliderHomePageManager.clearRequest(uniqueKey);
+  void clearSliderCache() => _sliderManager.clear();
+  void clearSliderCacheKey(String? uniqueKey) =>
+      _sliderManager.clearRequest(uniqueKey);
 
-  final _highLightTreeManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> highLightTree({
+  final _rowHiglightManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> rowHiglight({
     String? uniqueQueryKey,
     bool? overrideCache,
     required Future<ApiCallResponse> Function() requestFn,
   }) =>
-      _highLightTreeManager.performRequest(
+      _rowHiglightManager.performRequest(
         uniqueQueryKey: uniqueQueryKey,
         overrideCache: overrideCache,
         requestFn: requestFn,
       );
-  void clearHighLightTreeCache() => _highLightTreeManager.clear();
-  void clearHighLightTreeCacheKey(String? uniqueKey) =>
-      _highLightTreeManager.clearRequest(uniqueKey);
-
-  final _pohonTreeManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> pohonTree({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ApiCallResponse> Function() requestFn,
-  }) =>
-      _pohonTreeManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearPohonTreeCache() => _pohonTreeManager.clear();
-  void clearPohonTreeCacheKey(String? uniqueKey) =>
-      _pohonTreeManager.clearRequest(uniqueKey);
+  void clearRowHiglightCache() => _rowHiglightManager.clear();
+  void clearRowHiglightCacheKey(String? uniqueKey) =>
+      _rowHiglightManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

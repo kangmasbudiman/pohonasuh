@@ -8,11 +8,11 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
+import 'dart:async';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -49,8 +49,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -81,7 +79,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       FutureBuilder<ApiCallResponse>(
-                        future: FFAppState().sliderHomePage(
+                        future: FFAppState().slider(
                           requestFn: () =>
                               RestAPiPohonAsuhGroup.sliderCall.call(),
                         ),
@@ -217,28 +215,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              valueOrDefault<String>(
-                                FFAppState().tokenFCM,
-                                'token',
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                            ),
-                          ),
                         ],
                       ),
                       FutureBuilder<ApiCallResponse>(
-                        future: FFAppState().highLightTree(
+                        future: FFAppState().rowHiglight(
                           requestFn: () =>
                               RestAPiPohonAsuhGroup.pohonheightlightCall.call(),
                         ),
@@ -420,7 +400,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             focusNode: _model.textFieldFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.textController',
-                              Duration(milliseconds: 2000),
+                              Duration(milliseconds: 200),
                               () async {
                                 _model.apiResultiqa =
                                     await RestAPiPohonAsuhGroup.pohonCall.call(
@@ -428,10 +408,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 );
 
                                 if ((_model.apiResultiqa?.succeeded ?? true)) {
-                                  safeSetState(() {
-                                    FFAppState().clearPohonTreeCache();
-                                    _model.apiRequestCompleted = false;
-                                  });
+                                  safeSetState(
+                                      () => _model.apiRequestCompleter = null);
                                   await _model.waitForApiRequestCompleted();
                                 }
 
@@ -499,10 +477,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
                                         if ((_model.apiResultiqa?.succeeded ??
                                             true)) {
-                                          safeSetState(() {
-                                            FFAppState().clearPohonTreeCache();
-                                            _model.apiRequestCompleted = false;
-                                          });
+                                          safeSetState(() => _model
+                                              .apiRequestCompleter = null);
                                           await _model
                                               .waitForApiRequestCompleted();
                                         }
@@ -534,19 +510,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 0.0, 10.0, 0.0),
+                            10.0, 0.0, 10.0, 80.0),
                         child: FutureBuilder<ApiCallResponse>(
-                          future: FFAppState()
-                              .pohonTree(
-                            requestFn: () =>
-                                RestAPiPohonAsuhGroup.pohonCall.call(
-                              keyword: _model.textController.text,
-                            ),
-                          )
-                              .then((result) {
-                            _model.apiRequestCompleted = true;
-                            return result;
-                          }),
+                          future: (_model.apiRequestCompleter ??= Completer<
+                                  ApiCallResponse>()
+                                ..complete(RestAPiPohonAsuhGroup.pohonCall.call(
+                                  keyword: _model.textController.text,
+                                )))
+                              .future,
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {

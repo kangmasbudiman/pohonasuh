@@ -24,8 +24,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Backend Call - API (pohon)] action in TextField widget.
   ApiCallResponse? apiResultiqa;
-  bool apiRequestCompleted = false;
-  String? apiRequestLastUniqueKey;
+  Completer<ApiCallResponse>? apiRequestCompleter;
   // Model for navbar component.
   late NavbarModel navbarModel;
   // Model for appBar component.
@@ -59,7 +58,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     while (true) {
       await Future.delayed(Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = apiRequestCompleted;
+      final requestComplete = apiRequestCompleter?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
       }
