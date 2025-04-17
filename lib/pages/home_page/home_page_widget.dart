@@ -42,18 +42,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().lastCacheTime = getCurrentTimestamp;
       FFAppState().update(() {});
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'mantap',
-            style: TextStyle(
-              color: FlutterFlowTheme.of(context).primaryText,
-            ),
-          ),
-          duration: Duration(milliseconds: 4000),
-          backgroundColor: FlutterFlowTheme.of(context).secondary,
-        ),
-      );
       _model.isOverrideCache = await actions.isOverrideCacheAction(
         FFAppState().lastCacheTime!,
       );
