@@ -12,19 +12,20 @@ import 'package:flutter/material.dart';
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - isOverrideCacheAction] action in HomePage widget.
+  bool? isOverrideCache;
   // State field(s) for Carousel widget.
   CarouselSliderController? carouselController;
   int carouselCurrentIndex = 1;
 
-  // Stores action output result for [Custom Action - getFCMToken] action in Text widget.
-  String? token;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Backend Call - API (pohon)] action in TextField widget.
   ApiCallResponse? apiResultiqa;
-  Completer<ApiCallResponse>? apiRequestCompleter;
+  bool apiRequestCompleted = false;
+  String? apiRequestLastUniqueKey;
   // Model for navbar component.
   late NavbarModel navbarModel;
   // Model for appBar component.
@@ -58,7 +59,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     while (true) {
       await Future.delayed(Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = apiRequestCompleter?.isCompleted ?? false;
+      final requestComplete = apiRequestCompleted;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
       }

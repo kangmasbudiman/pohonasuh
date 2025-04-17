@@ -12,7 +12,9 @@ import 'dart:async';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -36,6 +38,36 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
     _model = createModel(context, () => HomePageModel());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().lastCacheTime = getCurrentTimestamp;
+      FFAppState().update(() {});
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'mantap',
+            style: TextStyle(
+              color: FlutterFlowTheme.of(context).primaryText,
+            ),
+          ),
+          duration: Duration(milliseconds: 4000),
+          backgroundColor: FlutterFlowTheme.of(context).secondary,
+        ),
+      );
+      _model.isOverrideCache = await actions.isOverrideCacheAction(
+        FFAppState().lastCacheTime!,
+      );
+      if (_model.isOverrideCache!) {
+        FFAppState().lastCacheTime = getCurrentTimestamp;
+        FFAppState().isCacheOverride = true;
+        safeSetState(() {});
+        FFAppState().clearSliderCache();
+        await Future.delayed(const Duration(milliseconds: 1000));
+        FFAppState().isCacheOverride = false;
+        safeSetState(() {});
+      }
+    });
+
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
   }
@@ -49,6 +81,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -80,6 +114,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     children: [
                       FutureBuilder<ApiCallResponse>(
                         future: FFAppState().slider(
+                          overrideCache: FFAppState().isCacheOverride,
                           requestFn: () =>
                               RestAPiPohonAsuhGroup.sliderCall.call(),
                         ),
@@ -196,11 +231,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                _model.token = await actions.getFCMToken();
-                                FFAppState().tokenFCM = _model.token!;
-                                safeSetState(() {});
-
-                                safeSetState(() {});
+                                
                               },
                               child: Text(
                                 'Height Trees..',
@@ -219,6 +250,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                       FutureBuilder<ApiCallResponse>(
                         future: FFAppState().rowHiglight(
+                          overrideCache: FFAppState().isCacheOverride,
                           requestFn: () =>
                               RestAPiPohonAsuhGroup.pohonheightlightCall.call(),
                         ),
@@ -408,8 +440,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 );
 
                                 if ((_model.apiResultiqa?.succeeded ?? true)) {
-                                  safeSetState(
-                                      () => _model.apiRequestCompleter = null);
+                                  safeSetState(() {
+                                    FFAppState().clearListVilageCache();
+                                    _model.apiRequestCompleted = false;
+                                  });
                                   await _model.waitForApiRequestCompleted();
                                 }
 
@@ -477,8 +511,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
                                         if ((_model.apiResultiqa?.succeeded ??
                                             true)) {
-                                          safeSetState(() => _model
-                                              .apiRequestCompleter = null);
+                                          safeSetState(() {
+                                            FFAppState().clearListVilageCache();
+                                            _model.apiRequestCompleted = false;
+                                          });
                                           await _model
                                               .waitForApiRequestCompleted();
                                         }
@@ -512,12 +548,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 80.0),
                         child: FutureBuilder<ApiCallResponse>(
-                          future: (_model.apiRequestCompleter ??= Completer<
-                                  ApiCallResponse>()
-                                ..complete(RestAPiPohonAsuhGroup.pohonCall.call(
-                                  keyword: _model.textController.text,
-                                )))
-                              .future,
+                          future: FFAppState()
+                              .listVilage(
+                            overrideCache: FFAppState().isCacheOverride,
+                            requestFn: () =>
+                                RestAPiPohonAsuhGroup.pohonCall.call(
+                              keyword: _model.textController.text,
+                            ),
+                          )
+                              .then((result) {
+                            _model.apiRequestCompleted = true;
+                            return result;
+                          }),
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {

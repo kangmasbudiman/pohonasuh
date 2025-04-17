@@ -415,6 +415,48 @@ class FFAppState extends ChangeNotifier {
     _tokenFCM = value;
   }
 
+  /// ini adalah seimpanan data untuk menangkap data slider
+  List<SliderResponseStruct> _sliderRespon = [];
+  List<SliderResponseStruct> get sliderRespon => _sliderRespon;
+  set sliderRespon(List<SliderResponseStruct> value) {
+    _sliderRespon = value;
+  }
+
+  void addToSliderRespon(SliderResponseStruct value) {
+    sliderRespon.add(value);
+  }
+
+  void removeFromSliderRespon(SliderResponseStruct value) {
+    sliderRespon.remove(value);
+  }
+
+  void removeAtIndexFromSliderRespon(int index) {
+    sliderRespon.removeAt(index);
+  }
+
+  void updateSliderResponAtIndex(
+    int index,
+    SliderResponseStruct Function(SliderResponseStruct) updateFn,
+  ) {
+    sliderRespon[index] = updateFn(_sliderRespon[index]);
+  }
+
+  void insertAtIndexInSliderRespon(int index, SliderResponseStruct value) {
+    sliderRespon.insert(index, value);
+  }
+
+  bool _isCacheOverride = false;
+  bool get isCacheOverride => _isCacheOverride;
+  set isCacheOverride(bool value) {
+    _isCacheOverride = value;
+  }
+
+  DateTime? _lastCacheTime;
+  DateTime? get lastCacheTime => _lastCacheTime;
+  set lastCacheTime(DateTime? value) {
+    _lastCacheTime = value;
+  }
+
   final _profilManager = FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> profil({
     String? uniqueQueryKey,
@@ -459,6 +501,21 @@ class FFAppState extends ChangeNotifier {
   void clearRowHiglightCache() => _rowHiglightManager.clear();
   void clearRowHiglightCacheKey(String? uniqueKey) =>
       _rowHiglightManager.clearRequest(uniqueKey);
+
+  final _listVilageManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> listVilage({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _listVilageManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearListVilageCache() => _listVilageManager.clear();
+  void clearListVilageCacheKey(String? uniqueKey) =>
+      _listVilageManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

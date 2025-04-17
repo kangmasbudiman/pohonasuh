@@ -9,3 +9,4 @@ export 'fotolocal.dart' show fotolocal;
 export 'imagepath.dart' show imagepath;
 export 'upload_base64_to_supabase.dart' show uploadBase64ToSupabase;
 export 'get_f_c_m_token.dart' show getFCMToken;
+export 'is_override_cache_action.dart' show isOverrideCacheAction;

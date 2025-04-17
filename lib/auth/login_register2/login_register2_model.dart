@@ -13,6 +13,8 @@ class LoginRegister2Model extends FlutterFlowModel<LoginRegister2Widget> {
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
+  int get tabBarPreviousIndex =>
+      tabBarController != null ? tabBarController!.previousIndex : 0;
 
   // State field(s) for txtemail widget.
   FocusNode? txtemailFocusNode1;
