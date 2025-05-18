@@ -54,3 +54,5 @@ export '/petugas_taging/get_destination/get_destination_widget.dart'
 export '/petugas_taging/upload_image_tagin_online/upload_image_tagin_online_widget.dart'
     show UploadImageTaginOnlineWidget;
 export '/detail_taging/detail_taging_widget.dart' show DetailTagingWidget;
+export '/page_legal/privacy_police/privacy_police_widget.dart'
+    show PrivacyPoliceWidget;
