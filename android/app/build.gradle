@@ -2,7 +2,8 @@ plugins {
    id "com.android.application"
    id "kotlin-android"
    id "dev.flutter.flutter-gradle-plugin"
-   id "com.google.gms.google-services" // Dimasukkan ke dalam plugins   
+   
+   
 }
 
 def localProperties = new Properties()
@@ -30,7 +31,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.kki.pohonasuh"
+    namespace "com.mycompany.pohonasuh"
     compileSdkVersion 34
     
 
@@ -54,42 +55,27 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.kki.pohonasuh"
+        applicationId "com.mycompany.pohonasuh"
         minSdkVersion 23
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
 
-
-
-  signingConfigs {
-    release {
-        println "==> DEBUG storeFile: ${keystoreProperties['storeFile']}"
-        if (!keystoreProperties.containsKey('storeFile')) {
-            throw new GradleException("storeFile belum diset di key.properties")
-        }
-
-        keyAlias keystoreProperties['keyAlias']
-        keyPassword keystoreProperties['keyPassword']
-        storeFile file(keystoreProperties['storeFile'])
-        storePassword keystoreProperties['storePassword']
-    }
-}
- packagingOptions {
-        exclude 'META-INF/com.google.android.gms.ads.identifier.properties'
-    }
-
-
+   signingConfigs {
+       release {
+           keyAlias keystoreProperties['keyAlias']
+           keyPassword keystoreProperties['keyPassword']
+           storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+           storePassword keystoreProperties['storePassword']
+       }
+   }
 
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.release
-          
-             minifyEnabled true
-        shrinkResources true
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -101,9 +87,4 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"
-   implementation("com.google.firebase:firebase-analytics") {
-    exclude group: 'com.google.android.gms', module: 'play-services-ads-identifier'
 }
-
-}
-

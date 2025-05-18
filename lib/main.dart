@@ -10,22 +10,12 @@ import 'auth/custom_auth/custom_auth_user_provider.dart';
 
 import '/backend/supabase/supabase.dart';
 import 'flutter_flow/flutter_flow_util.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 void main() async {
-
-
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
- getTokenFCM(); // Panggil di sini
-  await requestNotificationPermission();
-  await initNotifications();
+
   // Start initial custom actions code
   await actions.connected();
   // End initial custom actions code
@@ -43,54 +33,6 @@ void main() async {
   ));
 }
 
-
-
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    FlutterLocalNotificationsPlugin();
-
-
-Future<void> initNotifications() async {
-  const AndroidInitializationSettings initializationSettingsAndroid =
-      AndroidInitializationSettings('@mipmap/ic_launcher');
-
-  final InitializationSettings initializationSettings =
-      InitializationSettings(android: initializationSettingsAndroid);
-
-  await flutterLocalNotificationsPlugin.initialize(initializationSettings);
-}
-
-
-Future<void> requestNotificationPermission() async {
-  if (await Permission.notification.isDenied) {
-    await Permission.notification.request();
-  }
-}
-
-
-Future<void> showNotification() async {
-  const AndroidNotificationDetails androidPlatformChannelSpecifics =
-      AndroidNotificationDetails(
-    'your_channel_id', // Ganti dengan ID channel yang valid
-    'your_channel_name',
-    importance: Importance.high,
-    priority: Priority.high,
-  );
-
-  const NotificationDetails platformChannelSpecifics =
-      NotificationDetails(android: androidPlatformChannelSpecifics);
-
-  await flutterLocalNotificationsPlugin.show(
-    0,
-    'Judul Notifikasi',
-    'Ini isi notifikasinya',
-    platformChannelSpecifics,
-  );
-}
-
-
-
-
-
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
@@ -99,13 +41,6 @@ class MyApp extends StatefulWidget {
   static _MyAppState of(BuildContext context) =>
       context.findAncestorStateOfType<_MyAppState>()!;
 }
-
-//untuk mendapatkan token id 
-void getTokenFCM() async {
-  String? token = await FirebaseMessaging.instance.getToken();
-  print("FCM Token: $token");
-}
-
 
 class _MyAppState extends State<MyApp> {
   ThemeMode _themeMode = ThemeMode.system;

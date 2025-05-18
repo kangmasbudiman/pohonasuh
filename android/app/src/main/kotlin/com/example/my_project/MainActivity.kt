@@ -1,4 +1,4 @@
-package com.kki.pohonasuh
+package com.mycompany.pohonasuh
 
 import io.flutter.embedding.android.FlutterActivity
 
