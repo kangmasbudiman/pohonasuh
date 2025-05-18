@@ -598,6 +598,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: PrivacyPoliceWidget.routeName,
+          path: PrivacyPoliceWidget.routePath,
+          builder: (context, params) => PrivacyPoliceWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
