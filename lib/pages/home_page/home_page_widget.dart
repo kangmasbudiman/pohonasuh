@@ -8,10 +8,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
+import 'dart:async';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -35,6 +38,24 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
     _model = createModel(context, () => HomePageModel());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().lastCacheTime = getCurrentTimestamp;
+      FFAppState().update(() {});
+      _model.isOverrideCache = await actions.isOverrideCacheAction(
+        FFAppState().lastCacheTime!,
+      );
+      if (_model.isOverrideCache!) {
+        FFAppState().lastCacheTime = getCurrentTimestamp;
+        FFAppState().isCacheOverride = true;
+        safeSetState(() {});
+        FFAppState().clearSliderCache();
+        await Future.delayed(const Duration(milliseconds: 1000));
+        FFAppState().isCacheOverride = false;
+        safeSetState(() {});
+      }
+    });
+
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
   }
@@ -48,6 +69,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -78,7 +101,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       FutureBuilder<ApiCallResponse>(
-                        future: FFAppState().sliderHomePage(
+                        future: FFAppState().slider(
+                          overrideCache: FFAppState().isCacheOverride,
                           requestFn: () =>
                               RestAPiPohonAsuhGroup.sliderCall.call(),
                         ),
@@ -183,48 +207,38 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         thickness: 2.0,
                         color: FlutterFlowTheme.of(context).alternate,
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            _model.token = await actions.getFCMToken();
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  _model.token!,
-                                  style: TextStyle(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
-                                ),
-                                duration: Duration(milliseconds: 4000),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).secondary,
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 0.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                
+                              },
+                              child: Text(
+                                'Height Trees..',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      fontSize: 20.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                               ),
-                            );
-
-                            safeSetState(() {});
-                          },
-                          child: Text(
-                            'Height Trees..',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  fontSize: 20.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
                       FutureBuilder<ApiCallResponse>(
-                        future: FFAppState().highLightTree(
+                        future: FFAppState().rowHiglight(
+                          overrideCache: FFAppState().isCacheOverride,
                           requestFn: () =>
                               RestAPiPohonAsuhGroup.pohonheightlightCall.call(),
                         ),
@@ -406,7 +420,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             focusNode: _model.textFieldFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
                               '_model.textController',
-                              Duration(milliseconds: 2000),
+                              Duration(milliseconds: 200),
                               () async {
                                 _model.apiResultiqa =
                                     await RestAPiPohonAsuhGroup.pohonCall.call(
@@ -415,7 +429,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
                                 if ((_model.apiResultiqa?.succeeded ?? true)) {
                                   safeSetState(() {
-                                    FFAppState().clearPohonTreeCache();
+                                    FFAppState().clearListVilageCache();
                                     _model.apiRequestCompleted = false;
                                   });
                                   await _model.waitForApiRequestCompleted();
@@ -486,7 +500,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         if ((_model.apiResultiqa?.succeeded ??
                                             true)) {
                                           safeSetState(() {
-                                            FFAppState().clearPohonTreeCache();
+                                            FFAppState().clearListVilageCache();
                                             _model.apiRequestCompleted = false;
                                           });
                                           await _model
@@ -520,10 +534,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 0.0, 10.0, 0.0),
+                            10.0, 0.0, 10.0, 80.0),
                         child: FutureBuilder<ApiCallResponse>(
                           future: FFAppState()
-                              .pohonTree(
+                              .listVilage(
+                            overrideCache: FFAppState().isCacheOverride,
                             requestFn: () =>
                                 RestAPiPohonAsuhGroup.pohonCall.call(
                               keyword: _model.textController.text,

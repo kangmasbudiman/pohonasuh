@@ -12,12 +12,12 @@ import 'package:flutter/material.dart';
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - isOverrideCacheAction] action in HomePage widget.
+  bool? isOverrideCache;
   // State field(s) for Carousel widget.
   CarouselSliderController? carouselController;
   int carouselCurrentIndex = 1;
 
-  // Stores action output result for [Custom Action - getFCMToken] action in Text widget.
-  String? token;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;

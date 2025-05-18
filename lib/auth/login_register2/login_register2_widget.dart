@@ -46,6 +46,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
           ),
           1),
     )..addListener(() => safeSetState(() {}));
+
     _model.txtemailTextController1 ??= TextEditingController();
     _model.txtemailFocusNode1 ??= FocusNode();
 

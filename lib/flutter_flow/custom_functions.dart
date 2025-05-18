@@ -172,3 +172,7 @@ String? imagePathToString(String? imagepath) {
   // convert argument1 to string
   return imagepath?.toString();
 }
+
+bool? isOverrideCacheAction1(DateTime cacheTime) {
+  return DateTime.now().difference(cacheTime).inMinutes > 30;
+}
