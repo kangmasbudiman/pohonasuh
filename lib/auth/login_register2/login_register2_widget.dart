@@ -186,7 +186,7 @@ class _LoginRegister2WidgetState extends State<LoginRegister2Widget>
                                       FlutterFlowTheme.of(context).primary,
                                   tabs: [
                                     Tab(
-                                      text: 'Login',
+                                      text: 'Loginn',
                                     ),
                                     Tab(
                                       text: 'Get Started',
