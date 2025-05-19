@@ -1,5 +1,3 @@
-
-
 import '/custom_code/actions/index.dart' as actions;
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
@@ -12,22 +10,11 @@ import 'auth/custom_auth/custom_auth_user_provider.dart';
 
 import '/backend/supabase/supabase.dart';
 import 'flutter_flow/flutter_flow_util.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
-
-    
-  await Firebase.initializeApp();
- // await Firebase.initializeApp(); // WAJIB!
-  
-
-
 
   // Start initial custom actions code
   await actions.connected();
@@ -45,8 +32,6 @@ void main() async {
     child: MyApp(),
   ));
 }
-
-
 
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
@@ -78,15 +63,6 @@ class _MyAppState extends State<MyApp> {
 
   late Stream<PohonAsuhAuthUser> userStream;
 
-
-//untuk mendapatkan token id 
-void getTokenFCM() async {
-  String? token = await FirebaseMessaging.instance.getToken();
-  print("FCM Tokennya adalah : $token");
-}
-
-
-
   @override
   void initState() {
     super.initState();
@@ -102,8 +78,6 @@ void getTokenFCM() async {
       Duration(milliseconds: 1000),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
-   getTokenFCM();
-  
   }
 
   void setThemeMode(ThemeMode mode) => safeSetState(() {
