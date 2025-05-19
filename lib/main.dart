@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
           .map((e) => getRoute(e))
           .toList();
 
-  late Stream<AdopsiPohonAuthUser> userStream;
+  late Stream<PohonAsuhAuthUser> userStream;
 
   @override
   void initState() {
@@ -69,7 +69,7 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = adopsiPohonAuthUserStream()
+    userStream = pohonAsuhAuthUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });
@@ -88,7 +88,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Adopsi Pohon',
+      title: 'Pohon Asuh',
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

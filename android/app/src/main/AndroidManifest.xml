@@ -49,7 +49,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="adopsipohon" android:host="adopsipohon.com" />
+                <data android:scheme="pohonasuh" android:host="pohonasuh.com" />
             </intent-filter>
 
         </activity>
