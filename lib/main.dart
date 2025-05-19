@@ -1,4 +1,4 @@
-import 'package:adopsi_pohon/custom_code/actions/get_f_c_m_token.dart';
+
 
 import '/custom_code/actions/index.dart' as actions;
 import 'package:provider/provider.dart';
@@ -22,7 +22,8 @@ void main() async {
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
 
-  
+    
+  await Firebase.initializeApp();
  // await Firebase.initializeApp(); // WAJIB!
   
 
@@ -101,8 +102,8 @@ void getTokenFCM() async {
       Duration(milliseconds: 1000),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
-    getFCMToken();
-    print("Mantap Jaya");
+   getTokenFCM();
+  
   }
 
   void setThemeMode(ThemeMode mode) => safeSetState(() {

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.kki.pohonasuh.app-merged_res-54:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.kki.pohonasuh.app-main-48:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.kki.pohonasuh.app-merged_res-54:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.kki.pohonasuh.app-main-48:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.kki.pohonasuh.app-merged_res-54:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.kki.pohonasuh.app-main-48:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.kki.pohonasuh.app-merged_res-54:/drawable_launch_background.xml.flat",
+        "source": "com.kki.pohonasuh.app-main-48:/drawable/launch_background.xml"
+    },
+    {
+        "merged": "com.kki.pohonasuh.app-merged_res-54:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.kki.pohonasuh.app-main-48:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.kki.pohonasuh.app-merged_res-54:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.kki.pohonasuh.app-main-48:/mipmap-xxhdpi/ic_launcher.png"
+    }
+]

@@ -1,0 +1,1 @@
+com.datadirr.qr_bar_code

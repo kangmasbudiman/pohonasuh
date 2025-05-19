@@ -1,0 +1,11 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="net.bengkelrobot.flutter_native_screenshot" >
+4
+5    <uses-sdk android:minSdkVersion="16" />
+6
+7    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+7-->/Users/admin/.pub-cache/hosted/pub.dev/flutter_native_screenshot-1.1.2/android/src/main/AndroidManifest.xml:3:5-81
+7-->/Users/admin/.pub-cache/hosted/pub.dev/flutter_native_screenshot-1.1.2/android/src/main/AndroidManifest.xml:3:22-78
+8
+9</manifest>

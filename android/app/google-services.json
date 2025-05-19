@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "116468621760",
+    "project_id": "pohonasuh-e6162",
+    "storage_bucket": "pohonasuh-e6162.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116468621760:android:9a921b15dfa94d47912825",
+        "android_client_info": {
+          "package_name": "com.kki.pohonasuh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxGjRz38avoUEWz4FacNXkqvhoCJ9VzDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116468621760:android:97df380aedb7ff1c912825",
+        "android_client_info": {
+          "package_name": "com.mycompany.pohonasuh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxGjRz38avoUEWz4FacNXkqvhoCJ9VzDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
