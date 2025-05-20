@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
@@ -93,7 +94,9 @@ class RegisterCall {
     String? emaile = '',
     String? hp = '',
     String? passe = '',
+    String? idtoken='',
   }) async {
+    String? token = await FirebaseMessaging.instance.getToken();
     final baseUrl = RestAPiPohonAsuhGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
@@ -106,6 +109,7 @@ class RegisterCall {
         'emaile': emaile,
         'hp': hp,
         'passe': passe,
+        'id_token':token,
       },
       bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
       returnBody: true,
