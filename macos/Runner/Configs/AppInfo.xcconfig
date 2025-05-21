@@ -8,7 +8,7 @@
 PRODUCT_NAME = Pohon Asuh
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.kki.pohonasuh
+PRODUCT_BUNDLE_IDENTIFIER = com.warsi.pohonasuh
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2024 Pohon Asuh. All rights reserved.
