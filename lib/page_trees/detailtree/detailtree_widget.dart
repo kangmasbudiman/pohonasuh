@@ -1426,7 +1426,7 @@ class _DetailtreeWidgetState extends State<DetailtreeWidget> {
                                         ?.unfocus();
                                   },
                                   child: Container(
-                                    height: 90.0,
+                                    height: 155.0,
                                     width: double.infinity,
                                     child: InformationWidget(
                                       messageParameter:

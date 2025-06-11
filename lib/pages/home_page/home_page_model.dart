@@ -26,6 +26,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ApiCallResponse? apiResultiqa;
   bool apiRequestCompleted = false;
   String? apiRequestLastUniqueKey;
+  // Stores action output result for [Backend Call - API (tobasket)] action in Button widget.
+  ApiCallResponse? apiResultmtff;
   // Model for navbar component.
   late NavbarModel navbarModel;
   // Model for appBar component.

@@ -10,10 +10,10 @@ class UploadImageTaginOnlineModel
 
   // Stores action output result for [Backend Call - API (tambahFototaging)] action in Button widget.
   ApiCallResponse? apiResulton6;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_uploadDataPcn = false;
+  FFUploadedFile uploadedLocalFile_uploadDataPcn =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+  String uploadedFileUrl_uploadDataPcn = '';
 
   @override
   void initState(BuildContext context) {}

@@ -440,7 +440,8 @@ class _UploadImageTaginOnlineWidgetState
                           if (selectedMedia != null &&
                               selectedMedia.every((m) =>
                                   validateFileFormat(m.storagePath, context))) {
-                            safeSetState(() => _model.isDataUploading = true);
+                            safeSetState(() =>
+                                _model.isDataUploading_uploadDataPcn = true);
                             var selectedUploadedFiles = <FFUploadedFile>[];
 
                             var downloadUrls = <String>[];
@@ -460,15 +461,16 @@ class _UploadImageTaginOnlineWidgetState
                                 selectedFiles: selectedMedia,
                               );
                             } finally {
-                              _model.isDataUploading = false;
+                              _model.isDataUploading_uploadDataPcn = false;
                             }
                             if (selectedUploadedFiles.length ==
                                     selectedMedia.length &&
                                 downloadUrls.length == selectedMedia.length) {
                               safeSetState(() {
-                                _model.uploadedLocalFile =
+                                _model.uploadedLocalFile_uploadDataPcn =
                                     selectedUploadedFiles.first;
-                                _model.uploadedFileUrl = downloadUrls.first;
+                                _model.uploadedFileUrl_uploadDataPcn =
+                                    downloadUrls.first;
                               });
                             } else {
                               safeSetState(() {});
@@ -479,9 +481,9 @@ class _UploadImageTaginOnlineWidgetState
                           FFAppState()
                               .addToListPhotoOnline(ListImageOnlineStruct(
                             idadopsi: widget.idadopsi,
-                            image: _model.uploadedFileUrl,
-                            imageString: functions
-                                .imagePathToString(_model.uploadedFileUrl),
+                            image: _model.uploadedFileUrl_uploadDataPcn,
+                            imageString: functions.imagePathToString(
+                                _model.uploadedFileUrl_uploadDataPcn),
                           ));
                           safeSetState(() {});
                         },

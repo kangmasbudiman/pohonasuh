@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 class UploadtransferrModel extends FlutterFlowModel<UploadtransferrWidget> {
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_uploadData6lg = false;
+  FFUploadedFile uploadedLocalFile_uploadData6lg =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Backend Call - API (uploadbuktitransfer)] action in Button widget.

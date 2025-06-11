@@ -1,7 +1,9 @@
+import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/componen/app_bar/app_bar_widget.dart';
 import '/componen/content_drawer/content_drawer_widget.dart';
+import '/componen/information/information_widget.dart';
 import '/componen/navbar/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -1099,36 +1101,165 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                               8.0),
                                                                 ),
                                                               ),
-                                                              FFButtonWidget(
-                                                                onPressed: () {
-                                                                  print(
-                                                                      'Button pressed ...');
-                                                                },
-                                                                text: 'Adopt',
-                                                                options:
-                                                                    FFButtonOptions(
-                                                                  height: 40.0,
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
-                                                                          16.0,
-                                                                          0.0),
-                                                                  iconPadding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  textStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .interTight(
+                                                              Builder(
+                                                                builder:
+                                                                    (context) =>
+                                                                        FFButtonWidget(
+                                                                  onPressed:
+                                                                      () async {
+                                                                    _model.apiResultmtff =
+                                                                        await RestAPiPohonAsuhGroup
+                                                                            .tobasketCall
+                                                                            .call(
+                                                                      idPohon:
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                        responAllpohonItem
+                                                                            .idpohon,
+                                                                        'idpohon',
+                                                                      ),
+                                                                      idMember:
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                        currentUserData
+                                                                            ?.id
+                                                                            .toString(),
+                                                                        '0',
+                                                                      ),
+                                                                      giftTo:
+                                                                          '0',
+                                                                      pesan:
+                                                                          '-',
+                                                                      nama: currentUserData
+                                                                          ?.name,
+                                                                      years:
+                                                                          '1',
+                                                                    );
+
+                                                                    if ((_model
+                                                                            .apiResultmtff
+                                                                            ?.succeeded ??
+                                                                        true)) {
+                                                                      if (RespontambahkeranjangStruct.maybeFromMap((_model.apiResultmtff?.jsonBody ?? ''))
+                                                                              ?.code ==
+                                                                          '200') {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (dialogContext) {
+                                                                            return Dialog(
+                                                                              elevation: 0,
+                                                                              insetPadding: EdgeInsets.zero,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(dialogContext).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
+                                                                                child: Container(
+                                                                                  height: 90.0,
+                                                                                  width: double.infinity,
+                                                                                  child: InformationWidget(
+                                                                                    messageParameter: 'Add Trolley Success',
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+
+                                                                        Navigator.pop(
+                                                                            context);
+                                                                      } else {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (dialogContext) {
+                                                                            return Dialog(
+                                                                              elevation: 0,
+                                                                              insetPadding: EdgeInsets.zero,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(dialogContext).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
+                                                                                child: Container(
+                                                                                  height: 155.0,
+                                                                                  width: double.infinity,
+                                                                                  child: InformationWidget(
+                                                                                    messageParameter: 'The tree is already in the basket, please look for another tree',
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                      }
+                                                                    } else {
+                                                                      await showDialog(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return AlertDialog(
+                                                                            title:
+                                                                                Text('Information'),
+                                                                            content:
+                                                                                Text('Add Trolley Failed'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                child: Text('Ok'),
+                                                                              ),
+                                                                            ],
+                                                                          );
+                                                                        },
+                                                                      );
+                                                                    }
+
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                  text: 'Adopt',
+                                                                  options:
+                                                                      FFButtonOptions(
+                                                                    height:
+                                                                        40.0,
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            16.0,
+                                                                            0.0,
+                                                                            16.0,
+                                                                            0.0),
+                                                                    iconPadding:
+                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    textStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.interTight(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                          ),
+                                                                          color:
+                                                                              Colors.white,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight: FlutterFlowTheme.of(context)
                                                                               .titleSmall
                                                                               .fontWeight,
@@ -1136,23 +1267,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                               .titleSmall
                                                                               .fontStyle,
                                                                         ),
-                                                                        color: Colors
-                                                                            .white,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .titleSmall
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .titleSmall
-                                                                            .fontStyle,
-                                                                      ),
-                                                                  elevation:
-                                                                      0.0,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8.0),
+                                                                    elevation:
+                                                                        0.0,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ].divide(SizedBox(

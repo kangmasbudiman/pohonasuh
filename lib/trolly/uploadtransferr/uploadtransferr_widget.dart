@@ -108,12 +108,13 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                   ),
                   child: Builder(
                     builder: (context) {
-                      if ((_model.uploadedLocalFile.bytes?.isNotEmpty ??
+                      if ((_model.uploadedLocalFile_uploadData6lg.bytes
+                                  ?.isNotEmpty ??
                               false)) {
                         return ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.memory(
-                            _model.uploadedLocalFile.bytes ??
+                            _model.uploadedLocalFile_uploadData6lg.bytes ??
                                 Uint8List.fromList([]),
                             width: double.infinity,
                             height: 160.0,
@@ -185,7 +186,8 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                           if (selectedMedia != null &&
                               selectedMedia.every((m) =>
                                   validateFileFormat(m.storagePath, context))) {
-                            safeSetState(() => _model.isDataUploading = true);
+                            safeSetState(() =>
+                                _model.isDataUploading_uploadData6lg = true);
                             var selectedUploadedFiles = <FFUploadedFile>[];
 
                             try {
@@ -199,12 +201,12 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                                       ))
                                   .toList();
                             } finally {
-                              _model.isDataUploading = false;
+                              _model.isDataUploading_uploadData6lg = false;
                             }
                             if (selectedUploadedFiles.length ==
                                 selectedMedia.length) {
                               safeSetState(() {
-                                _model.uploadedLocalFile =
+                                _model.uploadedLocalFile_uploadData6lg =
                                     selectedUploadedFiles.first;
                               });
                             } else {
@@ -217,7 +219,8 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                             SnackBar(
                               content: Text(
                                 valueOrDefault<String>(
-                                  _model.uploadedLocalFile.blurHash,
+                                  _model
+                                      .uploadedLocalFile_uploadData6lg.blurHash,
                                   '0',
                                 ),
                                 style: TextStyle(
@@ -267,7 +270,7 @@ class _UploadtransferrWidgetState extends State<UploadtransferrWidget> {
                           _model.apiResult6kr =
                               await PaymentGroup.uploadbuktitransferCall.call(
                             id: widget.id,
-                            image: _model.uploadedLocalFile,
+                            image: _model.uploadedLocalFile_uploadData6lg,
                           );
 
                           if ((_model.apiResult6kr?.succeeded ?? true)) {

@@ -431,7 +431,8 @@ class _UploadImageTagingWidgetState extends State<UploadImageTagingWidget> {
                           if (selectedMedia != null &&
                               selectedMedia.every((m) =>
                                   validateFileFormat(m.storagePath, context))) {
-                            safeSetState(() => _model.isDataUploading = true);
+                            safeSetState(() =>
+                                _model.isDataUploading_uploadDataJ75 = true);
                             var selectedUploadedFiles = <FFUploadedFile>[];
 
                             try {
@@ -445,12 +446,12 @@ class _UploadImageTagingWidgetState extends State<UploadImageTagingWidget> {
                                       ))
                                   .toList();
                             } finally {
-                              _model.isDataUploading = false;
+                              _model.isDataUploading_uploadDataJ75 = false;
                             }
                             if (selectedUploadedFiles.length ==
                                 selectedMedia.length) {
                               safeSetState(() {
-                                _model.uploadedLocalFile =
+                                _model.uploadedLocalFile_uploadDataJ75 =
                                     selectedUploadedFiles.first;
                               });
                             } else {
@@ -460,7 +461,7 @@ class _UploadImageTagingWidgetState extends State<UploadImageTagingWidget> {
                           }
 
                           await actions.fotolocal(
-                            _model.uploadedLocalFile,
+                            _model.uploadedLocalFile_uploadDataJ75,
                           );
                           FFAppState().addToListPhoto(ListPototagingStruct(
                             idadopsi: widget.idadopsi,

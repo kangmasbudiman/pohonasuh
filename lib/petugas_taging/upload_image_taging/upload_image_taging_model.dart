@@ -10,8 +10,8 @@ class UploadImageTagingModel extends FlutterFlowModel<UploadImageTagingWidget> {
   String? url;
   // Stores action output result for [Backend Call - API (tambahFototaging)] action in Button widget.
   ApiCallResponse? apiResult3s2;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_uploadDataJ75 = false;
+  FFUploadedFile uploadedLocalFile_uploadDataJ75 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   @override
