@@ -1,9 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'download_qr_code_model.dart';
 export 'download_qr_code_model.dart';
@@ -93,36 +91,7 @@ class _DownloadQrCodeWidgetState extends State<DownloadQrCodeWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 230.0,
-                  height: 280.0,
-                  child: custom_widgets.GenerateQRCode(
-                    width: 230.0,
-                    height: 280.0,
-                    data: 'https://www.google.com/',
-                    eyeStyleColor: FlutterFlowTheme.of(context).primary,
-                    dataStyleColor: FlutterFlowTheme.of(context).tertiary,
-                    isSquare: false,
-                    onSaveAction: () async {
-                      HapticFeedback.lightImpact();
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Download Success',
-                            style: TextStyle(
-                              color: FlutterFlowTheme.of(context).primaryText,
-                            ),
-                          ),
-                          duration: Duration(milliseconds: 4000),
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ],
+              children: [],
             ),
           ),
         ),

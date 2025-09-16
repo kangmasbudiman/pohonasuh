@@ -93,7 +93,7 @@ BEGIN
             VALUE "FileDescription", "A new Flutter project." "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "Pohon Asuh" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 Pohon Asuh. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2025 Pohon Asuh. All rights reserved." "\0"
             VALUE "OriginalFilename", "pohon_asuh.exe" "\0"
             VALUE "ProductName", "Pohon Asuh" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

@@ -53,7 +53,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         FFAppState().isCacheOverride = true;
         safeSetState(() {});
         FFAppState().clearSliderCache();
-        await Future.delayed(const Duration(milliseconds: 1000));
+        await Future.delayed(
+          Duration(
+            milliseconds: 1000,
+          ),
+        );
         FFAppState().isCacheOverride = false;
         safeSetState(() {});
       }
