@@ -4,15 +4,21 @@ import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
-
+import 'package:firebase_messaging/firebase_messaging.dart';
 export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
+// true = API jalan di server lokal (emulator: 10.0.2.2 = host Mac).
+// WAJIB false sebelum build rilis/Play Store.
+const bool kUseLocalApi = false;
+const String _kApiBaseUrl = 'https://rest.pohonasuh.io/api';
+
 /// Start RestAPiPohonAsuh Group Code
 
 class RestAPiPohonAsuhGroup {
-  static String getBaseUrl() => 'https://rest.pohonasuh.org/api/';
+  static String getBaseUrl() => '$_kApiBaseUrl/';
+    //static String getBaseUrl() => 'https://rest.pohonasuh.org/api/';
   static Map<String, String> headers = {};
   static LoginuserCall loginuserCall = LoginuserCall();
   static RegisterCall registerCall = RegisterCall();
@@ -69,6 +75,10 @@ class LoginuserCall {
         response,
         r'''$.value''',
       ));
+  String? pesan(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.pesan''',
+      ));
   String? email(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.email''',
@@ -93,7 +103,9 @@ class RegisterCall {
     String? emaile = '',
     String? hp = '',
     String? passe = '',
+    String? idtoken='',
   }) async {
+    String? token = await FirebaseMessaging.instance.getToken();
     final baseUrl = RestAPiPohonAsuhGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
@@ -106,6 +118,7 @@ class RegisterCall {
         'emaile': emaile,
         'hp': hp,
         'passe': passe,
+        'id_token':token,
       },
       bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
       returnBody: true,
@@ -468,7 +481,7 @@ class MypesandeleteCall {
 /// Start Trolly Group Code
 
 class TrollyGroup {
-  static String getBaseUrl() => 'https://rest.pohonasuh.org/api';
+  static String getBaseUrl() => _kApiBaseUrl;
   static Map<String, String> headers = {};
   static MytrolleyCall mytrolleyCall = MytrolleyCall();
   static DeletetrollyCall deletetrollyCall = DeletetrollyCall();
@@ -529,14 +542,16 @@ class DeletetrollyCall {
 /// Start payment Group Code
 
 class PaymentGroup {
-  static String getBaseUrl() => 'https://rest.pohonasuh.org/api';
+  static String getBaseUrl() => _kApiBaseUrl;
   static Map<String, String> headers = {};
   static GetlistbankCall getlistbankCall = GetlistbankCall();
   static ConfirmationCall confirmationCall = ConfirmationCall();
+  static CreateInvoiceCall createInvoiceCall = CreateInvoiceCall();
   static GetconfirmasiCall getconfirmasiCall = GetconfirmasiCall();
   static UploadbuktitransferCall uploadbuktitransferCall =
       UploadbuktitransferCall();
   static VerivicationCall verivicationCall = VerivicationCall();
+  static BatalVerivicationCall batalVerivicationCall = BatalVerivicationCall();
   static UpdateStatusProsesTagingCall updateStatusProsesTagingCall =
       UpdateStatusProsesTagingCall();
   static UpdateStatusComplateCall updateStatusComplateCall =
@@ -586,6 +601,33 @@ class ConfirmationCall {
         'methode': methode,
         'price': price,
         'jml_pohon': jmlPohon,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class CreateInvoiceCall {
+  Future<ApiCallResponse> call({
+    int? id,
+    int? idmember,
+  }) async {
+    final baseUrl = PaymentGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'createinvoice',
+      apiUrl: '${baseUrl}/createinvoice',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'id': id,
+        'idmember': idmember,
       },
       bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
       returnBody: true,
@@ -677,6 +719,33 @@ class VerivicationCall {
   }
 }
 
+class BatalVerivicationCall {
+  Future<ApiCallResponse> call({
+    int? id,
+    int? iduser,
+  }) async {
+    final baseUrl = PaymentGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'batalverivication',
+      apiUrl: '${baseUrl}/batalverivication',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'id': id,
+        'iduser': iduser,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class UpdateStatusProsesTagingCall {
   Future<ApiCallResponse> call({
     int? id,
@@ -734,7 +803,7 @@ class UpdateStatusComplateCall {
 /// Start Trees Group Code
 
 class TreesGroup {
-  static String getBaseUrl() => 'https://rest.pohonasuh.org/api';
+  static String getBaseUrl() => _kApiBaseUrl;
   static Map<String, String> headers = {};
   static MytreesCall mytreesCall = MytreesCall();
   static OrdertreesCustomerCall ordertreesCustomerCall =
@@ -746,7 +815,15 @@ class TreesGroup {
   static PohonmapallCall pohonmapallCall = PohonmapallCall();
   static PohonbypengurusCall pohonbypengurusCall = PohonbypengurusCall();
   static TambahFototagingCall tambahFototagingCall = TambahFototagingCall();
+  static UploadFototagingCall uploadFototagingCall = UploadFototagingCall();
   static LihatfototagingCall lihatfototagingCall = LihatfototagingCall();
+  static UpdatePosisiCall updatePosisiCall = UpdatePosisiCall();
+  static GetPosisiPetugasCall getPosisiPetugasCall = GetPosisiPetugasCall();
+  static PenugasanDesaCall penugasanDesaCall = PenugasanDesaCall();
+  static UpdateDesaPetugasCall updateDesaPetugasCall = UpdateDesaPetugasCall();
+  static GetKontakCall getKontakCall = GetKontakCall();
+  static UpdateKontakCall updateKontakCall = UpdateKontakCall();
+  static UpdateDeviceTokenCall updateDeviceTokenCall = UpdateDeviceTokenCall();
 }
 
 class MytreesCall {
@@ -1811,6 +1888,39 @@ class TambahFototagingCall {
   }
 }
 
+class UploadFototagingCall {
+  Future<ApiCallResponse> call({
+    String? idpohon = '',
+    int? idmember,
+    int? idadopsi,
+    String? tanggal = '',
+    FFUploadedFile? image,
+  }) async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'uploadFototaging',
+      apiUrl: '${baseUrl}/uploadfototaging',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'idpohon': idpohon,
+        'idmember': idmember,
+        'idadopsi': idadopsi,
+        'tanggal': tanggal,
+        'image': image,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class LihatfototagingCall {
   Future<ApiCallResponse> call({
     String? idpohon = '',
@@ -1824,6 +1934,181 @@ class LihatfototagingCall {
       headers: {},
       params: {
         'idpohon': idpohon,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class UpdatePosisiCall {
+  Future<ApiCallResponse> call({
+    int? idmember,
+    String? lat = '',
+    String? lng = '',
+  }) async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'updateposisi',
+      apiUrl: '${baseUrl}/updateposisi',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'idmember': idmember,
+        'lat': lat,
+        'lng': lng,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetPosisiPetugasCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'posisipetugas',
+      apiUrl: '${baseUrl}/posisipetugas',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class PenugasanDesaCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'penugasandesa',
+      apiUrl: '${baseUrl}/penugasandesa',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class UpdateDesaPetugasCall {
+  Future<ApiCallResponse> call({
+    int? iddesa,
+    String? idpetugas = '',
+  }) async {
+    // idpetugas: daftar id dipisah koma ('2647,2683'), '' = lepas semua.
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'updatedesapetugas',
+      apiUrl: '${baseUrl}/updatedesapetugas',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'iddesa': iddesa,
+        'idpetugas': idpetugas,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetKontakCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getkontak',
+      apiUrl: '${baseUrl}/getkontak',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class UpdateKontakCall {
+  Future<ApiCallResponse> call({
+    String? nama = '',
+    String? telepon = '',
+    String? whatsapp = '',
+    String? email = '',
+  }) async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'updatekontak',
+      apiUrl: '${baseUrl}/updatekontak',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'nama': nama,
+        'telepon': telepon,
+        'whatsapp': whatsapp,
+        'email': email,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class UpdateDeviceTokenCall {
+  Future<ApiCallResponse> call({
+    int? id,
+    String? idToken = '',
+  }) async {
+    final baseUrl = TreesGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'updatedevicetoken',
+      apiUrl: '${baseUrl}/updatedevicetoken',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'id': id,
+        'id_token': idToken,
       },
       bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
       returnBody: true,
